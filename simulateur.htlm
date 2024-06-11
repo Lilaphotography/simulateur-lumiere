@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simulateur de Lumière Naturelle et Studio</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .container { width: 600px; margin: 0 auto; padding-top: 50px; }
+        .controls { margin-bottom: 20px; }
+        label { display: block; margin-top: 10px; }
+        select, input { width: 100%; padding: 5px; }
+        button { background-color: #4CAF50; color: white; border: none; padding: 10px; width: 100%; margin-top: 20px; }
+        .image-container { position: relative; width: 100%; height: 400px; background-color: #f0f0f0; text-align: center; }
+        .light { position: absolute; }
+        .subject { position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Simulateur de Lumière Naturelle et Studio</h1>
+        <div class="controls">
+            <label for="lighting-type">Type de Lumière :</label>
+            <select id="lighting-type">
+                <option value="natural">Lumière Naturelle</option>
+                <option value="softbox">Softbox</option>
+                <option value="reflector">Réflecteur</option>
+            </select>
+            <label for="intensity">Intensité de la Lumière :</label>
+            <input type="range" id="intensity" min="0" max="100" value="50">
+            <button onclick="simulateLighting()">Simuler</button>
+        </div>
+        <div class="image-container" id="image-container">
+            <img src="subject.png" alt="Sujet" class="subject">
+        </div>
+    </div>
+    <script>
+        function simulateLighting() {
+            const container = document.getElementById('image-container');
+            const lightingType = document.getElementById('lighting-type').value;
+            const intensity = document.getElementById('intensity').value;
+            const light = document.createElement('div');
+            
+            // Clear previous lighting
+            container.querySelectorAll('.light').forEach(el => el.remove());
+
+            light.className = 'light';
+
+            switch(lightingType) {
+                case 'natural':
+                    light.style.width = '100%';
+                    light.style.height = '100%';
+                    light.style.background = `rgba(255, 223, 186, ${intensity / 100})`; // Warm sunlight color
+                    light.style.top = '0';
+                    light.style.left = '0';
+                    break;
+                case 'softbox':
+                    light.style.width = '200px';
+                    light.style.height = '200px';
+                    light.style.background = `rgba(255, 255, 255, ${intensity / 100})`;
+                    light.style.top = '50%';
+                    light.style.left = '25%';
+                    light.style.transform = 'translate(-50%, -50%)';
+                    break;
+                case 'reflector':
+                    light.style.width = '150px';
+                    light.style.height = '150px';
+                    light.style.background = `rgba(255, 255, 200, ${intensity / 100})`; // Slightly yellowish
+                    light.style.bottom = '10%';
+                    light.style.left = '50%';
+                    light.style.transform = 'translateX(-50%)';
+                    break;
+            }
+
+            container.appendChild(light);
+        }
+    </script>
+</body>
+</html>
