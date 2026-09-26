@@ -1,0 +1,717 @@
+<title>Ton espace Lila</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap">
+<style>
+:root{
+  --bg:#FFFFFF;
+  --bg-alt:#F3F1EE;
+  --line:#E8E4DE;
+  --ink:#2A2420;
+  --ink-soft:#7A6E68;
+  --gold:#B8903A;
+  --gold-soft:rgba(184,144,58,.12);
+  --card:#FFFFFF;
+  --nav:rgba(255,255,255,.94);
+  --btn-bg:#2A2420;
+  --btn-ink:#FFFFFF;
+  --ok:#5E7A4E;
+  --serif:"Cormorant Garamond","Cormorant",Garamond,"Times New Roman",serif;
+  --sans:"Jost","Futura","Avenir Next","Segoe UI",system-ui,sans-serif;
+  --r:14px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#1D1916;--bg-alt:#26211D;--line:#3A332D;--ink:#F2ECE4;--ink-soft:#AFA39A;
+    --gold:#CFA85A;--gold-soft:rgba(207,168,90,.14);--card:#231E1A;--nav:rgba(29,25,22,.94);
+    --btn-bg:#F2ECE4;--btn-ink:#1D1916;--ok:#9DB88B;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#1D1916;--bg-alt:#26211D;--line:#3A332D;--ink:#F2ECE4;--ink-soft:#AFA39A;
+  --gold:#CFA85A;--gold-soft:rgba(207,168,90,.14);--card:#231E1A;--nav:rgba(29,25,22,.94);
+  --btn-bg:#F2ECE4;--btn-ink:#1D1916;--ok:#9DB88B;
+}
+*{box-sizing:border-box}
+html,body{background:var(--bg)}
+body{color:var(--ink);font-family:var(--sans);font-weight:300;font-size:15px;line-height:1.6;padding-inline:16px;padding-block:0 110px;-webkit-font-smoothing:antialiased}
+.wrap{max-width:760px;margin:0 auto}
+h1,h2,h3{font-family:var(--serif);font-weight:300;line-height:1.1;text-wrap:balance;margin:0}
+em.g{font-style:italic;color:var(--gold)}
+p{margin:0}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.label{font-family:var(--sans);font-size:11px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft)}
+.muted{color:var(--ink-soft)}
+
+/* header */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:14px;border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:10px}
+.mono{width:34px;height:34px;border:1px solid var(--ink);border-radius:50%;display:grid;place-items:center;font-family:var(--serif);font-size:15px;letter-spacing:.04em}
+.brand b{font-family:var(--serif);font-weight:400;font-size:19px;letter-spacing:.02em}
+.switch{border:1px solid var(--line);background:transparent;border-radius:999px;padding:6px 14px;font-size:11px;letter-spacing:.14em;text-transform:uppercase}
+.switch[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.example{margin-top:12px;font-size:12.5px;color:var(--ink-soft);background:var(--bg-alt);border-radius:10px;padding:8px 12px}
+
+/* nav */
+.nav{position:fixed;left:0;right:0;bottom:0;z-index:6;background:var(--nav);backdrop-filter:blur(10px);border-top:1px solid var(--line);padding:8px 8px calc(8px + env(safe-area-inset-bottom,0px))}
+.nav ul{list-style:none;margin:0 auto;padding:0;max-width:760px;display:grid;grid-template-columns:repeat(4,1fr);gap:4px}
+.nav a{display:flex;flex-direction:column;align-items:center;gap:2px;padding:6px 4px;border-radius:10px;text-decoration:none;color:var(--ink-soft);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase}
+.nav a svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.3}
+.nav a[aria-current="page"]{color:var(--ink)}
+.nav a[aria-current="page"] svg{stroke:var(--gold)}
+.dot{width:6px;height:6px;border-radius:50%;background:var(--gold);display:inline-block}
+
+section.view{padding-block:26px;display:grid;gap:28px}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:999px;border:1px solid var(--btn-bg);background:var(--btn-bg);color:var(--btn-ink);padding:12px 22px;font-size:12px;font-weight:400;letter-spacing:.16em;text-transform:uppercase}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn:disabled{opacity:.4;cursor:default}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+
+/* home */
+.hello{display:grid;gap:18px}
+.hello h1{font-size:clamp(34px,8vw,48px)}
+.stats{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.stat{padding:18px 4px;display:grid;gap:4px}
+.stat+.stat{border-left:1px solid var(--line);padding-left:18px}
+.big{font-family:var(--serif);font-size:clamp(46px,12vw,64px);font-weight:300;line-height:1;font-variant-numeric:lining-nums tabular-nums}
+.big small{font-size:.4em;letter-spacing:.1em;margin-left:4px;color:var(--ink-soft)}
+.bar{height:3px;background:var(--line);border-radius:3px;overflow:hidden;margin-top:6px}
+.bar i{display:block;height:100%;background:var(--gold)}
+
+.steps{list-style:none;margin:0;padding:0;display:grid}
+.steps li{display:grid;grid-template-columns:26px 1fr auto;gap:12px;align-items:start;padding:12px 0;border-bottom:1px solid var(--line)}
+.steps li:last-child{border-bottom:0}
+.tick{width:20px;height:20px;border-radius:50%;border:1px solid var(--line);margin-top:3px;display:grid;place-items:center}
+.done .tick{background:var(--gold);border-color:var(--gold)}
+.done .tick::after{content:"";width:8px;height:4px;border:1.5px solid #fff;border-top:0;border-right:0;transform:rotate(-45deg) translate(1px,-1px)}
+.now .tick{border-color:var(--gold);box-shadow:0 0 0 4px var(--gold-soft)}
+.steps b{font-weight:400;display:block}
+.steps .when{font-size:12.5px;color:var(--ink-soft);white-space:nowrap;padding-top:2px;font-variant-numeric:tabular-nums}
+.steps a{color:var(--gold)}
+
+.feature{display:grid;grid-template-columns:120px 1fr;gap:16px;align-items:center;text-decoration:none;color:inherit;padding:14px;border:1px solid var(--line);border-radius:var(--r)}
+@media (max-width:420px){.feature{grid-template-columns:90px 1fr}}
+
+/* questionnaire */
+.qhead{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.qcount{font-family:var(--serif);font-size:20px;font-variant-numeric:tabular-nums}
+.qcount span{color:var(--ink-soft)}
+.qtitle{font-size:clamp(30px,7vw,42px)}
+.qsub{color:var(--ink-soft);max-width:60ch}
+.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.opt{text-align:left;border:1px solid var(--line);background:var(--card);border-radius:var(--r);padding:14px 16px;display:grid;gap:4px;transition:border-color .15s,background .15s}
+.opt:hover{border-color:var(--ink-soft)}
+.opt[aria-pressed="true"]{border-color:var(--gold);background:var(--gold-soft)}
+.opt b{font-weight:400}
+.opt small{color:var(--ink-soft);font-size:12.5px;line-height:1.4}
+.opt.visual{padding:0;overflow:hidden}
+.opt.visual .tile{border-radius:0;aspect-ratio:4/3}
+.opt.visual .txt{padding:10px 14px 14px;display:grid;gap:2px}
+.field{display:grid;gap:6px}
+.field textarea,.field input,.field select{width:100%;border:1px solid var(--line);background:var(--card);border-radius:10px;padding:11px 12px;resize:vertical}
+.bubble{display:grid;grid-template-columns:34px 1fr;gap:10px;align-items:start;animation:rise .35s ease both}
+.bubble p{background:var(--bg-alt);border-radius:4px 14px 14px 14px;padding:12px 14px;font-size:14.5px}
+.qnav{display:flex;justify-content:space-between;gap:10px}
+.qprog{height:2px;background:var(--line)}
+.qprog i{display:block;height:100%;background:var(--gold);transition:width .3s}
+@keyframes rise{from{opacity:.2;transform:translateY(6px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+.recap{display:grid;grid-template-columns:minmax(120px,38%) 1fr;gap:0}
+.recap dt,.recap dd{margin:0;padding:10px 0;border-bottom:1px solid var(--line)}
+.recap dt{font-size:12.5px;color:var(--ink-soft);padding-right:12px}
+
+/* tiles */
+.tile{position:relative;overflow:hidden;border-radius:10px;aspect-ratio:3/4;display:flex;align-items:flex-end;background:#E9E3DA;max-width:100%}
+.tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.tile .cap{position:relative;z-index:1;padding:10px 12px;font-size:11.5px;line-height:1.35;letter-spacing:.02em}
+.t-lumineuse{background:radial-gradient(60% 50% at 25% 20%,rgba(255,255,255,.95),transparent 70%),linear-gradient(165deg,#F7F3EE,#DCD2C6);color:#2A2420}
+.t-artistique{background:radial-gradient(38% 34% at 32% 38%,rgba(207,168,90,.55),transparent 70%),linear-gradient(180deg,#2E2622,#120E0C);color:#F2ECE4}
+.t-nature{background:radial-gradient(50% 45% at 80% 85%,rgba(255,214,140,.85),transparent 70%),linear-gradient(170deg,#B59A63,#5E5A40);color:#FBF6EE}
+.tile .ph{position:absolute;top:10px;left:10px;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;opacity:.7}
+.tile.has-img .cap{background:linear-gradient(transparent,rgba(0,0,0,.55));color:#fff;width:100%}
+
+/* moodboard */
+.mb{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.mb .tile:first-child{grid-column:span 2;grid-row:span 2;aspect-ratio:auto}
+@media (max-width:520px){.mb{grid-template-columns:repeat(2,1fr)}.mb .tile:first-child{grid-row:span 1;aspect-ratio:3/2}}
+.tools{position:absolute;top:8px;right:8px;z-index:2;display:flex;gap:6px}
+.tools button{width:32px;height:32px;border-radius:50%;border:0;background:rgba(255,255,255,.88);color:#2A2420;display:grid;place-items:center;font-size:15px;line-height:1}
+.tools button[aria-pressed="true"]{background:#B8903A;color:#fff}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-size:11px;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--line);border-radius:999px;padding:4px 10px;color:var(--ink-soft);background:transparent}
+.chip.on{border-color:var(--gold);color:var(--ink);background:var(--gold-soft)}
+.valid{display:flex;gap:10px;align-items:center;color:var(--ok);font-size:14px}
+
+/* videos */
+.filters{display:flex;gap:8px;flex-wrap:wrap}
+.vlist{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px}
+.vcard{text-align:left;border:0;background:transparent;padding:0;display:grid;gap:8px;color:inherit}
+.poster{position:relative;aspect-ratio:16/10;border-radius:12px;overflow:hidden;display:flex;align-items:flex-end;padding:12px 14px;max-width:100%}
+.poster h3{position:relative;font-size:21px;line-height:1.1;color:inherit}
+.poster .play{position:absolute;top:12px;right:12px;width:34px;height:34px;border-radius:50%;border:1px solid currentColor;display:grid;place-items:center;opacity:.9}
+.poster .play::after{content:"";border-left:9px solid currentColor;border-top:6px solid transparent;border-bottom:6px solid transparent;margin-left:3px}
+.locked .poster{filter:grayscale(.9);opacity:.55}
+.locked .poster .play::after{border:0;content:"";width:9px;height:7px;border:1.4px solid currentColor;border-radius:2px;margin:6px 0 0}
+.locked .poster .play::before{content:"";position:absolute;width:7px;height:6px;border:1.4px solid currentColor;border-bottom:0;border-radius:4px 4px 0 0;top:9px}
+.vmeta{display:flex;justify-content:space-between;gap:8px;font-size:12.5px;color:var(--ink-soft)}
+.new{color:var(--gold);font-weight:500;letter-spacing:.12em;text-transform:uppercase;font-size:10.5px}
+dialog{border:0;border-radius:18px;padding:0;max-width:min(560px,calc(100vw - 32px));width:100%;background:var(--bg);color:var(--ink)}
+dialog::backdrop{background:rgba(20,16,14,.55)}
+.dlg{display:grid;gap:16px;padding:0 0 20px}
+.dlg .poster{border-radius:0;aspect-ratio:16/9}
+.dlg .in{padding:0 20px;display:grid;gap:12px}
+
+/* lila */
+.panel{border:1px solid var(--line);border-radius:var(--r);padding:18px;display:grid;gap:14px}
+.panel h2{font-size:26px}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+pre.brief{white-space:pre-wrap;font-family:var(--sans);font-size:13.5px;background:var(--bg-alt);border-radius:10px;padding:14px;margin:0;max-height:360px;overflow:auto}
+.lib{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
+.libitem{display:grid;gap:8px}
+.libitem .tile{aspect-ratio:1}
+.libitem .chips .chip{font-size:9.5px;padding:3px 7px}
+.tbl{overflow-x:auto}
+.tbl table{border-collapse:collapse;width:100%;min-width:560px;font-size:13px}
+.tbl th,.tbl td{text-align:left;padding:9px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+.tbl th{font-weight:500;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft)}
+.pill{display:inline-block;border-radius:999px;padding:2px 9px;font-size:11px;border:1px solid var(--line);white-space:nowrap}
+.pill.open{border-color:var(--ok);color:var(--ok)}
+.pill.todo{border-color:var(--gold);color:var(--gold)}
+.drop{border:1px dashed var(--ink-soft);border-radius:var(--r);padding:18px;text-align:center;display:grid;gap:8px;justify-items:center}
+.toast{position:fixed;left:50%;bottom:90px;transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:10px 18px;border-radius:999px;font-size:13px;z-index:20}
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <div class="brand"><div class="mono" aria-hidden="true">LP</div><b>Ton espace</b></div>
+    <button class="switch" id="lilaSwitch" aria-pressed="false">Vue Lila</button>
+  </header>
+  <p class="example" id="exampleNote">Prototype. Léa est une cliente fictive : son parcours sert d'exemple. Dans « Vue Lila », tu peux avancer le temps, ajouter tes photos et tout remettre à zéro.</p>
+  <main id="app"></main>
+</div>
+
+<nav class="nav" aria-label="Navigation">
+  <ul>
+    <li><a href="#accueil" data-r="accueil"><svg viewBox="0 0 24 24"><path d="M4 11l8-6 8 6v8a1 1 0 0 1-1 1h-4v-5h-6v5H5a1 1 0 0 1-1-1z"/></svg>Accueil</a></li>
+    <li><a href="#questionnaire" data-r="questionnaire"><svg viewBox="0 0 24 24"><path d="M6 4h12v16H6z"/><path d="M9 9h6M9 13h6M9 17h3"/></svg>Toi</a></li>
+    <li><a href="#moodboard" data-r="moodboard"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="9" height="9"/><rect x="15" y="4" width="5" height="5"/><rect x="15" y="11" width="5" height="9"/><rect x="4" y="15" width="9" height="5"/></svg>Moodboard</a></li>
+    <li><a href="#videos" data-r="videos"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M10 9.5v5l4-2.5z"/></svg>Vidéos <span class="dot" id="navDot" hidden></span></a></li>
+  </ul>
+</nav>
+
+<dialog id="dlg"></dialog>
+
+<script>
+(function(){
+"use strict";
+const DAY = 864e5;
+const STORE_KEY = "lila-espace-v1";
+
+/* ---------- Vocabulaire ---------- */
+const FORMULES = {
+  essentielle:{nom:"Essentielle", photos:5},
+  prestige:{nom:"Prestige", photos:10},
+  signature:{nom:"Signature", photos:15},
+  heritage:{nom:"Héritage", photos:"30 à 40"}
+};
+const TAGS = {
+  lumiere:{lumineuse:"Lumineuse", artistique:"Artistique", nature:"Extérieur"},
+  qui:{solo:"Solo", couple:"Couple", aines:"Aînés", animal:"Animal"},
+  matiere:{tulle:"Tulle", dentelle:"Dentelle", satin:"Satin", maille:"Maille", voile:"Voile", perso:"Sa tenue"},
+  couleur:{ivoire:"Ivoire", nude:"Nude", noir:"Noir", terre:"Terre"},
+  ventre:{decouvert:"Ventre nu", voile:"Voilé", habille:"Habillé"}
+};
+
+/* Scènes d'exemple : remplacées par les vraies photos de Lila dès qu'elle en ajoute (Vue Lila). */
+const SCENES = [
+  {id:"s1", cap:"Canapé bouclé, robe tulle ivoire", lumiere:"lumineuse", qui:["solo"], matiere:"tulle", couleur:"ivoire", ventre:"voile"},
+  {id:"s2", cap:"Fond Alabama, voile nude, mains sur le ventre", lumiere:"lumineuse", qui:["solo"], matiere:"voile", couleur:"nude", ventre:"decouvert"},
+  {id:"s3", cap:"Snoot, profil en S sur fond noir", lumiere:"artistique", qui:["solo"], matiere:"voile", couleur:"noir", ventre:"decouvert"},
+  {id:"s4", cap:"Clair-obscur, dentelle noire, à deux", lumiere:"artistique", qui:["couple"], matiere:"dentelle", couleur:"noir", ventre:"voile"},
+  {id:"s5", cap:"Forêt en golden hour, satin caramel", lumiere:"nature", qui:["solo"], matiere:"satin", couleur:"terre", ventre:"habille"},
+  {id:"s6", cap:"Forêt, front contre front", lumiere:"nature", qui:["couple"], matiere:"satin", couleur:"nude", ventre:"habille"},
+  {id:"s7", cap:"Studio blanc, l'aîné embrasse le ventre", lumiere:"lumineuse", qui:["aines"], matiere:"maille", couleur:"ivoire", ventre:"decouvert"},
+  {id:"s8", cap:"Mère et fille, robes assorties", lumiere:"lumineuse", qui:["aines"], matiere:"tulle", couleur:"ivoire", ventre:"habille"},
+  {id:"s9", cap:"Fauteuil et pampas, maille nude", lumiere:"lumineuse", qui:["solo"], matiere:"maille", couleur:"nude", ventre:"habille"},
+  {id:"s10", cap:"Drapé en contre-jour, noir & blanc", lumiere:"artistique", qui:["solo"], matiere:"voile", couleur:"ivoire", ventre:"decouvert"},
+  {id:"s11", cap:"Golden hour, son chien couché à ses pieds", lumiere:"nature", qui:["solo","animal"], matiere:"dentelle", couleur:"ivoire", ventre:"habille"},
+  {id:"s12", cap:"À deux en studio, chemise blanche ouverte", lumiere:"lumineuse", qui:["couple"], matiere:"perso", couleur:"ivoire", ventre:"decouvert"},
+  {id:"s13", cap:"Stripbox, silhouette sculptée, satin noir", lumiere:"artistique", qui:["solo"], matiere:"satin", couleur:"noir", ventre:"habille"},
+  {id:"s14", cap:"Champ de blé, tulle qui s'envole", lumiere:"nature", qui:["solo"], matiere:"tulle", couleur:"ivoire", ventre:"voile"},
+  {id:"s15", cap:"À quatre en studio, tons terre", lumiere:"lumineuse", qui:["couple","aines"], matiere:"maille", couleur:"terre", ventre:"habille"},
+  {id:"s16", cap:"Sa propre tenue : jean et brassière", lumiere:"lumineuse", qui:["solo"], matiere:"perso", couleur:"nude", ventre:"decouvert"},
+  {id:"s17", cap:"La famille en clair-obscur", lumiere:"artistique", qui:["couple","aines"], matiere:"voile", couleur:"noir", ventre:"decouvert"},
+  {id:"s18", cap:"Extérieur à deux, avec leur chienne", lumiere:"nature", qui:["couple","animal"], matiere:"dentelle", couleur:"ivoire", ventre:"habille"}
+];
+
+/* ---------- Questionnaire ---------- */
+const Q = [
+  {id:"grossesse", type:"one", titre:"Cette grossesse, c'est…", options:[
+    {v:"1", l:"Ma première"}, {v:"2", l:"Ma deuxième"}, {v:"3", l:"La troisième, ou plus"}],
+    rep:a=>({"1":"Une première… On va prendre le temps, je t'explique tout au fur et à mesure.","2":"Et cette fois, tu t'offres ce moment. Je suis trop contente pour toi ✨","3":"Une grande famille ! On fera de la place pour tout le monde 🥰"})[a]},
+  {id:"qui", type:"multi", titre:"Qui sera avec toi ?", sous:"On commence toujours par une partie rien que pour toi. Coche qui te rejoint ensuite.", options:[
+    {v:"couple", l:"Mon ou ma partenaire"}, {v:"aines", l:"Nos aînés"}, {v:"animal", l:"Notre animal"}],
+    rep:a=>{ if(!a||!a.length) return "Rien que toi, alors. Je craque déjà.";
+      if(a.includes("animal")) return "Vos animaux font partie de votre histoire ❤️ Donne-moi son nom à la fin, je l'appellerai pendant la séance.";
+      if(a.includes("aines")) return "Les enfants, on ne les force jamais. On fait tout par des jeux. C'est sport parfois, mais qu'est-ce qu'on rigole 😂";
+      return "Ton ou ta partenaire n'a rien à préparer. Je guide chaque pose, pour vous deux."}},
+  {id:"lumiere", type:"one", visual:true, titre:"Quelle lumière te ressemble ?", options:[
+    {v:"lumineuse", l:"Lumineuse & douce", s:"Studio blanc, canapé bouclé, lumière enveloppante"},
+    {v:"artistique", l:"Artistique & sculptée", s:"Fond sombre, flash et snoot, esprit magazine"},
+    {v:"nature", l:"En extérieur", s:"Golden hour dans un de mes spots autour du Teil"}],
+    rep:a=>({lumineuse:"Doux, lumineux, élégant. C'est tout mon univers, on va se régaler.",artistique:"Ah j'adore ! Un fond sombre, une lumière qui sculpte ton ventre… Ça va être puissant.",nature:"La golden hour, c'est vers 18-19h. On cale ça ensemble selon la saison 🌾"})[a]},
+  {id:"ventre", type:"one", titre:"Ton ventre, tu le vois comment ?", sous:"Tu pourras toujours changer d'avis le jour J.", options:[
+    {v:"decouvert", l:"Découvert", s:"Il est la star"}, {v:"voile", l:"Voilé, suggéré", s:"Tulle, voile, transparences"},
+    {v:"habille", l:"Habillé", s:"Une robe qui épouse la silhouette"}, {v:"jourj", l:"Je déciderai sur place"}],
+    rep:a=>a==="jourj"?"Parfait. On essaiera plusieurs options et tu choisis en voyant les premières images.":"Noté. Je prépare les tenues qui vont avec."},
+  {id:"matiere", type:"multi", titre:"Les matières qui te font envie", sous:"Le dressing du studio est à toi. Plusieurs réponses possibles.", options:[
+    {v:"tulle", l:"Tulle"}, {v:"dentelle", l:"Dentelle"}, {v:"satin", l:"Satin fluide"},
+    {v:"maille", l:"Maille côtelée"}, {v:"voile", l:"Un simple voile"}, {v:"perso", l:"Ma propre tenue"}],
+    rep:()=>"Je te prépare une sélection à ta taille avant la séance. Tu n'auras qu'à choisir."},
+  {id:"couleur", type:"multi", titre:"Tes couleurs", options:[
+    {v:"ivoire", l:"Ivoire, blanc"}, {v:"nude", l:"Nude, beige"}, {v:"noir", l:"Noir"}, {v:"terre", l:"Terre, caramel, rouille"}],
+    rep:()=>"I love ! C'est noté pour ton moodboard."},
+  {id:"aise", type:"one", titre:"Devant un objectif, tu te sens…", options:[
+    {v:"pasdutout", l:"Pas du tout à l'aise"}, {v:"timide", l:"Un peu timide"}, {v:"amuse", l:"Je m'amuse"}],
+    rep:a=>a==="amuse"?"On va bien rigoler alors 😍":"Tu n'as rien à savoir faire. Je te montre chaque pose avec mes mains avant, et je te dis quand c'est parfait. J'ai débloqué une vidéo pour toi dans l'onglet Vidéos."},
+  {id:"toi", type:"text2", titre:"Ce que tu aimes chez toi", sous:"Et ce que tu préfères que je ne mette pas en avant. Personne d'autre ne lira ça.", fields:[
+    {k:"aime", l:"Ce que j'aime chez moi", ph:"Mes cheveux, mon regard, mes mains…"},
+    {k:"cacher", l:"Ce que je préfère ne pas montrer", ph:"Mes bras, un tatouage…"}],
+    rep:()=>"Merci pour ta confiance 🥹 Je garde ça en tête pendant toute la séance."},
+  {id:"stella", type:"one", titre:"Une mise en beauté avec Stella ?", sous:"Stella vient au studio avant ta séance. Tu la règles directement sur place.", options:[
+    {v:"non", l:"Non merci"}, {v:"maquillage", l:"Maquillage", s:"60 €"}, {v:"coiffure", l:"Coiffure", s:"60 €"}, {v:"deux", l:"Les deux", s:"100 €"}],
+    rep:a=>a==="non"?"Pas de souci. Viens simplement comme tu te sens bien.":"Je préviens Stella. Tu vas être canon !"},
+  {id:"nb", type:"one", titre:"Le noir & blanc, pour toi c'est…", options:[
+    {v:"adore", l:"J'adore"}, {v:"unpeu", l:"Un peu, pour varier"}, {v:"couleur", l:"Plutôt la couleur"}],
+    rep:()=>"Bon à savoir : la version noir & blanc de chaque photo est incluse dans ta formule."},
+  {id:"publication", type:"one", titre:"Et après, je peux partager tes photos ?", sous:"Sur mon site et mon Instagram. Tu peux dire non, ça ne change rien à ta séance.", options:[
+    {v:"oui", l:"Oui, avec plaisir"}, {v:"anonyme", l:"Seulement celles où l'on ne me reconnaît pas"}, {v:"non", l:"Je préfère non"}],
+    rep:()=>"Merci, c'est noté."},
+  {id:"supp", type:"one", titre:"Ta galerie, comment ça marche", sousF:c=>`Une semaine après la séance, tu reçois ta galerie de sélection. Tu y choisis les ${FORMULES[c.formule].photos} photos retouchées de ta formule ${FORMULES[c.formule].nom}. Seules ces photos-là sont retouchées et livrées. Si tu as plus de coups de cœur, tu peux en ajouter directement dans la galerie : 35 € la photo, 150 € les 5.`, titreQ:"Tu te dis plutôt…", options:[
+    {v:"formule", l:"Je reste sur ma formule"}, {v:"verrai", l:"Je verrai en découvrant ma galerie"}, {v:"oui", l:"J'en voudrai sûrement plus"}],
+    rep:()=>"Aucune pression. Tu verras tout tranquillement dans ta galerie."},
+  {id:"mot", type:"text", titre:"Raconte-moi ton histoire", sous:"Ce que ce bébé représente, ce que tu veux ressentir en regardant tes photos dans quinze ans, le nom de ton animal…", ph:"Écris comme tu parles, il n'y a pas de bonne réponse.",
+    rep:()=>"Merci ❤️ Ton moodboard est prêt."}
+];
+
+/* ---------- Vidéos ---------- */
+/* rule: k:"booking" | k:"sa",v:semaines | k:"seance",v:jours relatifs. show: condition d'affichage. early: déblocage anticipé selon les réponses. */
+const VIDEOS = [
+  {id:"bienvenue", cat:"seance", titre:"Bienvenue dans ton espace", duree:"3 min", rule:{k:"booking"},
+   desc:"Qui je suis, comment je travaille au studio du Teil, et comment te servir de cet espace jusqu'à la naissance."},
+  {id:"deroule", cat:"seance", titre:"Ta séance, du début à la fin", duree:"5 min", rule:{k:"booking"},
+   desc:"L'accueil, la mise en beauté si tu l'as choisie, le dressing, les premières poses, les pauses. Tu sais exactement à quoi t'attendre.", lila:"Répond au frein « je ne sais pas comment ça marche » (module 2.2)."},
+  {id:"miroir", cat:"perso", titre:"Et si je n'aime pas me voir en photo ?", duree:"4 min", rule:{k:"sa",v:24}, early:a=>a.aise==="pasdutout"||a.aise==="timide",
+   desc:"Beaucoup de mamans m'écrivent qu'elles n'ont pas du tout confiance en elles. Je te raconte ce qui se passe vraiment devant l'objectif.", lila:"Se débloque dès le questionnaire si elle a répondu « pas à l'aise » ou « timide »."},
+  {id:"moment", cat:"seance", titre:"Le bon moment pour ta séance", duree:"2 min", rule:{k:"booking"},
+   desc:"Quand ton ventre est le plus joli à photographier, et comment on s'adapte si bébé est pressé.", lila:"À toi de préciser ta fenêtre idéale (non renseignée dans le template)."},
+  {id:"corps", cat:"perso", titre:"Le troisième trimestre, le corps qui change", duree:"6 min", rule:{k:"sa",v:28},
+   desc:"Un échange à cœur ouvert sur ce qu'on ressent quand le corps change vite, et sur le regard qu'on porte sur soi.", lila:"Sujet santé : à tourner avec une sage-femme ou une doula plutôt que seule."},
+  {id:"robe", cat:"seance", titre:"Choisir ta robe dans mon dressing", duree:"4 min", rule:{k:"seance",v:-30},
+   desc:"Je te présente les robes du studio, ce qui met un ventre en valeur, et ce que tu peux apporter de chez toi."},
+  {id:"partenaire", cat:"seance", titre:"« On ne sait pas trop poser »", duree:"3 min", rule:{k:"seance",v:-21}, show:a=>(a.qui||[]).includes("couple"),
+   desc:"Pour ton ou ta partenaire : ce que je vais vous demander, et pourquoi vous n'avez rien à préparer.", lila:"Objection n°3 du module 2.2."},
+  {id:"aines", cat:"seance", titre:"Préparer ton aîné à la séance", duree:"3 min", rule:{k:"seance",v:-21}, show:a=>(a.qui||[]).includes("aines"),
+   desc:"On ne force jamais un enfant. Comment en parler avant, et ce qu'on fait le jour J : des jeux."},
+  {id:"nn", cat:"seance", titre:"Penser à la séance nouveau-né dès maintenant", duree:"4 min", rule:{k:"sa",v:32},
+   desc:"Pourquoi on la réserve avant la naissance, et comment se passent ces premières semaines au studio.", lila:"Pont vers le Pack Grossesse & Nouveau-né (800 € TTC)."},
+  {id:"s", cat:"seance", titre:"Le S, la pose que je vais te montrer", duree:"2 min", rule:{k:"seance",v:-14},
+   desc:"La posture qu'on utilise toute la séance pour relâcher les tensions. Petite astuce : si tu fermes les yeux en la faisant, ça peut tanguer. C'est normal !", lila:"Protocole de direction, module 2.4."},
+  {id:"veille", cat:"seance", titre:"La veille : ta petite liste", duree:"2 min", rule:{k:"seance",v:-2},
+   desc:"Ce que tu glisses dans ton sac, comment arriver détendue, et à quelle heure je t'attends."},
+  {id:"galerie", cat:"seance", titre:"Choisir tes photos dans ta galerie", duree:"3 min", rule:{k:"seance",v:1},
+   desc:"Comment faire ta sélection sereinement, comparer couleur et noir & blanc, et ajouter des photos si tu as trop de coups de cœur.", lila:"Prépare la vente additionnelle en galerie (module 5, étape 10)."},
+  {id:"ralentir", cat:"perso", titre:"Les dernières semaines : ralentir", duree:"5 min", rule:{k:"sa",v:36},
+   desc:"Se préparer à l'arrivée de bébé sans tout contrôler. Des petites choses qui font du bien.", lila:"Sujet perso : à tourner avec une intervenante ?"},
+  {id:"naissance", cat:"perso", titre:"Bébé arrive : quand m'écrire", duree:"2 min", rule:{k:"sa",v:39},
+   desc:"Un petit message suffit, même court. Je m'occupe du reste pour organiser la séance nouveau-né."}
+];
+
+/* ---------- État ---------- */
+function exampleState(){
+  return {
+    client:{prenom:"Léa", reservation:"2026-09-10", dpa:"2027-01-14", seance:"2026-11-05", formule:"prestige"},
+    answers:{grossesse:"2", qui:["couple","aines"], lumiere:"lumineuse", ventre:"voile", matiere:["tulle","maille"], couleur:["ivoire","nude"],
+      aise:"timide", aime:"Mes cheveux, et le regard de mon fils quand il pose sa main sur mon ventre.", cacher:"Mes bras.", stella:"deux", nb:"adore",
+      publication:"oui", supp:"verrai", mot:"Pour ma première grossesse je n'ai fait aucune photo. Cette fois je veux me voir, vraiment."},
+    qStep:Q.length, mood:{kept:["s1"], removed:[], note:"", validated:null}, seen:{bienvenue:1, deroule:1, moment:1}, offset:0, lila:false
+  };
+}
+let S;
+try{ S = JSON.parse(localStorage.getItem(STORE_KEY)) || exampleState(); }catch(e){ S = exampleState(); }
+function save(){ try{ localStorage.setItem(STORE_KEY, JSON.stringify(S)); }catch(e){} }
+
+/* ---------- Photos de Lila (IndexedDB) ---------- */
+let PHOTOS = []; // {id, url, tags:{lumiere, qui:[], matiere, couleur, ventre}, cap}
+let db = null;
+function openDB(){
+  return new Promise(res=>{
+    try{
+      const r = indexedDB.open("lila-photos",1);
+      r.onupgradeneeded = ()=>r.result.createObjectStore("photos",{keyPath:"id"});
+      r.onsuccess = ()=>{db=r.result;res()};
+      r.onerror = ()=>res();
+    }catch(e){res()}
+  });
+}
+function dbAll(){
+  return new Promise(res=>{
+    if(!db) return res([]);
+    try{ const q = db.transaction("photos").objectStore("photos").getAll(); q.onsuccess=()=>res(q.result||[]); q.onerror=()=>res([]); }catch(e){res([])}
+  });
+}
+function dbPut(rec){ try{ db && db.transaction("photos","readwrite").objectStore("photos").put(rec);}catch(e){} }
+function dbDel(id){ try{ db && db.transaction("photos","readwrite").objectStore("photos").delete(id);}catch(e){} }
+
+/* ---------- Dates ---------- */
+const d0 = s=>{const [y,m,d]=s.split("-").map(Number);return new Date(y,m-1,d)};
+function today(){ const n=new Date(); return new Date(n.getFullYear(),n.getMonth(),n.getDate()+S.offset); }
+const addDays=(d,n)=>new Date(d.getTime()+n*DAY);
+const diffDays=(a,b)=>Math.round((a-b)/DAY);
+const fmt=(d,o)=>d.toLocaleDateString("fr-FR",o||{day:"numeric",month:"long"});
+function saAt(d){ return 41 - diffDays(d0(S.client.dpa), d)/7; }
+function moisAt(sa){ return Math.max(1,Math.min(9,Math.floor((sa-2)/4.345)+1)); }
+function unlockDate(v){
+  const r=v.rule;
+  if(r.k==="booking") return d0(S.client.reservation);
+  if(r.k==="sa") return addDays(d0(S.client.dpa), -(41-r.v)*7);
+  if(r.k==="seance") return addDays(d0(S.client.seance), r.v);
+}
+function visibleVideos(){ return VIDEOS.filter(v=>!v.show||v.show(S.answers)); }
+function isOpen(v){ return (v.early&&S.qStep>=Q.length&&v.early(S.answers)) || unlockDate(v)<=today(); }
+function ruleLabel(v){
+  const r=v.rule;
+  if(r.k==="booking") return "Dès la réservation";
+  if(r.k==="sa") return `À ${r.v} SA`;
+  if(r.k==="seance") return r.v<0?`J${r.v} avant la séance`:`J+${r.v} après la séance`;
+}
+
+/* ---------- Utilitaires ---------- */
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const $=s=>document.querySelector(s);
+const app=$("#app");
+function toast(msg){ const t=document.createElement("div"); t.className="toast"; t.textContent=msg; document.body.appendChild(t); setTimeout(()=>t.remove(),2200); }
+async function copy(text, fallbackEl){
+  try{ await navigator.clipboard.writeText(text); toast("Copié"); }
+  catch(e){ if(fallbackEl){ const r=document.createRange(); r.selectNodeContents(fallbackEl); const s=getSelection(); s.removeAllRanges(); s.addRange(r); toast("Texte sélectionné, copie-le avec ton clavier"); } }
+}
+function tileHTML(p, extra){
+  const lum = p.tags?p.tags.lumiere:p.lumiere;
+  if(p.url) return `<div class="tile has-img">${extra||""}<img src="${p.url}" alt="${esc(p.cap||"Photo de Lila")}"><span class="cap">${esc(p.cap||"")}</span></div>`;
+  return `<div class="tile t-${lum}">${extra||""}<span class="ph">Exemple</span><span class="cap">${esc(p.cap)}</span></div>`;
+}
+
+/* ---------- Moodboard : score ---------- */
+function allPhotos(){
+  const own = PHOTOS.map(p=>({id:p.id, url:p.url, cap:p.cap, own:true, ...p.tags}));
+  return own.length>=6 ? own : own.concat(SCENES);
+}
+function score(p){
+  const a=S.answers; let s=0;
+  if(a.lumiere&&p.lumiere===a.lumiere) s+=4;
+  const qui=["solo"].concat(a.qui||[]);
+  (p.qui||[]).forEach(q=>{ if(qui.includes(q)) s+= q==="solo"?1:2.5; else s-=1.5; });
+  if((a.matiere||[]).includes(p.matiere)) s+=1.5;
+  if((a.couleur||[]).includes(p.couleur)) s+=1.5;
+  if(a.ventre&&a.ventre!=="jourj"&&p.ventre===a.ventre) s+=1;
+  if(a.nb==="adore"&&p.lumiere==="artistique") s+=.5;
+  if(p.own) s+=.5;
+  return s;
+}
+function board(){
+  const pool=allPhotos().filter(p=>!S.mood.removed.includes(p.id));
+  const kept=S.mood.kept.map(id=>pool.find(p=>p.id===id)).filter(Boolean);
+  const rest=pool.filter(p=>!S.mood.kept.includes(p.id)).sort((x,y)=>score(y)-score(x));
+  return kept.concat(rest).slice(0,9);
+}
+function summaryLine(){
+  const a=S.answers, parts=[];
+  if(a.lumiere) parts.push(TAGS.lumiere[a.lumiere]);
+  if((a.matiere||[]).length) parts.push(a.matiere.map(m=>TAGS.matiere[m]).join(", "));
+  if((a.couleur||[]).length) parts.push(a.couleur.map(c=>TAGS.couleur[c]).join(", "));
+  return parts.join(" · ");
+}
+
+/* ---------- Vues ---------- */
+function vAccueil(){
+  const c=S.client, t=today(), sa=saAt(t), saI=Math.floor(sa);
+  const seance=d0(c.seance), j=diffDays(seance,t);
+  const tri = saI<15?"1er trimestre":saI<28?"2e trimestre":"3e trimestre";
+  const qDone=S.qStep>=Q.length, mDone=!!S.mood.validated;
+  const call=addDays(seance,-7), gal=addDays(seance,7), liv=addDays(seance,21);
+  const steps=[
+    {t:"Réservation confirmée", d:d0(c.reservation), done:true},
+    {t:"Ton questionnaire", d:null, done:qDone, link:qDone?null:"#questionnaire", sub:qDone?"Merci, j'ai tout lu.":"Environ 5 minutes"},
+    {t:"Ton moodboard", d:null, done:mDone, link:mDone?null:"#moodboard", sub:mDone?"Validé le "+fmt(new Date(S.mood.validated)):"À valider avant notre appel"},
+    {t:"Notre appel", d:call, done:t>call, sub:"Je t'appelle une semaine avant pour faire le point"},
+    {t:"Ta séance au studio", d:seance, done:t>seance, sub:FORMULES[c.formule].nom+" · environ 2 h"},
+    {t:"Ta galerie de sélection", d:gal, done:t>=gal, sub:`Tu choisis tes ${FORMULES[c.formule].photos} photos`},
+    {t:"Tes photos retouchées", d:liv, done:t>=liv, sub:"Au plus tard 3 semaines après ta sélection"}
+  ];
+  const cur=steps.findIndex(s=>!s.done);
+  const vids=visibleVideos();
+  const fresh=vids.filter(v=>isOpen(v)&&!S.seen[v.id]);
+  const next=vids.filter(v=>!isOpen(v)).sort((x,y)=>unlockDate(x)-unlockDate(y))[0];
+  const feat = fresh[0] ? {v:fresh[0], lab:"Nouveau pour toi"} : next ? {v:next, lab:"Se débloque le "+fmt(unlockDate(next))} : null;
+  const pct=Math.max(0,Math.min(100,(sa/41)*100));
+  const seanceTxt = j>0?`dans ${j} jour${j>1?"s":""}`:j===0?"aujourd'hui !":"c'est fait";
+  return `<section class="view">
+    <div class="hello">
+      <p class="label">${fmt(t,{weekday:"long",day:"numeric",month:"long"})}</p>
+      <h1>Hello ${esc(c.prenom)},<br>tu en es à <em class="g">${saI} semaines</em>.</h1>
+    </div>
+    <div class="stats">
+      <div class="stat"><span class="label">Ta grossesse</span><span class="big">${saI}<small>SA</small></span><span class="muted">${moisAt(sa)}e mois · ${tri}</span><div class="bar" aria-hidden="true"><i style="width:${pct}%"></i></div></div>
+      <div class="stat"><span class="label">Ta séance</span><span class="big">${Math.max(j,0)}<small>jours</small></span><span class="muted">${fmt(seance,{weekday:"long",day:"numeric",month:"long"})}, ${seanceTxt}</span></div>
+    </div>
+    ${feat?`<a class="feature" href="#videos" data-open="${feat.v.id}">
+      <div class="poster ${posterClass(feat.v)}" style="aspect-ratio:1"><span class="play"></span></div>
+      <div style="display:grid;gap:4px"><span class="${fresh[0]?"new":"label"}">${feat.lab}</span><h3 style="font-size:23px">${esc(feat.v.titre)}</h3><span class="muted" style="font-size:13px">${feat.v.duree} · ${feat.v.cat==="perso"?"Toi, maintenant":"Ta séance"}</span></div>
+    </a>`:""}
+    <div style="display:grid;gap:6px">
+      <p class="label">Ton parcours</p>
+      <ol class="steps">${steps.map((s,i)=>`<li class="${s.done?"done":i===cur?"now":""}"><span class="tick"></span>
+        <div><b>${s.link?`<a href="${s.link}">${s.t}</a>`:s.t}</b><span class="muted" style="font-size:13px">${esc(s.sub||"")}</span></div>
+        <span class="when">${s.d?fmt(s.d,{day:"numeric",month:"short"}):""}</span></li>`).join("")}</ol>
+    </div>
+  </section>`;
+}
+
+function posterClass(v){ const i=VIDEOS.indexOf(v)%3; return ["t-lumineuse","t-artistique","t-nature"][i]; }
+
+function vQuestionnaire(){
+  if(S.qStep>=Q.length) return vRecap();
+  const q=Q[S.qStep], a=S.answers, n=S.qStep+1;
+  let body="";
+  if(q.type==="one"||q.type==="multi"){
+    const val=a[q.id];
+    body=`<div class="opts" role="group" aria-label="${esc(q.titreQ||q.titre)}">${q.options.map(o=>{
+      const on=q.type==="one"?val===o.v:(val||[]).includes(o.v);
+      if(q.visual) return `<button class="opt visual" data-v="${o.v}" aria-pressed="${on}">${tileHTML({lumiere:o.v,cap:""})}<span class="txt"><b>${o.l}</b><small>${o.s||""}</small></span></button>`;
+      return `<button class="opt" data-v="${o.v}" aria-pressed="${on}"><b>${o.l}</b>${o.s?`<small>${o.s}</small>`:""}</button>`;
+    }).join("")}</div>`;
+  } else if(q.type==="text"){
+    body=`<div class="field"><label class="label" for="f_${q.id}">Ton message</label><textarea id="f_${q.id}" rows="5" placeholder="${esc(q.ph)}">${esc(a[q.id]||"")}</textarea></div>`;
+  } else if(q.type==="text2"){
+    body=q.fields.map(f=>`<div class="field"><label class="label" for="f_${f.k}">${f.l}</label><textarea id="f_${f.k}" rows="2" placeholder="${esc(f.ph)}">${esc(a[f.k]||"")}</textarea></div>`).join("");
+  }
+  const answered = q.type==="one"?!!a[q.id]:q.type==="multi"?Array.isArray(a[q.id]):q.type==="text2"?(a.aime!==undefined):a[q.id]!==undefined;
+  const repVal = q.type==="text2"?1:a[q.id];
+  const rep = answered ? q.rep(repVal) : "";
+  const sous = q.sousF?q.sousF(S.client):q.sous;
+  return `<section class="view">
+    <div class="qprog" aria-hidden="true"><i style="width:${(S.qStep/Q.length)*100}%"></i></div>
+    <div class="qhead"><p class="label">Ton questionnaire</p><p class="qcount">${n}<span> / ${Q.length}</span></p></div>
+    <div style="display:grid;gap:10px"><h1 class="qtitle">${esc(q.titre)}</h1>${sous?`<p class="qsub">${esc(sous)}</p>`:""}${q.titreQ?`<h2 style="font-size:24px;margin-top:6px">${esc(q.titreQ)}</h2>`:""}</div>
+    ${body}
+    <div id="rep">${rep?bubble(rep):""}</div>
+    <div class="qnav">
+      <button class="btn ghost" id="qPrev" ${S.qStep===0?"disabled":""}>Retour</button>
+      <button class="btn" id="qNext">${n===Q.length?"Voir mon moodboard":q.type==="multi"&&!answered?"Passer":"Suivant"}</button>
+    </div>
+  </section>`;
+}
+function bubble(t){ return `<div class="bubble"><div class="mono" aria-hidden="true" style="width:34px;height:34px;font-size:13px">LP</div><p>${esc(t)}</p></div>`; }
+
+function answerText(q){
+  const a=S.answers;
+  if(q.type==="text2") return [a.aime,a.cacher].filter(Boolean).map(esc).join("<br>")||"—";
+  if(q.type==="text") return esc(a[q.id]||"—");
+  const v=a[q.id]; if(!v||(Array.isArray(v)&&!v.length)) return q.id==="qui"?"Moi seule":"—";
+  const lab=x=>(q.options.find(o=>o.v===x)||{}).l||x;
+  return Array.isArray(v)?v.map(lab).join(", "):lab(v);
+}
+function vRecap(){
+  return `<section class="view">
+    <div style="display:grid;gap:10px"><p class="label">Ton questionnaire</p><h1 class="qtitle">Merci ${esc(S.client.prenom)}, <em class="g">j'ai tout lu</em>.</h1>
+    <p class="qsub">Tes réponses m'aident à préparer ta séance avant même que tu arrives : les tenues, les décors, le rythme. Tu peux les modifier jusqu'à notre appel.</p></div>
+    <dl class="recap">${Q.map(q=>`<dt>${esc(q.titreQ||q.titre)}</dt><dd>${answerText(q)}</dd>`).join("")}</dl>
+    <div class="row"><a class="btn" href="#moodboard">Voir mon moodboard</a><button class="btn ghost" id="qEdit">Modifier mes réponses</button></div>
+  </section>`;
+}
+
+function vMoodboard(){
+  if(S.qStep<Q.length) return `<section class="view"><h1 class="qtitle">Ton moodboard <em class="g">se construit</em> avec tes réponses.</h1>
+    <p class="qsub">Réponds au questionnaire et je te propose une sélection de mes photos qui te ressemblent.</p><div><a class="btn" href="#questionnaire">Commencer le questionnaire</a></div></section>`;
+  const b=board();
+  return `<section class="view">
+    <div style="display:grid;gap:10px"><p class="label">Ton moodboard</p><h1 class="qtitle">Ta séance, <em class="g">en images</em>.</h1>
+    <p class="qsub">${esc(summaryLine())}. Garde ce qui te parle avec le cœur, retire ce qui ne te ressemble pas : une autre image prend sa place.</p></div>
+    <div class="mb">${b.map(p=>{
+      const kept=S.mood.kept.includes(p.id);
+      return tileHTML(p, `<span class="tools"><button data-keep="${p.id}" aria-pressed="${kept}" aria-label="${kept?"Retirer des favoris":"Garder"}">♥</button><button data-drop="${p.id}" aria-label="Remplacer cette image">✕</button></span>`);
+    }).join("")}</div>
+    <div class="field"><label class="label" for="mbNote">Un détail à me dire ?</label><textarea id="mbNote" rows="3" placeholder="Une photo vue sur mon Instagram, une idée, un accessoire que tu veux apporter…">${esc(S.mood.note)}</textarea></div>
+    ${S.mood.validated?`<p class="valid">✓ Moodboard validé le ${fmt(new Date(S.mood.validated))}. Je le regarde avant notre appel.</p><div><button class="btn ghost" id="mbReopen">Le modifier encore</button></div>`
+      :`<div class="row"><button class="btn" id="mbValidate">Valider mon moodboard</button><span class="muted" style="font-size:13px">${S.mood.kept.length} coup${S.mood.kept.length>1?"s":""} de cœur</span></div>`}
+  </section>`;
+}
+
+let vFilter="tout";
+function vVideos(){
+  const list=visibleVideos().filter(v=>vFilter==="tout"||v.cat===vFilter)
+    .sort((x,y)=>(isOpen(y)-isOpen(x))||(unlockDate(x)-unlockDate(y)));
+  const open=list.filter(isOpen).length;
+  return `<section class="view">
+    <div style="display:grid;gap:10px"><p class="label">Tes vidéos</p><h1 class="qtitle">Je t'accompagne <em class="g">semaine après semaine</em>.</h1>
+    <p class="qsub">De nouvelles vidéos s'ouvrent au fil de ta grossesse et à l'approche de ta séance. ${open} sur ${list.length} sont disponibles.</p></div>
+    <div class="filters">${[["tout","Tout"],["seance","Ta séance"],["perso","Toi, maintenant"]].map(([k,l])=>`<button class="chip ${vFilter===k?"on":""}" data-f="${k}">${l}</button>`).join("")}</div>
+    <div class="vlist">${list.map(v=>{const o=isOpen(v);return `<button class="vcard ${o?"":"locked"}" data-v="${v.id}">
+      <div class="poster ${posterClass(v)}"><span class="play"></span><h3>${esc(v.titre)}</h3></div>
+      <div class="vmeta"><span>${o?(S.seen[v.id]?"Vue":`<span class="new">Nouveau</span>`):"Le "+fmt(unlockDate(v))}</span><span>${v.duree}</span></div></button>`}).join("")}</div>
+  </section>`;
+}
+function openVideo(id){
+  const v=VIDEOS.find(x=>x.id===id), o=isOpen(v), dlg=$("#dlg");
+  dlg.innerHTML=`<div class="dlg"><div class="poster ${posterClass(v)}"><span class="play"></span><h3 style="font-size:26px">${esc(v.titre)}</h3></div>
+    <div class="in"><p class="label">${v.cat==="perso"?"Toi, maintenant":"Ta séance"} · ${v.duree}</p><p>${esc(v.desc)}</p>
+    ${o?`<p class="muted" style="font-size:13px">Prototype : la vidéo de Lila apparaîtra ici.</p>`:`<p class="muted">Cette vidéo s'ouvre le ${fmt(unlockDate(v),{weekday:"long",day:"numeric",month:"long"})}.</p>`}
+    <div class="row">${o&&!S.seen[v.id]?`<button class="btn" data-seen="${v.id}">Marquer comme vue</button>`:""}<button class="btn ghost" data-close>Fermer</button></div></div></div>`;
+  try{ dlg.showModal(); }catch(e){ dlg.setAttribute("open",""); }
+}
+
+/* ---------- Vue Lila ---------- */
+function brief(){
+  const c=S.client, a=S.answers;
+  const lines=[`BRIEF SÉANCE — ${c.prenom}`,`Formule ${FORMULES[c.formule].nom} · séance le ${fmt(d0(c.seance),{weekday:"long",day:"numeric",month:"long"})} · DPA ${fmt(d0(c.dpa),{day:"numeric",month:"long",year:"numeric"})} (${Math.floor(saAt(d0(c.seance)))} SA le jour J)`,""];
+  Q.forEach(q=>{ lines.push(`• ${q.titreQ||q.titre} : ${answerText(q).replace(/<br>/g," / ").replace(/&#39;/g,"'").replace(/&quot;/g,'"').replace(/&amp;/g,"&").replace(/&lt;/g,"<").replace(/&gt;/g,">")}`); });
+  lines.push("", `Moodboard : ${S.mood.validated?"validé":"pas encore validé"} · coups de cœur : ${S.mood.kept.map(id=>(allPhotos().find(p=>p.id===id)||{}).cap).filter(Boolean).join(" ; ")||"aucun"}`);
+  if(S.mood.note) lines.push(`Note moodboard : ${S.mood.note}`);
+  return lines.join("\n");
+}
+function vLila(){
+  const c=S.client, t=today(), vids=visibleVideos();
+  return `<section class="view">
+    <div style="display:grid;gap:8px"><p class="label">Vue photographe</p><h1 class="qtitle">Le côté <em class="g">coulisses</em>.</h1>
+    <p class="qsub">Ce que tu verrais pour chaque cliente. Rien ici n'est visible par elle.</p></div>
+
+    <div class="panel"><h2>Avancer le temps</h2>
+      <p class="muted">Pour voir ce que ${esc(c.prenom)} découvre au fil des semaines. Date simulée : <b>${fmt(t,{weekday:"long",day:"numeric",month:"long",year:"numeric"})}</b> · ${Math.floor(saAt(t))} SA.</p>
+      <div class="row"><button class="btn ghost" data-shift="-7">− 7 jours</button><button class="btn ghost" data-shift="1">+ 1 jour</button><button class="btn ghost" data-shift="7">+ 7 jours</button><button class="btn ghost" data-shift="0">Aujourd'hui</button></div>
+    </div>
+
+    <div class="panel"><h2>Fiche cliente</h2>
+      <div class="grid2">
+        <div class="field"><label class="label" for="c_prenom">Prénom</label><input id="c_prenom" value="${esc(c.prenom)}"></div>
+        <div class="field"><label class="label" for="c_formule">Formule</label><select id="c_formule">${Object.entries(FORMULES).map(([k,f])=>`<option value="${k}" ${k===c.formule?"selected":""}>${f.nom}</option>`).join("")}</select></div>
+        <div class="field"><label class="label" for="c_dpa">Date prévue d'accouchement</label><input type="date" id="c_dpa" value="${c.dpa}"></div>
+        <div class="field"><label class="label" for="c_seance">Date de séance</label><input type="date" id="c_seance" value="${c.seance}"></div>
+      </div>
+    </div>
+
+    <div class="panel"><h2>Brief de séance</h2>
+      <p class="muted">Généré à partir du questionnaire et du moodboard. À coller dans la fiche Fotostudio.</p>
+      <pre class="brief" id="briefTxt">${esc(brief())}</pre>
+      <div><button class="btn" id="copyBrief">Copier le brief</button></div>
+    </div>
+
+    <div class="panel"><h2>Ta bibliothèque de photos</h2>
+      <p class="muted">Ajoute tes photos et étiquette-les. Le moodboard des clientes pioche dedans selon leurs réponses. Dès 6 photos, les scènes d'exemple disparaissent. Dans ce prototype, elles restent dans ton navigateur.</p>
+      <label class="drop" for="upl"><span class="label">Ajouter des photos</span><span class="muted" style="font-size:13px">JPG ou PNG, plusieurs à la fois</span><input id="upl" type="file" accept="image/*" multiple style="max-width:100%"></label>
+      <div class="lib">${PHOTOS.map(p=>`<div class="libitem">${tileHTML(p)}
+        ${Object.entries(TAGS).map(([g,vals])=>`<div class="chips">${Object.entries(vals).map(([k,l])=>{const on=g==="qui"?(p.tags.qui||[]).includes(k):p.tags[g]===k;return `<button class="chip ${on?"on":""}" data-tag="${p.id}|${g}|${k}">${l}</button>`}).join("")}</div>`).join("")}
+        <button class="chip" data-del="${p.id}">Supprimer</button></div>`).join("")||`<p class="muted" style="font-size:13px">Aucune photo pour l'instant : le moodboard utilise ${SCENES.length} scènes d'exemple.</p>`}</div>
+    </div>
+
+    <div class="panel"><h2>Programme vidéo</h2>
+      <p class="muted">${VIDEOS.length} vidéos proposées, à tourner. Les sujets sont des propositions : garde, retire, renomme.</p>
+      <div class="tbl"><table><thead><tr><th>Vidéo</th><th>S'ouvre</th><th>Pour ${esc(c.prenom)}</th><th>Note</th></tr></thead><tbody>
+      ${VIDEOS.map(v=>{const vis=vids.includes(v);return `<tr><td>${esc(v.titre)}<br><span class="muted">${v.cat==="perso"?"Perso":"Séance"} · ${v.duree}</span></td><td>${ruleLabel(v)}</td>
+      <td>${!vis?`<span class="pill">Masquée</span>`:isOpen(v)?`<span class="pill open">Ouverte</span>`:`<span class="pill">Le ${fmt(unlockDate(v),{day:"numeric",month:"short"})}</span>`}</td>
+      <td class="muted">${esc(v.lila||"")} <span class="pill todo">À tourner</span></td></tr>`}).join("")}
+      </tbody></table></div>
+    </div>
+
+    <div class="panel"><h2>Recommencer</h2><p class="muted">Remet Léa au début : questionnaire vide, moodboard vide, date du jour. Tes photos restent.</p>
+      <div class="row"><button class="btn ghost" id="resetBlank">Parcours vierge</button><button class="btn ghost" id="resetExample">Revenir à l'exemple</button></div></div>
+  </section>`;
+}
+
+/* ---------- Rendu & routes ---------- */
+const ROUTES={accueil:vAccueil, questionnaire:vQuestionnaire, moodboard:vMoodboard, videos:vVideos};
+function route(){ const h=(location.hash||"").slice(1); return ROUTES[h]?h:"accueil"; }
+function render(){
+  const r=route();
+  app.innerHTML = S.lila ? vLila() : ROUTES[r]();
+  document.querySelectorAll(".nav a").forEach(a=>a.setAttribute("aria-current", !S.lila&&a.dataset.r===r?"page":"false"));
+  $("#lilaSwitch").setAttribute("aria-pressed", S.lila);
+  $("#lilaSwitch").textContent = S.lila ? "Vue cliente" : "Vue Lila";
+  $("#navDot").hidden = !visibleVideos().some(v=>isOpen(v)&&!S.seen[v.id]);
+}
+window.addEventListener("hashchange",()=>{ if(S.lila){S.lila=false;save();} render(); scrollTo(0,0); });
+
+function readText(q){
+  if(q.type==="text"){ const el=$("#f_"+q.id); if(el) S.answers[q.id]=el.value.trim(); }
+  if(q.type==="text2"){ q.fields.forEach(f=>{const el=$("#f_"+f.k); if(el) S.answers[f.k]=el.value.trim();}); }
+}
+
+document.addEventListener("click",e=>{
+  const el=e.target.closest("button,a"); if(!el) return;
+  if(el.id==="lilaSwitch"){ S.lila=!S.lila; save(); render(); scrollTo(0,0); return; }
+  if(el.closest(".nav")&&S.lila){ S.lila=false; save(); if(el.getAttribute("href")===location.hash) render(); return; }
+
+  // questionnaire
+  if(el.classList.contains("opt")){
+    const q=Q[S.qStep], v=el.dataset.v;
+    if(q.type==="one") S.answers[q.id]=v;
+    else { const arr=new Set(S.answers[q.id]||[]); arr.has(v)?arr.delete(v):arr.add(v); S.answers[q.id]=[...arr]; }
+    save(); render(); const r=$("#rep"); if(r&&r.getBoundingClientRect().bottom>innerHeight) r.scrollIntoView({block:"center",behavior:"smooth"}); return;
+  }
+  if(el.id==="qNext"){ const q=Q[S.qStep]; readText(q); if(q.type==="multi"&&!S.answers[q.id]) S.answers[q.id]=[];
+    S.qStep++; save(); if(S.qStep>=Q.length){ location.hash="moodboard"; render(); } else render(); scrollTo(0,0); return; }
+  if(el.id==="qPrev"){ readText(Q[S.qStep]); S.qStep=Math.max(0,S.qStep-1); save(); render(); scrollTo(0,0); return; }
+  if(el.id==="qEdit"){ S.qStep=0; S.mood.validated=null; save(); render(); scrollTo(0,0); return; }
+
+  // moodboard
+  if(el.dataset.keep){ const id=el.dataset.keep, k=S.mood.kept; S.mood.kept=k.includes(id)?k.filter(x=>x!==id):k.concat(id); S.mood.validated=null; save(); render(); return; }
+  if(el.dataset.drop){ const id=el.dataset.drop; S.mood.removed.push(id); S.mood.kept=S.mood.kept.filter(x=>x!==id); S.mood.validated=null; save(); render(); return; }
+  if(el.id==="mbValidate"){ S.mood.note=$("#mbNote").value.trim(); S.mood.validated=today().toISOString(); save(); render(); toast("Moodboard validé"); return; }
+  if(el.id==="mbReopen"){ S.mood.validated=null; save(); render(); return; }
+
+  // vidéos
+  if(el.dataset.f){ vFilter=el.dataset.f; render(); return; }
+  if(el.classList.contains("vcard")){ openVideo(el.dataset.v); return; }
+  if(el.dataset.open){ e.preventDefault(); location.hash="videos"; setTimeout(()=>openVideo(el.dataset.open),0); return; }
+  if(el.dataset.seen){ S.seen[el.dataset.seen]=1; save(); $("#dlg").close(); render(); return; }
+  if(el.hasAttribute("data-close")){ $("#dlg").close(); return; }
+
+  // lila
+  if(el.dataset.shift!==undefined){ const n=+el.dataset.shift; S.offset = n===0?0:S.offset+n; save(); render(); return; }
+  if(el.id==="copyBrief"){ copy(brief(), $("#briefTxt")); return; }
+  if(el.dataset.tag){ const [id,g,k]=el.dataset.tag.split("|"); const p=PHOTOS.find(x=>x.id===id); if(!p) return;
+    if(g==="qui"){ const s=new Set(p.tags.qui||[]); s.has(k)?s.delete(k):s.add(k); p.tags.qui=[...s]; } else p.tags[g]=p.tags[g]===k?null:k;
+    dbPut({id:p.id, blob:p.blob, tags:p.tags, cap:p.cap}); render(); return; }
+  if(el.dataset.del){ const id=el.dataset.del; PHOTOS=PHOTOS.filter(p=>p.id!==id); dbDel(id); render(); return; }
+  if(el.id==="resetBlank"){ const s=exampleState(); s.answers={}; s.qStep=0; s.mood={kept:[],removed:[],note:"",validated:null}; s.seen={}; s.lila=true; S=s; save(); render(); toast("Parcours remis à zéro"); return; }
+  if(el.id==="resetExample"){ S=exampleState(); S.lila=true; save(); render(); toast("Exemple rechargé"); return; }
+});
+document.addEventListener("input",e=>{
+  if(e.target.id==="mbNote"){ S.mood.note=e.target.value; save(); }
+});
+document.addEventListener("change",e=>{
+  const id=e.target.id;
+  if(id&&id.startsWith("c_")){ const k=id.slice(2); if(e.target.value){ S.client[k]=e.target.value; save(); render(); } }
+  if(id==="upl"){
+    [...e.target.files].forEach(f=>{
+      const rec={id:"p"+Date.now().toString(36)+Math.random().toString(36).slice(2,6), blob:f, cap:f.name.replace(/\.[^.]+$/,""), tags:{lumiere:"lumineuse", qui:["solo"], matiere:null, couleur:null, ventre:null}};
+      dbPut(rec); PHOTOS.push({...rec, url:URL.createObjectURL(f)});
+    });
+    render(); toast("Photos ajoutées : étiquette-les");
+  }
+});
+$("#dlg").addEventListener("click",e=>{ if(e.target.id==="dlg") e.target.close(); });
+
+openDB().then(dbAll).then(recs=>{
+  PHOTOS=recs.map(r=>({...r, url:URL.createObjectURL(r.blob)}));
+  render();
+});
+render();
+})();
+</script>
