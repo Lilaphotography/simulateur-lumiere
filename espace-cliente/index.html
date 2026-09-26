@@ -252,6 +252,33 @@ a{color:inherit;text-decoration:none}
 .sheet p{font-size:14.5px;line-height:1.6;color:var(--mute);padding:0 16px 16px}
 
 .toast{position:fixed;left:50%;bottom:calc(var(--tab) + var(--safe) + 20px);transform:translateX(-50%);background:var(--night);color:#fff;padding:11px 18px;border-radius:22px;font-size:13px;z-index:90;white-space:nowrap;box-shadow:0 10px 26px rgba(0,0,0,.3);animation:vin .3s}
+/* Parrainage */
+.parr{position:relative;margin:0 16px;border-radius:24px;overflow:hidden;color:#fff;isolation:isolate;display:block;width:calc(100% - 32px);text-align:left;aspect-ratio:16/11;max-width:calc(100% - 32px)}
+.parr>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%;z-index:-2}
+.parr::before{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(21,17,15,.1),rgba(21,17,15,.85))}
+.parr__b{position:absolute;left:16px;right:16px;bottom:16px}
+.parr__b b{display:block;font-family:var(--serif);font-weight:300;font-size:32px;line-height:1}
+.parr__b b em{font-style:italic;color:var(--gold-l)}
+.track{display:flex;gap:6px;margin:10px 0 12px}
+.track span{flex:1;font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:6px 4px;border-radius:10px;text-align:center;background:rgba(255,255,255,.14);color:rgba(255,255,255,.7)}
+.track span.on{background:var(--gold);color:#fff}
+.gifts{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:0 16px 16px}
+.gift1{border-radius:16px;background:var(--cream);border:1px solid var(--gold-l);padding:14px;text-align:center}
+.gift1 small{display:block;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute)}
+.gift1 b{display:block;font-family:var(--serif);font-weight:400;font-size:22px;line-height:1.1;margin-top:4px}
+.linkbox{margin:0 16px 12px;display:flex;align-items:center;gap:8px;padding:6px 6px 6px 14px;border:1px solid var(--line);border-radius:24px;font-size:14px}
+.linkbox span{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;user-select:all}
+.inv{position:relative;margin:0 16px;border-radius:24px;overflow:hidden;aspect-ratio:4/5;max-width:calc(100% - 32px);color:#fff;isolation:isolate}
+.inv>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 25%;z-index:-2}
+.inv::before{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(21,17,15,.35),transparent 30%,rgba(21,17,15,.9))}
+.inv__b{position:absolute;left:18px;right:18px;bottom:18px}
+.inv__b h1{font-family:var(--serif);font-weight:300;font-size:42px;line-height:.98;margin:6px 0 12px}
+.inv__b h1 em{font-style:italic;color:var(--gold-l)}
+.steps3{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:0 16px}
+.steps3 div{text-align:center}
+.steps3 img{width:100%;aspect-ratio:3/4;max-width:100%;object-fit:cover;border-radius:14px;margin-bottom:6px}
+.steps3 b{font-family:var(--serif);font-weight:400;font-size:18px}
+.banner{margin:14px 16px 0;padding:10px 14px;border-radius:14px;background:var(--night);color:var(--gold-l);font-size:12px;letter-spacing:.08em;text-align:center}
 .note{font-size:11.5px;color:var(--mute);text-align:center;padding:26px 24px 0;line-height:1.5}
 </style>
 
@@ -302,7 +329,7 @@ var PHASES=[
 
 var STEPS=[
   {k:'contact',t:'Ta demande',d:'2026-09-07',img:'sayeste-appareil'},
-  {k:'resa',t:'Ta réservation',d:'2026-09-10',img:'studio-video-poster',sub:'Contrat signé · acompte réglé'},
+  {k:'resa',t:'Ta réservation',d:'2026-09-10',img:'studio-video-poster',sub:'Contrat signé · acompte de 100 € réglé'},
   {k:'bienvenue',t:'Bienvenue',d:'2026-09-10',img:'sayeste-portrait',story:'bienvenue',cta:'Voir'},
   {k:'seance',t:'Ta séance idéale',d:'2026-09-12',img:'hd/robe-lila',go:'seance',cta:'Jouer',line:'Ta robe, ton ambiance, ton moodboard.'},
   {k:'videos',t:'Tes vidéos',d:'2026-09-12',img:'grossesse-2',go:'videos',cta:'Regarder',line:'Une nouvelle vidéo au fil des semaines.'},
@@ -385,6 +412,11 @@ var Q=[
 /* ── Galerie d'exemple ── */
 var GAL=['grossesse-1','grossesse-2','hk-femme-robe-blanche','grossesse-nb','hk-femme-voile','grossesse-couple-nb','studio-noir-1','hk-femme-fenetre','maman-perles','studio-noir-2','hk-couple-perles','studio-floral-2','maman-enfant','grossesse-exterieur','studio-floral-1','arche-olive'];
 
+/* ── Parrainage : une photo offerte à chacune ── */
+var P={amie:'Emma', lien:'lilaphotography.fr/?de=lea', cadeau:'1 photo offerte'};
+function amie(){return S.ph>=4?2:S.ph>=2?1:0} /* 0 invitée · 1 a joué · 2 a réservé */
+function bonus(){return amie()===2?1:0}
+
 /* ── État ── */
 function fresh(){return {ph:1,q:{a:{},step:0,done:false,sent:false},favs:[],seen:{bienvenue:1},stories:{},sel:[],galOk:false,avis:0}}
 var S; try{S=JSON.parse(localStorage.getItem(KEY))||fresh()}catch(e){S=fresh()}
@@ -423,6 +455,10 @@ function vAccueil(){
      '<button class="todo" '+act(cur)+'><img src="'+im(cur.img)+'" alt=""><div><p class="eyebrow">'+fmt(d0(cur.d),{day:'numeric',month:'long'})+'</p><b>'+(cur.line||cur.t)+'</b><span class="go go--gold">'+(cur.cta||'Voir')+'</span></div></button></section>':'')+
    (v.length?'<section class="sec"><div class="sec__head"><div><p class="eyebrow">Pour toi</p><h2 class="h2">Tes <em>vidéos</em></h2></div><a class="link" href="#videos">Tout voir</a></div>'+
      '<div class="rail">'+v.slice(0,6).map(vcard).join('')+'</div></section>':'')+
+   '<section class="sec"><div class="sec__head"><div><p class="eyebrow">Parrainage</p><h2 class="h2">Invite une <em>amie</em></h2></div></div>'+
+   '<button class="parr" id="parrOpen"><img src="'+im('hk-couple-perles')+'" alt=""><div class="parr__b"><b>'+P.cadeau+' <em>pour vous deux</em></b>'+
+   '<div class="track">'+['Invitée','A joué','A réservé'].map(function(l,i){return '<span class="'+(amie()>=i?'on':'')+'">'+(i?'':P.amie+' · ')+l+'</span>'}).join('')+'</div>'+
+   '<span class="go go--gold">'+(amie()===2?'Ta photo t\'attend 🎁':'Partager mon lien')+'</span></div></button></section>'+
    '<p class="note">Prototype · Léa est une cliente fictive. Utilise la barre du haut pour avancer dans le temps.</p></div>';
 }
 function act(s){return s.story?'data-story="'+s.story+'"':s.go==='avis'?'data-go="galerie"':'data-go="'+s.go+'"'}
@@ -482,6 +518,22 @@ function openVideo(id){var v=VIDEOS.filter(function(x){return x.id===id})[0],o=o
   if(o&&!S.seen[id]){S.seen[id]=1;save();badge()}}
 function closeSheet(){$('#sheet').classList.remove('on');$('#scrim').classList.remove('on');render()}
 
+/* ── Parrainage : feuille et invitation ── */
+function openParrain(){var a=amie();
+  $('#sheet').innerHTML='<button class="sheet__grab" data-close aria-label="Fermer"></button><h3>Invite une <em style="font-style:italic;color:var(--gold)">amie</em></h3>'+
+  '<div class="gifts"><div class="gift1"><small>Pour toi</small><b>'+P.cadeau+'</b></div><div class="gift1"><small>Pour elle</small><b>'+P.cadeau+'</b></div></div>'+
+  '<p>Dès qu\'elle réserve sa séance, vous gagnez toutes les deux.</p>'+
+  '<div class="linkbox"><span id="plink">'+P.lien+'</span><button class="go" id="pcopy">Copier</button></div>'+
+  '<div class="btns"><button class="btn btn--line" data-go="invite">Voir ce que reçoit '+P.amie+'</button></div>';
+  $('#sheet').classList.add('on');$('#scrim').classList.add('on')}
+function vInvite(){
+  return '<div class="view"><p class="banner">Aperçu · ce que voit '+P.amie+' en ouvrant ton lien</p><div style="height:14px"></div>'+
+  '<section class="inv"><img src="'+im('hk-femme-robe-blanche')+'" alt=""><div class="inv__b"><span class="tag tag--gold">'+P.cadeau+' pour toi</span><h1>'+C.prenom+' t\'invite <em>chez Lila</em></h1>'+
+  '<button class="btn btn--gold" id="invPlay">Ma séance idéale</button></div></section>'+
+  '<section class="sec"><div class="steps3">'+[['robe-lila','Tu joues'],['studio-floral-2','Ton moodboard'],['grossesse-1','Tu réserves']].map(function(x){return '<div><img src="'+im(x[0])+'" alt=""><b>'+x[1]+'</b></div>'}).join('')+'</div></section>'+
+  '<section class="sec"><div class="sec__head"><div><p class="eyebrow">Après ta réservation</p><h2 class="h2">Tes <em>vidéos</em></h2></div></div><div class="rail">'+VIDEOS.slice(0,4).map(function(v){return '<div class="vc lock"><div class="vc__img"><img src="'+im(v.img)+'" alt=""><span class="play">'+ICON.lock+'</span><span class="vc__t"><small>Avec ton contrat</small>'+v.t+'</span></div></div>'}).join('')+'</div></section>'+
+  '<div class="btns" style="margin-top:22px"><a class="btn btn--line" href="#accueil">Revenir à l\'espace de '+C.prenom+'</a></div></div>'}
+
 /* ── Galerie ── */
 function price(n){if(n<=0)return 0;var p=Math.floor(n/10)*300,r=n%10;p+=Math.floor(r/5)*150+(r%5)*35;return Math.min(p,300)}
 function vGalerie(){
@@ -495,10 +547,10 @@ function vGalerie(){
     '<section class="sec" id="avis"><div class="sec__head"><div><p class="eyebrow">Ton avis</p><h2 class="h2">Tu as <em>aimé</em> ?</h2></div></div>'+
     '<div class="stars">'+[1,2,3,4,5].map(function(i){return '<button data-star="'+i+'" class="'+(S.avis>=i?'on':'')+'" aria-label="'+i+' étoiles">★</button>'}).join('')+'</div>'+
     (S.avis?'<div class="sent">'+ICON.check+'<span>Merci ❤️ Un dernier clic pour le publier sur Google.</span></div>':'')+'</section></div>';}
-  var n=S.sel.length,extra=Math.max(0,n-C.incluses),pr=price(extra);
-  return '<div class="view"><section class="sec" style="padding-top:18px"><div class="sec__head"><div><p class="eyebrow">Galerie de sélection</p><h2 class="h2">Choisis tes <em>'+C.incluses+'</em></h2></div></div>'+
+  var inc=C.incluses+bonus(),n=S.sel.length,extra=Math.max(0,n-inc),pr=price(extra);
+  return '<div class="view"><section class="sec" style="padding-top:18px"><div class="sec__head"><div><p class="eyebrow">Galerie de sélection</p><h2 class="h2">Choisis tes <em>'+inc+'</em></h2></div></div>'+
    '<div class="gal">'+GAL.map(function(nm){var on=S.sel.indexOf(nm)>-1;return '<button data-pick="'+nm+'" aria-pressed="'+on+'"><span class="hk">'+ICON.heart+'</span><img src="'+im(nm)+'" alt=""></button>'}).join('')+'</div>'+
-   '<div class="galbar"><div><b>'+n+' / '+C.incluses+'</b><small>'+(extra?'+'+extra+' photo'+(extra>1?'s':'')+' · '+pr+' €'+(pr===300?' (galerie complète)':''):'Incluses dans ta formule '+C.formule)+'</small></div>'+
+   '<div class="galbar"><div><b>'+n+' / '+inc+'</b><small>'+(extra?'+'+extra+' photo'+(extra>1?'s':'')+' · '+pr+' €'+(pr===300?' (galerie complète)':''):(bonus()?'Dont 1 offerte grâce à '+P.amie+' 🎁':'Incluses dans ta formule '+C.formule))+'</small></div>'+
    (S.galOk?'<span class="go go--gold">Envoyée</span>':'<button class="go go--gold" id="galOk"'+(n?'':' disabled style="opacity:.4"')+'>Valider</button>')+'</div></section></div>';
 }
 
@@ -516,7 +568,7 @@ function nextSlide(){var st=STORIES[sv.k];if(sv.i<st.s.length-1){sv.i++;showSlid
 function closeStory(){clearTimeout(sv.t);$('#sv').hidden=true;$('#sv').innerHTML='';document.body.style.overflow='';render()}
 
 /* ── Rendu ── */
-var VIEWS={accueil:vAccueil,parcours:vParcours,seance:vSeance,videos:vVideos,galerie:vGalerie};
+var VIEWS={invite:vInvite,accueil:vAccueil,parcours:vParcours,seance:vSeance,videos:vVideos,galerie:vGalerie};
 function route(){var h=location.hash.slice(1);return VIEWS[h]?h:'accueil'}
 function badge(){var n=vids().filter(function(v){return open(v)&&!S.seen[v.id]}).length,b=$('#vBadge');b.hidden=!n;b.textContent=n}
 function render(){var r=route();main.innerHTML=VIEWS[r]();
@@ -530,7 +582,7 @@ addEventListener('hashchange',function(){render();scrollTo(0,0)});
 document.addEventListener('click',function(e){var el=e.target.closest('button,a');if(!el)return;
   if(el.id==='simPrev'||el.id==='simNext'){S.ph=Math.max(0,Math.min(PHASES.length-1,S.ph+(el.id==='simNext'?1:-1)));save();render();return}
   if(el.dataset.story){openStory(el.dataset.story);return}
-  if(el.dataset.go){go(el.dataset.go);return}
+  if(el.dataset.go){if($('#sheet').classList.contains('on')){$('#sheet').classList.remove('on');$('#scrim').classList.remove('on')}go(el.dataset.go);return}
   if(el.dataset.video){openVideo(el.dataset.video);return}
   if(el.hasAttribute('data-close')){closeSheet();return}
   if(el.id==='svX'){closeStory();return}
@@ -547,6 +599,9 @@ document.addEventListener('click',function(e){var el=e.target.closest('button,a'
   if(el.dataset.pick){if(S.galOk)return;var n=el.dataset.pick,j=S.sel.indexOf(n);j>-1?S.sel.splice(j,1):S.sel.push(n);save();var y=scrollY;render();scrollTo(0,y);return}
   if(el.id==='galOk'){S.galOk=true;save();render();toast('Sélection envoyée à Lila');return}
   if(el.dataset.star){S.avis=+el.dataset.star;save();var y2=scrollY;render();scrollTo(0,y2);return}
+  if(el.id==='parrOpen'){openParrain();return}
+  if(el.id==='pcopy'){var tx='https://'+P.lien;try{navigator.clipboard.writeText(tx).then(function(){toast('Lien copié')},function(){toast('Sélectionne le lien pour le copier')})}catch(x){toast('Sélectionne le lien pour le copier')}return}
+  if(el.id==='invPlay'){toast('Sur le site, '+P.amie+' joue à Ma séance idéale');return}
   if(el.id==='dl'){toast('Simulation : téléchargement de tes photos');return}
 });
 $('#scrim').addEventListener('click',closeSheet);
