@@ -1,11 +1,12 @@
-# Espace cliente — Lila photography (prototype)
+# Mon espace — Lila photography (prototype v2)
 
-Prototype cliquable de l'espace cliente : questionnaire ludique, moodboard construit à partir des photos de Lila, vidéos qui se débloquent au fil de la grossesse et à l'approche de la séance, et une « Vue Lila » (brief de séance, bibliothèque de photos étiquetées, programme vidéo, simulateur de date).
+Espace cliente dans l'univers du site (mêmes polices, couleurs, barre d'onglets, stories).
+Une barre « Simulation » en haut fait avancer le temps : réservation → préparation → au fil des semaines → J-7 → jour J → galerie → photos → bébé → 1 an.
 
-Ouvrir `index.html` dans un navigateur. Tout est stocké dans le navigateur (localStorage + IndexedDB) : c'est une démo, pas encore une app multi-clientes.
+- **Accueil** : grossesse en SA, compte à rebours, stories (bienvenue, dressing, studio, Stella, jour J, bébé), prochaine action.
+- **Parcours** : les 14 étapes, de la demande aux 1 an de bébé.
+- **Ma séance** : « Ma séance idéale », 8 questions en images qui prolongent « Trouver ma robe » → moodboard + robes.
+- **Vidéos** : se débloquent selon la semaine de grossesse ou la date de séance.
+- **Galerie** : sélection des photos incluses, calcul des photos en plus, avis.
 
-## Ce qu'il manque pour une vraie app
-- Comptes clientes (connexion par lien magique e-mail) et base de données partagée (ex. Supabase).
-- Hébergement vidéo privé (ex. Vimeo privé ou Bunny Stream).
-- Lien avec Fotostudio (création de l'accès à la signature du contrat, dates de séance, DPA).
-- Tes vraies photos étiquetées et l'inventaire du dressing.
+Les photos (`img/`, `video/`) sont celles du site et ne sont pas versionnées ici : copier le dossier `img/` et `video/` du site à côté de `index.html`.
