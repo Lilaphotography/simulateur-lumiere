@@ -279,6 +279,85 @@ a{color:inherit;text-decoration:none}
 .steps3 img{width:100%;aspect-ratio:3/4;max-width:100%;object-fit:cover;border-radius:14px;margin-bottom:6px}
 .steps3 b{font-family:var(--serif);font-weight:400;font-size:18px}
 .banner{margin:14px 16px 0;padding:10px 14px;border-radius:14px;background:var(--night);color:var(--gold-l);font-size:12px;letter-spacing:.08em;text-align:center}
+/* Points de vue */
+.who{display:flex;gap:6px;overflow-x:auto;padding:8px 12px 10px;background:var(--night);scrollbar-width:none;position:sticky;top:calc(env(safe-area-inset-top,0px) + 52px);z-index:39}
+.who::-webkit-scrollbar{display:none}
+.who button{flex:none;height:30px;padding:0 12px;border-radius:15px;border:1px solid rgba(232,213,176,.3);color:rgba(251,247,240,.75);font-size:12px}
+.who button.on{background:var(--gold);border-color:var(--gold);color:#fff}
+.hbtn{position:relative;width:40px;height:40px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center}
+.hbtn svg{width:20px;height:20px}
+.hbtn .count{position:absolute;top:-3px;right:-3px;min-width:18px;height:18px;padding:0 5px;border-radius:9px;background:var(--gold);color:#fff;font-size:10px;display:grid;place-items:center}
+.resa{height:36px;padding:0 14px;border-radius:18px;background:var(--ink);color:#fff;font-size:11px;letter-spacing:.14em;text-transform:uppercase}
+/* Notification façon téléphone */
+.push{position:fixed;left:50%;top:calc(12px + env(safe-area-inset-top,0px));transform:translate(-50%,-140%);width:calc(100% - 24px);max-width:456px;z-index:95;background:rgba(251,247,240,.97);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-radius:20px;padding:12px 14px;display:grid;grid-template-columns:38px 1fr;gap:10px;align-items:center;box-shadow:0 14px 40px rgba(21,17,15,.3);transition:transform .45s cubic-bezier(.22,.9,.3,1);text-align:left}
+.push.on{transform:translate(-50%,0)}
+.push img{width:38px;height:38px;border-radius:10px;background:#fff;padding:4px}
+.push small{display:flex;justify-content:space-between;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
+.push b{display:block;font-weight:500;font-size:14px;line-height:1.25}
+.push span{font-size:13px;color:var(--ink)}
+.inbox{list-style:none;padding:0 16px}
+.inbox li{display:grid;grid-template-columns:40px 1fr;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);text-align:left}
+.inbox button{display:contents;text-align:left}
+.inbox .ic{width:40px;height:40px;border-radius:12px;background:var(--cream);border:1px solid var(--gold-l);display:grid;place-items:center;font-size:18px}
+.inbox b{display:block;font-weight:400;font-size:15px}
+.inbox span{font-size:13px;color:var(--mute)}
+.inbox small{display:block;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-top:3px}
+.inbox li.new b::after{content:'';display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--gold);margin-left:8px;vertical-align:middle}
+/* Offres & catalogues */
+.offer{position:relative;margin:0 16px;border-radius:22px;overflow:hidden;color:#fff;isolation:isolate;display:block;width:calc(100% - 32px);text-align:left;aspect-ratio:16/10;max-width:calc(100% - 32px)}
+.offer>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%;z-index:-2}
+.offer::before{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(21,17,15,.15),rgba(21,17,15,.85))}
+.offer__b{position:absolute;left:16px;right:16px;bottom:14px}
+.offer__b b{display:block;font-family:var(--serif);font-weight:300;font-size:30px;line-height:1}
+.offer__b span{font-size:13px;opacity:.9}
+.offer .tag{position:absolute;top:14px;left:14px}
+.cats{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:0 16px}
+.cat{position:relative;border-radius:16px;overflow:hidden;aspect-ratio:1;max-width:100%;color:#fff;isolation:isolate;display:block}
+.cat img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 25%;z-index:-2}
+.cat::before{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,transparent 45%,rgba(21,17,15,.8))}
+.cat b{position:absolute;left:10px;right:10px;bottom:9px;font-family:var(--serif);font-weight:400;font-size:19px;line-height:1.05}
+.cat small{display:block;font-family:var(--sans);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-l)}
+.locked{margin:0 16px;border-radius:24px;overflow:hidden;position:relative;aspect-ratio:4/5;max-width:calc(100% - 32px);color:#fff;isolation:isolate}
+.locked>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:blur(6px) grayscale(.3);transform:scale(1.1);z-index:-2}
+.locked::before{content:'';position:absolute;inset:0;z-index:-1;background:rgba(21,17,15,.55)}
+.locked__b{position:absolute;inset:0;display:grid;place-content:center;justify-items:center;text-align:center;gap:12px;padding:24px}
+.locked__b svg{width:30px;height:30px;color:var(--gold-l)}
+.locked__b b{font-family:var(--serif);font-weight:300;font-size:30px;line-height:1.05}
+/* Mon studio */
+.st{margin:0 16px 12px;border:1px solid var(--line);border-radius:20px;padding:16px}
+.st h3{font-family:var(--serif);font-weight:400;font-size:24px;margin-bottom:10px}
+.st--dark{background:var(--night);color:#F3EEE8;border-color:var(--night)}
+.st--dark h3{color:#fff}
+.st ul{list-style:none;display:grid;gap:8px;font-size:14px}
+.st li{display:flex;gap:10px;align-items:flex-start}
+.st li i{font-style:normal;color:var(--gold);flex:none}
+.rows{display:grid}
+.rw{display:grid;grid-template-columns:1fr auto;gap:10px;padding:10px 0;border-bottom:1px solid var(--line);font-size:14px;align-items:center}
+.rw:last-child{border-bottom:0}
+.rw small{display:block;font-size:12px;color:var(--mute)}
+.rw.off{opacity:.55}
+.rw.off b{text-decoration:line-through}
+.pl{font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;padding:4px 9px;border-radius:10px;border:1px solid var(--line);white-space:nowrap}
+.pl--ok{background:#E7F0E4;border-color:#CFE0C9;color:#3E6B34}
+.pl--wait{background:var(--cream);border-color:var(--gold-l);color:#8A6A28}
+.pl--off{background:#F1ECEA;color:#8A7F7A}
+.tgl{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--line);font-size:14px;width:100%;text-align:left}
+.tgl:last-child{border-bottom:0}
+.tgl i{width:44px;height:26px;border-radius:13px;background:#DDD6D0;position:relative;flex:none;transition:background .2s}
+.tgl i::after{content:'';position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:50%;background:#fff;transition:transform .2s}
+.tgl[aria-pressed="true"] i{background:var(--gold)}
+.tgl[aria-pressed="true"] i::after{transform:translateX(18px)}
+.wp{border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.wp__bar{display:flex;align-items:center;gap:6px;padding:7px 10px;background:#F2EFEC;font-size:11px;color:var(--mute)}
+.wp__bar i{width:8px;height:8px;border-radius:50%;background:#D8D1CB}
+.wp__banner{background:var(--ink);color:var(--cream);font-size:12px;letter-spacing:.06em;text-align:center;padding:10px}
+.wp__banner b{color:var(--gold-l);font-weight:500}
+.wp__body{padding:14px;font-family:var(--serif);font-size:20px;text-align:center}
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.kpi{border-radius:14px;background:var(--cream);padding:12px 8px;text-align:center}
+.kpi b{display:block;font-family:var(--serif);font-weight:400;font-size:28px;line-height:1}
+.kpi small{font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
+.tabbar.hide,.hbtn[hidden],.resa[hidden],.count[hidden]{display:none}
 .note{font-size:11.5px;color:var(--mute);text-align:center;padding:26px 24px 0;line-height:1.5}
 </style>
 
@@ -289,8 +368,13 @@ a{color:inherit;text-decoration:none}
     <button id="simNext" aria-label="Étape suivante"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 5l7 7-7 7"/></svg></button>
     <div class="sim__track"><i id="simTrack"></i></div>
   </div>
+  <div class="who" id="who" role="group" aria-label="Voir l'app en tant que">
+    <button data-who="lea">Léa · cliente</button><button data-who="emma">Emma · invitée</button><button data-who="visite">Visiteuse</button><button data-who="lila">Toi · Mon studio</button>
+  </div>
   <header class="top">
     <div class="brand"><img src="img/logo.png" alt=""><div><b>Lila</b><small>Mon espace</small></div></div>
+    <button class="resa" id="resaBtn">Réserver</button>
+    <button class="hbtn" id="bell" aria-label="Notifications"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 16V11a6 6 0 0 1 12 0v5l1.5 2h-15z"/><path d="M10 20a2 2 0 0 0 4 0"/></svg><span class="count" id="bellN" hidden></span></button>
     <div class="avatar" id="avatar" aria-hidden="true">L</div>
   </header>
   <main id="main"></main>
@@ -304,6 +388,7 @@ a{color:inherit;text-decoration:none}
   <a class="tab" href="#galerie" data-t="galerie"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="8" height="8" rx="1.5"/><rect x="13" y="3" width="8" height="8" rx="1.5"/><rect x="3" y="13" width="8" height="8" rx="1.5"/><rect x="13" y="13" width="8" height="8" rx="1.5"/></svg>Galerie</a>
 </nav>
 
+<button class="push" id="push" aria-live="polite"></button>
 <div class="sv" id="sv" hidden role="dialog" aria-modal="true" aria-label="Story"></div>
 <div class="scrim" id="scrim"></div>
 <div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-label="Vidéo"></div>
@@ -311,7 +396,7 @@ a{color:inherit;text-decoration:none}
 <script>
 (function(){
 "use strict";
-var IMG='img/', DAY=864e5, KEY='lila-espace-v2';
+var IMG='img/', DAY=864e5, KEY='lila-espace-v3';
 var ICON={play:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4v16l13-8z"/></svg>',
   lock:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="14" height="14"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>',
   heart:'<svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg>',
@@ -325,7 +410,7 @@ var C={prenom:'Léa', resa:'2026-09-10', seance:'2026-11-05', dpa:'2027-01-14', 
 var PHASES=[
   {l:'La réservation',d:'2026-09-10'},{l:'La préparation',d:'2026-09-26'},{l:'Au fil des semaines',d:'2026-10-15'},
   {l:'Une semaine avant',d:'2026-10-29'},{l:'Le jour J',d:'2026-11-05'},{l:'Ta galerie',d:'2026-11-12'},
-  {l:'Tes photos',d:'2026-11-26'},{l:'Bébé est là',d:'2027-01-20'},{l:'Un an après',d:'2028-01-16'}];
+  {l:'Tes photos',d:'2026-11-26'},{l:'Bébé est là',d:'2027-01-20'},{l:'Fête des mères',d:'2027-04-20'},{l:'Un an après',d:'2028-01-16'}];
 
 var STEPS=[
   {k:'contact',t:'Ta demande',d:'2026-09-07',img:'sayeste-appareil'},
@@ -417,14 +502,57 @@ var P={amie:'Emma', lien:'lilaphotography.fr/?de=lea', cadeau:'1 photo offerte'}
 function amie(){return S.ph>=4?2:S.ph>=2?1:0} /* 0 invitée · 1 a joué · 2 a réservé */
 function bonus(){return amie()===2?1:0}
 
+/* ── Tes vrais liens de réservation Fotostudio ── */
+var FS='https://www.fotostudio.io/client/reservations/lilaphotography?tid=';
+var CATS=[
+  {k:'grossesse',t:'Grossesse',s:'Studio',img:'grossesse-1',u:FS+'189586'},
+  {k:'exterieur',t:'Grossesse',s:'Extérieur',img:'grossesse-exterieur',u:FS+'192123'},
+  {k:'nouveaune',t:'Nouveau-né',s:'Ses premières semaines',img:'nouveau-ne-1',u:FS+'182561'},
+  {k:'pack',t:'Pack',s:'Grossesse + nouveau-né',img:'papa-bebe',u:FS+'213709'},
+  {k:'bebe',t:'Bébé',s:'Ses premiers mois',img:'anniversaire-1',u:FS+'232352'},
+  {k:'famille',t:'Famille',s:'Tout le monde',img:'studio-famille',u:FS+'192547'},
+  {k:'beaute',t:'Mise en beauté',s:'Avec Stella',img:'maman-perles',u:FS+'256379'},
+  {k:'cadeau',t:'Carte cadeau',s:'À offrir',img:'carte-cadeau-carre',u:'https://www.fotostudio.io/c/lilaphotography/boncadeau'}];
+function cat(k){return CATS.filter(function(c){return c.k===k})[0]}
+
+/* ── Offres du moment : elles s'affichent et disparaissent seules selon leurs dates ── */
+var OFFRES=[
+  {id:'noel',t:'Mini-séances de Noël',s:'4, 7 & 8 novembre au studio',img:'Noel-2025-Carla17',from:'2026-10-01',to:'2026-11-08',u:FS+'245505'},
+  {id:'fdm',t:'Fête des mères',s:'Mini-séances maman & enfant',img:'maman-enfant',from:'2027-04-01',to:'2027-05-25',u:FS+'230410'},
+  {id:'noel27',t:'Mini-séances de Noël',s:'Novembre 2027',img:'Noel-2025-Carla17',from:'2027-10-01',to:'2027-11-10',u:FS+'245505'}];
+function offresNow(){var t=now();return OFFRES.filter(function(o){return d0(o.from)<=t&&t<=d0(o.to)})}
+function offreStatut(o){var t=now();return t<d0(o.from)?'À venir':t>d0(o.to)?'Terminée':'En ligne'}
+
+/* ── Relances : pour qui · quand · sauf si ── */
+var NOTIFS=[
+  {id:'q',d:'2026-09-12',to:['lea'],ic:'✨',t:'Ta séance idéale t\'attend',b:'2 minutes pour créer ton moodboard.',go:'seance',when:'2 jours après la réservation',unless:function(){return S.q.sent},why:'moodboard déjà envoyé'},
+  {id:'v24',d:'2026-09-24',to:['lea'],ic:'🎬',t:'Nouvelle vidéo',b:'« Je n\'aime pas me voir en photo »',go:'videos',when:'à 24 SA'},
+  {id:'noel1',d:'2026-10-01',to:['lea','emma'],ic:'🎄',t:'Mini-séances de Noël',b:'4, 7 & 8 novembre. Les créneaux partent vite !',go:'offre:noel',when:'ouverture de l\'offre',unless:function(){return S.fs.noel},why:'déjà inscrite à Noël'},
+  {id:'emma1',d:'2026-10-15',to:['emma'],ic:'🤍',t:'Ton moodboard est prêt',b:'Léa t\'offre une photo. Réserve quand tu veux.',go:'seance',when:'après le jeu'},
+  {id:'v28',d:'2026-10-15',to:['lea'],ic:'🎬',t:'Nouvelle vidéo',b:'« Le corps qui change »',go:'videos',when:'à 28 SA'},
+  {id:'s',d:'2026-10-22',to:['lea'],ic:'🎬',t:'J-14 : découvre « Le S »',b:'La pose que je vais te montrer.',go:'videos',when:'14 jours avant la séance'},
+  {id:'noel2',d:'2026-10-29',to:['lea','emma'],ic:'🎄',t:'Noël : dernières places',b:'Samedi 7 novembre, il reste 3 créneaux.',go:'offre:noel',when:'10 jours avant',unless:function(){return S.fs.noel},why:'déjà inscrite à Noël'},
+  {id:'parr',d:'2026-11-05',to:['lea'],ic:'🎁',t:'Emma a réservé !',b:'Ta photo offerte t\'attend dans ta galerie.',go:'galerie',when:'acompte de l\'amie payé'},
+  {id:'emma2',d:'2026-11-05',to:['emma'],ic:'🎉',t:'Bienvenue chez Lila',b:'Ta séance est réservée. Ton espace s\'ouvre demain.',go:'accueil',when:'acompte payé'},
+  {id:'nn',d:'2026-11-12',to:['lea'],ic:'🤍',t:'Et la séance de bébé ?',b:'On la prévoit avant la naissance.',go:'res:nouveaune',when:'à 32 SA',unless:function(){return S.fs.nn},why:'nouveau-né déjà réservé'},
+  {id:'birth',d:'2027-01-17',to:['lea'],ic:'👶',t:'Bienvenue petit cœur',b:function(){return S.fs.nn?'Écris-moi pour caler sa séance.':'Sa première séance t\'attend.'},go:function(){return S.fs.nn?'accueil':'res:nouveaune'},when:'3 jours après la naissance'},
+  {id:'fdm',d:'2027-04-01',to:['lea','emma'],ic:'💐',t:'Fête des mères',b:'Mini-séances maman & enfant.',go:'offre:fdm',when:'ouverture de l\'offre'},
+  {id:'an',d:'2028-01-14',to:['lea'],ic:'🎂',t:'Déjà un an…',b:'Le temps passe tellement vite. On se retrouve ?',go:'res:famille',when:'1 an après la naissance'}];
+function val(x){return typeof x==='function'?x():x}
+function prevDate(){return S.ph?d0(PHASES[S.ph-1].d):new Date(0)}
+function notifsFor(w){var t=now();return NOTIFS.filter(function(n){return n.to.indexOf(w)>-1&&d0(n.d)<=t&&!(n.unless&&n.unless())}).reverse()}
+function freshFor(w){var a=prevDate();return notifsFor(w).filter(function(n){return d0(n.d)>a})}
+function unread(w){return notifsFor(w).filter(function(n){return !S.readN[w+n.id]}).length}
+
 /* ── État ── */
-function fresh(){return {ph:1,q:{a:{},step:0,done:false,sent:false},favs:[],seen:{bienvenue:1},stories:{},sel:[],galOk:false,avis:0}}
+function fresh(){return {who:'lea',fs:{nn:false,noel:false},readN:{},ph:1,q:{a:{},step:0,done:false,sent:false},favs:[],seen:{bienvenue:1},stories:{},sel:[],galOk:false,avis:0}}
 var S; try{S=JSON.parse(localStorage.getItem(KEY))||fresh()}catch(e){S=fresh()}
 function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}}
 
 /* ── Dates ── */
 function d0(s){var p=s.split('-');return new Date(+p[0],p[1]-1,+p[2])}
 function now(){return d0(PHASES[S.ph].d)}
+function me(){return S.who}
 function fmt(d,o){return d.toLocaleDateString('fr-FR',o||{day:'numeric',month:'short'})}
 function sa(d){return Math.floor(41-(d0(C.dpa)-d)/DAY/7)}
 function unlock(v){var r=v.r;if(r[0]==='resa')return d0(C.resa);if(r[0]==='sa')return new Date(d0(C.dpa)-(41-r[1])*7*DAY);return new Date(+d0(C.seance)+r[1]*DAY)}
@@ -442,8 +570,8 @@ function toast(m){var t=document.createElement('div');t.className='toast';t.text
 /* ── Accueil ── */
 function vAccueil(){
   var t=now(),j=Math.round((d0(C.seance)-t)/DAY),before=j>0,bb=t>=d0('2027-01-16');
-  var hero=bb?(S.ph>=8?'anniversaire-1':'nouveau-ne-4'):j===0?'studio-noir-1':before?'hk-femme-robe-blanche':'grossesse-nb';
-  var title=bb?(S.ph>=8?'Joyeux <em>anniversaire</em>':'Bienvenue <em>bébé</em>'):j===0?'C\'est <em>aujourd\'hui</em> !':before?'Hello <em>'+C.prenom+'</em>':'Merci <em>'+C.prenom+'</em>';
+  var hero=bb?(S.ph>=9?'anniversaire-1':'nouveau-ne-4'):j===0?'studio-noir-1':before?'hk-femme-robe-blanche':'grossesse-nb';
+  var title=bb?(S.ph>=9?'Joyeux <em>anniversaire</em>':'Bienvenue <em>bébé</em>'):j===0?'C\'est <em>aujourd\'hui</em> !':before?'Hello <em>'+C.prenom+'</em>':'Merci <em>'+C.prenom+'</em>';
   var pills=bb?'':before?'<div class="pills"><div class="pill"><small>Grossesse</small><b>'+sa(t)+' SA</b></div><div class="pill"><small>Ta séance</small><b>J-'+j+'</b></div><div class="pill"><small>Formule</small><b style="font-size:21px;line-height:1.3">'+C.formule+'</b></div></div>'
     :j===0?'<div class="pills"><div class="pill"><small>Au studio</small><b>10 h</b></div><div class="pill"><small>Grossesse</small><b>'+sa(t)+' SA</b></div></div>':'';
   var cur=current(),v=vids().filter(function(x){return open(x)}).reverse();
@@ -455,6 +583,7 @@ function vAccueil(){
      '<button class="todo" '+act(cur)+'><img src="'+im(cur.img)+'" alt=""><div><p class="eyebrow">'+fmt(d0(cur.d),{day:'numeric',month:'long'})+'</p><b>'+(cur.line||cur.t)+'</b><span class="go go--gold">'+(cur.cta||'Voir')+'</span></div></button></section>':'')+
    (v.length?'<section class="sec"><div class="sec__head"><div><p class="eyebrow">Pour toi</p><h2 class="h2">Tes <em>vidéos</em></h2></div><a class="link" href="#videos">Tout voir</a></div>'+
      '<div class="rail">'+v.slice(0,6).map(vcard).join('')+'</div></section>':'')+
+   offresHTML()+
    '<section class="sec"><div class="sec__head"><div><p class="eyebrow">Parrainage</p><h2 class="h2">Invite une <em>amie</em></h2></div></div>'+
    '<button class="parr" id="parrOpen"><img src="'+im('hk-couple-perles')+'" alt=""><div class="parr__b"><b>'+P.cadeau+' <em>pour vous deux</em></b>'+
    '<div class="track">'+['Invitée','A joué','A réservé'].map(function(l,i){return '<span class="'+(amie()>=i?'on':'')+'">'+(i?'':P.amie+' · ')+l+'</span>'}).join('')+'</div>'+
@@ -465,6 +594,81 @@ function act(s){return s.story?'data-story="'+s.story+'"':s.go==='avis'?'data-go
 function vcard(v){var o=open(v),n=o&&!S.seen[v.id];
   return '<button class="vc'+(o?'':' lock')+'" data-video="'+v.id+'"><div class="vc__img"><img src="'+im(v.img)+'" alt="">'+(n?'<span class="newdot">Nouveau</span>':'')+'<span class="play">'+(o?ICON.play:ICON.lock)+'</span>'+
    '<span class="vc__t"><small>'+(o?v.min+' min':fmt(unlock(v),{day:'numeric',month:'long'}))+'</small>'+v.t+'</span></div></button>'}
+
+/* ── Offres du moment ── */
+function offresHTML(){var o=offresNow();if(!o.length)return '';
+  return '<section class="sec"><div class="sec__head"><div><p class="eyebrow">En ce moment</p><h2 class="h2">Les <em>offres</em></h2></div></div>'+
+  o.map(function(x){return '<button class="offer" data-offre="'+x.id+'"><img src="'+im(x.img)+'" alt=""><span class="tag tag--gold">Jusqu\'au '+fmt(d0(x.to),{day:'numeric',month:'long'})+'</span><div class="offer__b"><b>'+x.t+'</b><span>'+x.s+'</span></div></button>'}).join('<div style="height:10px"></div>')+'</section>'}
+function catsHTML(){return '<section class="sec"><div class="sec__head"><div><p class="eyebrow">À tout moment</p><h2 class="h2"><em>Réserver</em> une séance</h2></div></div><div class="cats">'+
+  CATS.map(function(c){return '<a class="cat" href="'+c.u+'" target="_blank" rel="noopener"><img src="'+im(c.img)+'" alt=""><b><small>'+c.s+'</small>'+c.t+'</b></a>'}).join('')+'</div></section>'}
+
+/* ── Ce que voient Emma (invitée) et une visiteuse ── */
+function vPublic(){
+  var w=me(),booked=w==='emma'&&amie()===2,hero,title,tag;
+  if(w==='emma'){hero='hk-femme-robe-blanche';title=booked?'Bienvenue <em>Emma</em>':'Léa t\'invite <em>chez Lila</em>';tag=booked?'Séance réservée ✓':'1 photo offerte pour toi'}
+  else{hero='studio-floral-2';title='Bienvenue <em>chez Lila</em>';tag='Studio au Teil'}
+  return '<div class="view"><section class="hero"><img src="'+im(hero)+'" alt=""><div class="hero__top"><span class="tag">'+fmt(now(),{weekday:'long',day:'numeric',month:'long'})+'</span><span class="tag tag--gold">'+tag+'</span></div>'+
+   '<div class="hero__body"><h1>'+title+'</h1>'+(booked?'':'<div class="btns" style="padding:14px 0 0"><button class="btn btn--gold" data-go="seance">Ma séance idéale</button></div>')+'</div></section>'+
+   (w==='emma'&&amie()>=1?'<section class="sec"><div class="sec__head"><div><p class="eyebrow">Sauvegardé</p><h2 class="h2">Ton <em>moodboard</em></h2></div><a class="link" href="#seance">Voir</a></div></section>':'')+
+   offresHTML()+catsHTML()+
+   '<p class="note">'+(w==='emma'?'Emma a ouvert le lien de Léa. Elle voit le site, son moodboard et les offres. Vidéos et parcours s\'ouvrent avec son contrat.':'Une visiteuse voit le site style app et peut réserver. Pour sauvegarder un moodboard ou recevoir des notifications, elle laisse son e-mail et devient invitée.')+'</p></div>'}
+function vLocked(){var booked=me()==='emma'&&amie()===2;
+  return '<div class="view"><div style="height:18px"></div><section class="locked"><img src="'+im('grossesse-2')+'" alt=""><div class="locked__b">'+ICON.lock.replace('width="14" height="14"','')+
+  '<b>'+(booked?'Ton espace se prépare':'Ton espace s\'ouvre<br>avec ta réservation')+'</b><p style="font-size:14px;opacity:.85;max-width:28ch">'+(booked?'Lila le crée demain matin, automatiquement depuis Fotostudio.':'Parcours, vidéos au fil des semaines, galerie : tout t\'attend ici.')+'</p>'+
+  (booked?'':'<button class="go go--gold" id="resaBtn2">Réserver</button>')+'</div></section></div>'}
+function seanceFor(){
+  if(me()==='lea')return vSeance();
+  if(me()==='visite'||amie()<1){var b0=S.q;S.q={a:{},step:0,done:false,sent:false};var h0=vSeance().replace('id="qStart"','id="qVisit"');S.q=b0;return h0}
+  var bak=S.q,fv=S.favs;S.q={a:{_s:1,who:'seule',lieu:'studio',audace:'mix',couleur:'poudre',pudeur:'douce',silhouette:'volume',ambiance:'fleuri',beaute:'oui'},step:0,done:true,sent:true};S.favs=[];
+  var h=vSeance().replace(/<button class="link" id="qRedo">Rejouer<\/button>/,'').replace('Le moodboard de</p><h3>Léa','Le moodboard de</p><h3>Emma').replace('Envoyé à Lila. Tes robes seront prêtes le jour J.','Sauvegardé. Lila le reçoit dès que tu réserves.');
+  S.q=bak;S.favs=fv;return h}
+
+/* ── Mon studio : ta page à toi ── */
+function vStudio(){
+  var t=now(),a=prevDate(),week=NOTIFS.filter(function(n){var d=d0(n.d);return d>a&&d<=new Date(+t+14*DAY)});
+  var rep=['Fotostudio lu à 7 h 02 ✓'];
+  if(S.ph===0)rep.push('Nouvelle réservation : espace de <b>Léa</b> créé, lien envoyé');
+  if(S.ph>=2&&S.ph<4)rep.push('<b>Emma</b> a joué via le lien de Léa → fiche invitée créée');
+  if(S.ph===4)rep.push('Acompte d\'<b>Emma</b> payé → parrainage validé, 1 photo offerte à Léa et à Emma');
+  if(S.ph===5)rep.push('Espace d\'<b>Emma</b> créé');
+  if(S.fs.nn)rep.push('Fiche de Léa : <b>Nouveau-né réservé</b> → relances bébé annulées');
+  if(S.fs.noel)rep.push('Fiche de Léa : <b>Mini-séance Noël</b> → relances Noël annulées');
+  rep.push(freshFor('lea').length+freshFor('emma').length+' notification(s) envoyée(s) depuis la dernière étape');
+  return '<div class="view"><section class="sec" style="padding-top:18px"><div class="sec__head"><div><p class="eyebrow">Réservé à toi</p><h2 class="h2">Mon <em>studio</em></h2></div></div>'+
+  '<div class="st st--dark"><h3>Ce matin</h3><ul>'+rep.map(function(r){return '<li><i>•</i><span>'+r+'</span></li>'}).join('')+'</ul></div>'+
+  '<div class="st"><h3>Relances de la semaine</h3><div class="rows">'+(week.length?week.map(function(n){var off=n.unless&&n.unless(),sent=d0(n.d)<=t;
+    return '<div class="rw'+(off?' off':'')+'"><div><b>'+n.ic+' '+n.t+'</b><small>'+n.to.map(function(x){return x==='lea'?'Léa':'Emma'}).join(', ')+' · '+fmt(d0(n.d))+(off?' · annulée : '+n.why:'')+'</small></div><span class="pl '+(off?'pl--off':sent?'pl--ok':'pl--wait')+'">'+(off?'Annulée':sent?'Envoyée':'Prévue')+'</span></div>'}).join(''):'<p class="muted" style="font-size:14px;color:var(--mute)">Rien de prévu ces 15 jours.</p>')+'</div>'+
+  '<div class="btns" style="padding:12px 0 0"><button class="btn btn--line" id="valid">Valider les envois de la semaine</button></div></div>'+
+  '<div class="st"><h3>Ce que Fotostudio dit de Léa</h3><p style="font-size:13px;color:var(--mute);margin-bottom:6px">Lu chaque matin. Active pour voir les relances s\'annuler.</p>'+
+  '<button class="tgl" data-fs="nn" aria-pressed="'+S.fs.nn+'"><span>Nouveau-né réservé</span><i></i></button><button class="tgl" data-fs="noel" aria-pressed="'+S.fs.noel+'"><span>Mini-séance Noël réservée</span><i></i></button></div>'+
+  '<div class="st"><h3>Offres du moment</h3><div class="rows">'+OFFRES.map(function(o){var st=offreStatut(o);return '<div class="rw'+(st==='Terminée'?' off':'')+'"><div><b>'+o.t+'</b><small>du '+fmt(d0(o.from),{day:'numeric',month:'short',year:'numeric'})+' au '+fmt(d0(o.to),{day:'numeric',month:'short',year:'numeric'})+'</small></div><span class="pl '+(st==='En ligne'?'pl--ok':st==='À venir'?'pl--wait':'pl--off')+'">'+st+'</span></div>'}).join('')+'</div>'+
+  '<p class="eyebrow" style="margin:14px 0 8px">Au même moment, sur ton site WordPress</p><div class="wp"><div class="wp__bar"><i></i><i></i><i></i><span>lilaphotography.fr</span></div>'+
+  (offresNow().length?'<div class="wp__banner">'+offresNow().map(function(o){return '<b>'+o.t+'</b> · '+o.s}).join(' — ')+'</div>':'<div class="wp__banner" style="opacity:.6">Aucune offre en ce moment</div>')+'<div class="wp__body">Photographe grossesse, nouveau-né & famille</div></div></div>'+
+  '<div class="st"><h3>Parrainages</h3><div class="rw"><div><b>Léa → Emma</b><small>'+['Invitée','A joué à Ma séance idéale','A réservé · 1 photo offerte chacune'][amie()]+'</small></div><span class="pl '+(amie()===2?'pl--ok':'pl--wait')+'">'+(amie()===2?'Validé':'En cours')+'</span></div></div>'+
+  '<div class="st"><h3>Mes contenus</h3><div class="kpis"><div class="kpi"><b>58</b><small>Photos</small></div><div class="kpi"><b>19</b><small>Robes</small></div><div class="kpi"><b>'+VIDEOS.length+'</b><small>Vidéos</small></div></div>'+
+  '<div class="btns" style="padding:12px 0 0;grid-template-columns:1fr 1fr"><button class="btn btn--line" data-sim="Ajouter une photo">+ Photo</button><button class="btn btn--line" data-sim="Ajouter une vidéo">+ Vidéo</button></div></div>'+
+  '<div class="st"><h3>Mes relances</h3><div class="rows">'+NOTIFS.map(function(n){return '<div class="rw"><div><b>'+n.ic+' '+n.t+'</b><small>'+n.to.map(function(x){return x==='lea'?'Clientes':'Invitées'}).join(' + ')+' · '+n.when+(n.why?' · sauf si '+n.why:'')+'</small></div><button class="pl" data-sim="Modifier la relance">Modifier</button></div>'}).join('')+'</div></div>'+
+  '<p class="note">Tout ce qui est ici se règle sans code. Tu continues à travailler dans Fotostudio : l\'app se met à jour chaque matin.</p></section></div>'}
+
+/* ── Notifications : bandeau et boîte ── */
+function pushShow(list){if(!list.length)return;var n=list[0],el=$('#push');
+  el.innerHTML='<img src="img/logo.png" alt=""><div><small><span>Lila</span><span>maintenant</span></small><b>'+n.ic+' '+n.t+'</b><span>'+val(n.b)+'</span></div>';el.dataset.n=n.id;
+  el.classList.add('on');clearTimeout(pushShow.t);pushShow.t=setTimeout(function(){el.classList.remove('on')},4200)}
+function openInbox(){var w=me(),l=notifsFor(w);
+  $('#sheet').innerHTML='<button class="sheet__grab" data-close aria-label="Fermer"></button><h3>Notifications</h3>'+
+  (l.length?'<ul class="inbox">'+l.map(function(n){return '<li class="'+(S.readN[w+n.id]?'':'new')+'"><button data-notif="'+n.id+'"><span class="ic">'+n.ic+'</span><span><b>'+n.t+'</b><span>'+val(n.b)+'</span><small>'+fmt(d0(n.d),{day:'numeric',month:'long'})+'</small></span></button></li>'}).join('')+'</ul>':'<p>Rien pour l\'instant.</p>')+
+  '<p style="padding-top:14px;font-size:12.5px">Si l\'app n\'est pas installée, le même message part par e-mail.</p>';
+  $('#sheet').classList.add('on');$('#scrim').classList.add('on');l.forEach(function(n){S.readN[w+n.id]=1});save()}
+function openResa(){
+  $('#sheet').innerHTML='<button class="sheet__grab" data-close aria-label="Fermer"></button><h3>Réserver une <em style="font-style:italic;color:var(--gold)">séance</em></h3><p>Ouvre ta vraie page de réservation Fotostudio.</p>'+catsHTML().replace(/<section class="sec"><div class="sec__head">[\s\S]*?<\/div><\/div>/,'<section>');
+  $('#sheet').classList.add('on');$('#scrim').classList.add('on')}
+function openOffre(id){var o=OFFRES.filter(function(x){return x.id===id})[0];
+  $('#sheet').innerHTML='<button class="sheet__grab" data-close aria-label="Fermer"></button><div class="player"><img src="'+im(o.img)+'" alt=""></div><h3>'+o.t+'</h3><p>'+o.s+' · jusqu\'au '+fmt(d0(o.to),{day:'numeric',month:'long'})+'</p><div class="btns"><a class="btn btn--gold" href="'+o.u+'" target="_blank" rel="noopener">Réserver mon créneau</a></div>';
+  $('#sheet').classList.add('on');$('#scrim').classList.add('on')}
+function follow(g){g=val(g);if(g.indexOf('offre:')===0)return openOffre(g.slice(6));if(g.indexOf('res:')===0)return openCat(g.slice(4));go(g)}
+function openCat(k){var c=cat(k);
+  $('#sheet').innerHTML='<button class="sheet__grab" data-close aria-label="Fermer"></button><div class="player"><img src="'+im(c.img)+'" alt=""></div><h3>'+c.t+'</h3><p>'+c.s+'</p><div class="btns"><a class="btn btn--gold" href="'+c.u+'" target="_blank" rel="noopener">Réserver sur Fotostudio</a></div>';
+  $('#sheet').classList.add('on');$('#scrim').classList.add('on')}
 
 /* ── Parcours ── */
 function vParcours(){
@@ -571,16 +775,33 @@ function closeStory(){clearTimeout(sv.t);$('#sv').hidden=true;$('#sv').innerHTML
 var VIEWS={invite:vInvite,accueil:vAccueil,parcours:vParcours,seance:vSeance,videos:vVideos,galerie:vGalerie};
 function route(){var h=location.hash.slice(1);return VIEWS[h]?h:'accueil'}
 function badge(){var n=vids().filter(function(v){return open(v)&&!S.seen[v.id]}).length,b=$('#vBadge');b.hidden=!n;b.textContent=n}
-function render(){var r=route();main.innerHTML=VIEWS[r]();
+function render(){var r=route(),w=me();
+  if(w==='lila')main.innerHTML=vStudio();
+  else if(w==='lea')main.innerHTML=VIEWS[r]();
+  else main.innerHTML=r==='seance'?seanceFor():r==='accueil'||r==='invite'?vPublic():vLocked();
+  document.querySelector('.tabbar').classList.toggle('hide',w==='lila');
+  document.querySelectorAll('#who button').forEach(function(b){b.classList.toggle('on',b.dataset.who===w)});
+  var un=w==='lea'||w==='emma'?unread(w):0;$('#bell').hidden=!(w==='lea'||w==='emma');$('#bellN').hidden=!un;$('#bellN').textContent=un;
+  $('#resaBtn').hidden=w==='lila';
   document.querySelectorAll('.tab').forEach(function(a){a.classList.toggle('on',a.dataset.t===r)});
   var p=PHASES[S.ph];$('#simLabel').textContent=p.l;$('#simDate').textContent=fmt(d0(p.d),{day:'numeric',month:'short',year:'numeric'});
   $('#simTrack').style.width=(S.ph/(PHASES.length-1)*100)+'%';$('#simPrev').disabled=S.ph===0;$('#simNext').disabled=S.ph===PHASES.length-1;
-  $('#avatar').textContent=C.prenom[0];badge()}
+  $('#avatar').textContent={lea:'L',emma:'E',visite:'?',lila:'S'}[w];badge();$('#vBadge').hidden=$('#vBadge').hidden||w!=='lea'}
 function go(r){if(location.hash==='#'+r)render();else location.hash=r;scrollTo(0,0)}
 addEventListener('hashchange',function(){render();scrollTo(0,0)});
 
 document.addEventListener('click',function(e){var el=e.target.closest('button,a');if(!el)return;
-  if(el.id==='simPrev'||el.id==='simNext'){S.ph=Math.max(0,Math.min(PHASES.length-1,S.ph+(el.id==='simNext'?1:-1)));save();render();return}
+  if(el.id==='simPrev'||el.id==='simNext'){var fw=el.id==='simNext';S.ph=Math.max(0,Math.min(PHASES.length-1,S.ph+(fw?1:-1)));save();render();if(fw&&(me()==='lea'||me()==='emma'))pushShow(freshFor(me()));return}
+  if(el.dataset.who){S.who=el.dataset.who;save();if(S.who==='lila'){render();scrollTo(0,0)}else go('accueil');return}
+  if(el.id==='push'){el.classList.remove('on');var pn=NOTIFS.filter(function(x){return x.id===el.dataset.n})[0];if(pn){S.readN[me()+pn.id]=1;save();follow(pn.go)}return}
+  if(el.id==='bell'){openInbox();return}
+  if(el.dataset.notif){var nn=NOTIFS.filter(function(x){return x.id===el.dataset.notif})[0];closeSheet();follow(nn.go);return}
+  if(el.id==='resaBtn'||el.id==='resaBtn2'){openResa();return}
+  if(el.dataset.offre){openOffre(el.dataset.offre);return}
+  if(el.dataset.fs){S.fs[el.dataset.fs]=!S.fs[el.dataset.fs];save();var y3=scrollY;render();scrollTo(0,y3);return}
+  if(el.id==='valid'){toast('Envois de la semaine validés ✓');return}
+  if(el.dataset.sim){toast('Simulation : '+el.dataset.sim);return}
+  if(el.id==='qVisit'){toast('Elle joue, puis laisse son e-mail → elle devient invitée');return}
   if(el.dataset.story){openStory(el.dataset.story);return}
   if(el.dataset.go){if($('#sheet').classList.contains('on')){$('#sheet').classList.remove('on');$('#scrim').classList.remove('on')}go(el.dataset.go);return}
   if(el.dataset.video){openVideo(el.dataset.video);return}
