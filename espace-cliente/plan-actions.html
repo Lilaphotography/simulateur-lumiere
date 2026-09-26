@@ -1,0 +1,293 @@
+<title>Plan espace grossesse</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FFFFFF;--bg2:#FBF7F0;--line:#E8E4DE;--ink:#2A2420;--mute:#7A6E68;--gold:#B8903A;--gold-l:#E8D5B0;--card:#FFFFFF;
+  --ok:#3E6B34;--ok-bg:#E7F0E4;--warn-bg:#FBF1DE;--warn:#8A6A28;
+  --serif:'Cormorant Garamond',Georgia,serif;--sans:'Jost',system-ui,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;
+  --bg:#1D1916;--bg2:#26211D;--line:#3A332D;--ink:#F2ECE4;--mute:#AFA39A;--gold:#CFA85A;--gold-l:#5A4A2E;--card:#231E1A;--ok:#9DB88B;--ok-bg:#243021;--warn-bg:#33291A;--warn:#E0C07A}}
+:root[data-theme="dark"]{color-scheme:dark;
+  --bg:#1D1916;--bg2:#26211D;--line:#3A332D;--ink:#F2ECE4;--mute:#AFA39A;--gold:#CFA85A;--gold-l:#5A4A2E;--card:#231E1A;--ok:#9DB88B;--ok-bg:#243021;--warn-bg:#33291A;--warn:#E0C07A}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-weight:300;font-size:15px;line-height:1.6;padding-inline:16px;padding-block:28px 60px}
+.wrap{max-width:880px;margin:0 auto;display:grid;gap:34px}
+h1,h2,h3{font-family:var(--serif);font-weight:300;line-height:1.08;margin:0;text-wrap:balance}
+h1{font-size:clamp(36px,7vw,54px)}
+h2{font-size:clamp(28px,5vw,36px)}
+em{font-style:italic;color:var(--gold)}
+p{margin:0}
+.eyebrow{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);font-weight:400}
+.lead{color:var(--mute);max-width:62ch}
+.muted{color:var(--mute)}
+.num{font-variant-numeric:tabular-nums lining-nums}
+
+/* chiffres */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.fact{padding:16px 14px;display:grid;gap:2px}
+.fact+.fact{border-left:1px solid var(--line)}
+@media (max-width:620px){.fact:nth-child(odd){border-left:0}.fact{border-bottom:1px solid var(--line)}}
+.fact b{font-family:var(--serif);font-weight:400;font-size:34px;line-height:1}
+.fact small{font-size:12.5px;color:var(--mute)}
+
+/* cette semaine */
+.now{background:var(--bg2);border:1px solid var(--gold-l);border-radius:18px;padding:18px;display:grid;gap:10px}
+.now ol{margin:0;padding-left:20px;display:grid;gap:6px}
+
+/* priorités */
+.prio{display:grid;gap:14px}
+.prio__head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px 16px;border-bottom:1px solid var(--ink);padding-bottom:10px}
+.total{font-family:var(--serif);font-size:24px}
+.total small{font-family:var(--sans);font-size:12px;color:var(--mute);letter-spacing:.06em}
+.moment{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute);margin-top:10px}
+.act{display:grid;grid-template-columns:130px 1fr 1fr 150px;gap:6px 18px;padding:14px 0;border-bottom:1px solid var(--line);align-items:start}
+.act__h{display:grid;gap:6px}
+.act__h b{font-family:var(--serif);font-weight:400;font-size:21px;line-height:1.15}
+.tags{display:flex;flex-wrap:wrap;gap:5px}
+.tag{font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border-radius:9px;border:1px solid var(--line);color:var(--mute);white-space:nowrap}
+.tag--v{border-color:var(--gold);color:var(--gold)}
+.tag--first{background:var(--gold);border-color:var(--gold);color:#fff}
+.tag--fs{background:var(--bg2)}
+.lbl{display:block;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin-bottom:2px}
+.cell{font-size:14px}
+.money{font-family:var(--serif);font-size:22px;line-height:1.1}
+.money small{display:block;font-family:var(--sans);font-size:12px;color:var(--mute);line-height:1.4}
+.money.ind{font-size:17px;color:var(--mute)}
+.when{font-size:12.5px;color:var(--mute)}
+@media (max-width:720px){
+  .act{grid-template-columns:1fr;gap:8px}
+  .act__h{order:0}
+}
+.legend{display:flex;flex-wrap:wrap;gap:8px 16px;font-size:13px;color:var(--mute)}
+.legend span{display:inline-flex;gap:6px;align-items:center}
+
+.pre{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px}
+.pre div{border:1px solid var(--line);border-radius:14px;padding:14px;display:grid;gap:4px}
+.pre b{font-weight:400}
+.st{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;padding:3px 8px;border-radius:9px;justify-self:start}
+.st--todo{background:var(--warn-bg);color:var(--warn)}
+.st--ok{background:var(--ok-bg);color:var(--ok)}
+
+.later{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+.later div{background:var(--bg2);border-radius:14px;padding:14px}
+.later b{font-family:var(--serif);font-weight:400;font-size:20px;display:block}
+
+.sum{overflow-x:auto}
+.sum table{border-collapse:collapse;width:100%;min-width:520px;font-size:14px}
+.sum th,.sum td{text-align:left;padding:10px 8px;border-bottom:1px solid var(--line)}
+.sum th{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);font-weight:400}
+.sum td.r,.sum th.r{text-align:right}
+.sum tr.tot td{border-top:1px solid var(--ink);font-family:var(--serif);font-size:20px}
+.foot{font-size:12.5px;color:var(--mute);border-top:1px solid var(--line);padding-top:14px}
+</style>
+
+<div class="wrap">
+
+<header style="display:grid;gap:12px">
+  <p class="eyebrow">Lila Photography · Espace cliente</p>
+  <h1>Plan d'action <em>grossesse → nouveau-né</em></h1>
+  <p class="lead">Toutes les actions de l'app, dans l'ordre où la cliente les vit, classées par priorité. Pour chacune : à quoi elle sert pour elle, ce qu'elle t'apporte, et ce qu'elle peut rapporter.</p>
+</header>
+
+<section style="display:grid;gap:10px">
+  <p class="eyebrow">Tes vrais chiffres · Fotostudio, 12 derniers mois</p>
+  <div class="facts num">
+    <div class="fact"><b>48</b><small>séances grossesse · 263 € HT en moyenne</small></div>
+    <div class="fact"><b>20</b><small>séances nouveau-né · 376 € HT en moyenne</small></div>
+    <div class="fact"><b>63 %</b><small>de ton chiffre vient de ces deux séances</small></div>
+    <div class="fact"><b>14 / 30</b><small>créneaux Noël 2026 déjà réservés</small></div>
+  </div>
+  <p class="muted" style="font-size:13px">Les 48 grossesses sont un ordre de grandeur : certaines peuvent être classées en « Autre » dans Fotostudio.</p>
+</section>
+
+<section class="now">
+  <p class="eyebrow">Cette semaine · rien d'autre</p>
+  <ol>
+    <li><b>Envoyer le message au support Fotostudio</b> pour savoir s'ils partagent tes données avec une app. Leur réponse décide de tout le reste.</li>
+    <li><b>Passer l'acompte à 100 € dans tes CGV et ton modèle de contrat Fotostudio.</b> C'est la seule urgence, avec ou sans app.</li>
+  </ol>
+</section>
+
+<section class="prio">
+  <div class="prio__head"><div><p class="eyebrow">Avant de construire</p><h2>Priorité 0 · <em>les fondations</em></h2></div></div>
+  <div class="pre">
+    <div><span class="st st--todo">À faire</span><b>Réponse de Fotostudio</b><span class="muted" style="font-size:14px">Accès automatique aux données, ou création des espaces à la main (3 à 5 min par cliente).</span></div>
+    <div><span class="st st--todo">À faire</span><b>Acompte à 100 € dans les CGV</b><span class="muted" style="font-size:14px">Ton contrat doit dire ce que tu encaisses.</span></div>
+    <div><span class="st st--todo">À faire</span><b>Ménage des types de séance</b><span class="muted" style="font-size:14px">Fusionner les doublons (Famille / FAMILLE, GROSSESSE / Grossesse Studio…) pour que l'app classe bien.</span></div>
+    <div><span class="st st--todo">À décider</span><b>Le questionnaire</b><span class="muted" style="font-size:14px">Dans l'app, ou il reste dans Fotostudio à côté du jeu ?</span></div>
+    <div><span class="st st--todo">À décider</span><b>Qui construit, et le budget</b><span class="muted" style="font-size:14px">Achraf ou moi, avec un devis clair avant de commencer.</span></div>
+    <div><span class="st st--todo">À prévoir</span><b>RGPD</b><span class="muted" style="font-size:14px">Consentement pour la date d'accouchement, page confidentialité, suppression automatique.</span></div>
+  </div>
+</section>
+
+<section class="prio">
+  <div class="prio__head">
+    <div><p class="eyebrow">Version 1 · à tester en premier</p><h2>Priorité 1 · <em>grossesse → nouveau-né</em></h2></div>
+    <p class="total num">+5 500 à 7 400 € <small>HT / an, estimation</small></p>
+  </div>
+  <div class="legend"><span><span class="tag tag--first">1er tournage</span> vidéo à tourner en premier</span><span><span class="tag tag--v">Vidéo</span> à tourner</span><span><span class="tag tag--fs">Fotostudio</span> existe déjà, on n'y touche pas</span></div>
+
+  <p class="moment">À la réservation</p>
+  <div class="act">
+    <div class="act__h"><span class="when">Jour de la réservation</span><div class="tags"><span class="tag tag--fs">Fotostudio</span></div></div>
+    <div class="cell"><span class="lbl">Action</span><b>Mail de bienvenue avec le lien de son espace</b><br><span class="muted">Ton mail Fotostudio actuel, avec un lien en plus.</span></div>
+    <div class="cell"><span class="lbl">Pour elle · pour toi</span>Elle a tout au même endroit. Toi, tu n'ajoutes qu'un lien.</div>
+    <div class="money ind">Le socle<small>rend tout le reste possible</small></div>
+  </div>
+  <div class="act">
+    <div class="act__h"><span class="when">Dès la réservation</span><div class="tags"><span class="tag tag--first">1er tournage</span><span class="tag">3 min</span></div></div>
+    <div class="cell"><span class="lbl">Action</span><b>Vidéo « Bienvenue »</b><br><span class="muted">Qui tu es, comment vous allez travailler ensemble.</span></div>
+    <div class="cell"><span class="lbl">Pour elle · pour toi</span>Elle te connaît avant de venir. Toi, tu crées le lien humain que tes avis citent (« son côté humain »).</div>
+    <div class="money ind">Indirect<small>confiance, fidélité</small></div>
+  </div>
+  <div class="act">
+    <div class="act__h"><span class="when">Dès la réservation</span><div class="tags"><span class="tag tag--first">1er tournage</span><span class="tag">5 min</span></div></div>
+    <div class="cell"><span class="lbl">Action</span><b>Vidéo « Ta séance, du début à la fin »</b></div>
+    <div class="cell"><span class="lbl">Pour elle · pour toi</span>Elle sait à quoi s'attendre (le frein « je ne sais pas comment ça marche », module 2.2). Toi, moins de questions par mail.</div>
+    <div class="money ind">Indirect<small>du temps gagné</small></div>
+  </div>
+
+  <p class="moment">2 jours après</p>
+  <div class="act">
+    <div class="act__h"><span class="when">Réservation + 2 j</span><div class="tags"><span class="tag">Notification</span><span class="tag">Écran</span></div></div>
+    <div class="cell"><span class="lbl">Action</span><b>« Ta séance idéale t'attend ✨ »</b><br><span class="muted">Le jeu en 8 questions, son moodboard, ses robes.</span></div>
+    <div class="cell"><span class="lbl">Pour elle · pour toi</span>Elle se projette et a hâte. Toi, tu reçois son brief avant l'appel, et elle a plus envie d'une formule complète.</div>
+    <div class="money num">+2 400 €<small>si la grossesse moyenne passe de 263 à 313 € HT</small></div>
+  </div>
+
+  <p class="moment">6e mois · vers 24 SA</p>
+  <div class="act">
+    <div class="act__h"><span class="when">24 SA</span><div class="tags"><span class="tag tag--v">Vidéo</span><span class="tag">Notification</span></div></div>
+    <div class="cell"><span class="lbl">Action</span><b>Vidéo « Je n'aime pas me voir en photo »</b><br><span class="muted">S'ouvre plus tôt si elle a répondu « réservée » au jeu.</span></div>
+    <div class="cell"><span class="lbl">Pour elle · pour toi</span>Elle arrive rassurée (douleur n°1 de tes clientes, module 2.1). Toi, une séance plus détendue, donc plus de belles images.</div>
+    <div class="money ind">Indirect<small>moins d'annulations, plus de coups de cœur</small></div>
+  </div>
+
+  <p class="moment">7e mois · vers 28 SA</p>
+  <div class="act">
+    <div class="act__h"><span class="when">28 SA</span><div class="tags"><span class="tag tag--v">Vidéo</span><span class="tag">Notification</span></div></div>
+    <div class="cell"><span class="lbl">Action</span><b>Vidéo « Le corps qui change »</b><br><span class="muted">À tourner avec une sage-femme plutôt que seule.</span></div>
+    <div class="cell"><span class="lbl">Pour elle · pour toi</span>Elle se sent comprise, au-delà des photos. Toi, tu deviens « sa » photographe, pas une prestataire.</div>
+    <div class="money ind">Indirect<small>lien, bouche-à-oreille</small></div>
+  </div>
+
+  <p class="moment">Avant la séance</p>
+  <div class="act">
+    <div class="act__h"><span class="when">Séance − 30 j</span><div class="tags"><span class="tag tag--v">Vidéo</span></div></div>
+    <div class="cell"><span class="lbl">Action</span><b>Vidéo « Choisir ta robe »</b><br><span class="muted">Le dressing, et la mise en beauté avec Stella.</span></div>
+    <div class="cell"><span class="lbl">Pour elle · pour toi</span>Elle arrive sûre de ses tenues. Toi, les robes sont prêtes et la séance est fluide.</div>
+    <div class="money ind">Indirect<small>Stella est payée directement par la cliente</small></div>
+  </div>
+  <div class="act">
+    <div class="act__h"><span class="when">Séance − 14 j</span><div class="tags"><span class="tag tag--v">Vidéo</span><span class="tag">Notification</span></div></div>
+    <div class="cell"><span class="lbl">Action</span><b>Vidéo « Le S »</b><br><span class="muted">La pose, avant d'arriver.</span></div>
+    <div class="cell"><span class="lbl">Pour elle · pour toi</span>Elle connaît déjà la pose. Toi, tu gagnes du temps de direction en séance.</div>
+    <div class="money ind">Indirect<small>plus d'images réussies</small></div>
+  </div>
+  <div class="act">
+    <div class="act__h"><span class="when">Séance − 7 j · − 2 j</span><div class="tags"><span class="tag tag--fs">Fotostudio</span></div></div>
+    <div class="cell"><span class="lbl">Action</span><b>Ton appel, puis le rappel J-2</b><br><span class="muted">Comme aujourd'hui.</span></div>
+    <div class="cell"><span class="lbl">Pour elle · pour toi</span>Rien ne change.</div>
+    <div class="money ind">—</div>
+  </div>
+
+  <p class="moment">Après la séance</p>
+  <div class="act">
+    <div class="act__h"><span class="when">Séance + 1 j</span><div class="tags"><span class="tag tag--first">1er tournage</span><span class="tag">Notification</span></div></div>
+    <div class="cell"><span class="lbl">Action</span><b>Vidéo « Choisir tes photos »</b><br><span class="muted">Avant l'ouverture de la galerie Fotostudio.</span></div>
+    <div class="cell"><span class="lbl">Pour elle · pour toi</span>Elle choisit sereinement, sans surprise sur ce qui est inclus. Toi, plus de photos ajoutées dans ta boutique Fotostudio.</div>
+    <div class="money num">+1 250 €<small>si 10 clientes ajoutent 5 photos (125 € HT)</small></div>
+  </div>
+  <div class="act">
+    <div class="act__h"><span class="when">Séance + 7 j</span><div class="tags"><span class="tag tag--fs">Fotostudio</span></div></div>
+    <div class="cell"><span class="lbl">Action</span><b>Bouton « Ma galerie »</b><br><span class="muted">Ouvre sa galerie Fotostudio. On ne refait pas la galerie dans l'app.</span></div>
+    <div class="cell"><span class="lbl">Pour elle · pour toi</span>Elle la retrouve facilement. Toi, un seul système à gérer.</div>
+    <div class="money ind">—</div>
+  </div>
+
+  <p class="moment">Le nouveau-né, en douceur</p>
+  <div class="act">
+    <div class="act__h"><span class="when">32 SA</span><div class="tags"><span class="tag tag--first">1er tournage</span><span class="tag">Notification</span></div></div>
+    <div class="cell"><span class="lbl">Action</span><b>« Et la séance de bébé ? 🤍 »</b><br><span class="muted">Vidéo + bouton vers ton catalogue Nouveau-né ou Pack. Ne part pas si c'est déjà réservé.</span></div>
+    <div class="cell"><span class="lbl">Pour elle · pour toi</span>On lui rappelle que ces premières semaines ne reviennent pas, sans la pousser. Toi, <b>ton plus gros levier</b>.</div>
+    <div class="money num">+1 880 à 3 760 €<small>5 à 10 nouveau-nés de plus (376 € HT)</small></div>
+  </div>
+  <div class="act">
+    <div class="act__h"><span class="when">Livraison</span><div class="tags"><span class="tag">Écran</span></div></div>
+    <div class="cell"><span class="lbl">Action</span><b>Demande d'avis Google</b><br><span class="muted">5 étoiles dans l'app, puis un clic vers Google.</span></div>
+    <div class="cell"><span class="lbl">Pour elle · pour toi</span>Plus simple qu'un lien en bas de mail. Toi, plus d'avis, et Google, c'est 41 % de tes contacts.</div>
+    <div class="money ind">Indirect<small>visibilité Google</small></div>
+  </div>
+  <div class="act">
+    <div class="act__h"><span class="when">36 SA · 39 SA</span><div class="tags"><span class="tag tag--v">Vidéo</span></div></div>
+    <div class="cell"><span class="lbl">Action</span><b>Vidéos « Ralentir » et « Bébé arrive : quand m'écrire »</b></div>
+    <div class="cell"><span class="lbl">Pour elle · pour toi</span>Un accompagnement jusqu'au bout. Toi, elle t'écrit dès la naissance, et la séance nouveau-né se cale plus facilement.</div>
+    <div class="money ind">Indirect<small>moins de nouveau-nés ratés</small></div>
+  </div>
+  <div class="act">
+    <div class="act__h"><span class="when">Naissance + 3 j</span><div class="tags"><span class="tag">Notification</span></div></div>
+    <div class="cell"><span class="lbl">Action</span><b>« Bienvenue petit cœur »</b><br><span class="muted">Si le nouveau-né n'est pas réservé : un lien vers le catalogue. Sinon : « écris-moi pour caler sa séance ».</span></div>
+    <div class="cell"><span class="lbl">Pour elle · pour toi</span>Un mot doux au bon moment. Toi, une dernière chance avant que la fenêtre se ferme.</div>
+    <div class="money ind">Compté dans le 32 SA</div>
+  </div>
+</section>
+
+<section class="prio">
+  <div class="prio__head">
+    <div><p class="eyebrow">Version 2 · quand la V1 tourne</p><h2>Priorité 2 · <em>faire revenir et recommander</em></h2></div>
+    <p class="total num">+2 250 € <small>HT / an, estimation</small></p>
+  </div>
+  <div class="act">
+    <div class="act__h"><span class="when">Ouverture de l'offre · 10 j avant</span><div class="tags"><span class="tag">Notification</span></div></div>
+    <div class="cell"><span class="lbl">Action</span><b>Mini-séances pour tes mamans</b><br><span class="muted">Noël, fête des mères. L'offre apparaît et disparaît seule selon ses dates. Pas de relance si elle est déjà inscrite.</span></div>
+    <div class="cell"><span class="lbl">Pour elle · pour toi</span>Un rendez-vous doux et abordable (150 €). Toi, tu remplis tes créneaux avec des clientes qui te connaissent.</div>
+    <div class="money num">+1 250 €<small>10 mini-séances de plus (125 € HT)</small></div>
+  </div>
+  <div class="act">
+    <div class="act__h"><span class="when">À tout moment</span><div class="tags"><span class="tag">Écran</span><span class="tag">Notification</span></div></div>
+    <div class="cell"><span class="lbl">Action</span><b>Parrainage · 1 photo offerte à chacune</b><br><span class="muted">Son lien personnel ; son amie joue au jeu, puis réserve.</span></div>
+    <div class="cell"><span class="lbl">Pour elle · pour toi</span>Faire plaisir à une amie et gagner une photo. Toi, ton bouche-à-oreille (20 % de tes contacts) devient une règle claire.</div>
+    <div class="money num">+1 000 €<small>5 grossesses en plus, moins 2 photos offertes</small></div>
+  </div>
+</section>
+
+<section class="prio">
+  <div class="prio__head"><div><p class="eyebrow">Plus tard</p><h2>Priorité 3 · <em>la suite de l'histoire</em></h2></div></div>
+  <div class="later">
+    <div><b>Bébé</b><span class="muted" style="font-size:14px">Une notification quand bébé tient assis, vers ses 1 an.</span></div>
+    <div><b>Anniversaire chaque année</b><span class="muted" style="font-size:14px">« Joyeux anniversaire ! » avec une photo de sa séance nouveau-né.</span></div>
+    <div><b>Famille, boudoir</b><span class="muted" style="font-size:14px">Seulement si la V1 et la V2 ont fait leurs preuves.</span></div>
+  </div>
+</section>
+
+<section style="display:grid;gap:12px">
+  <p class="eyebrow">En résumé</p>
+  <div class="sum"><table class="num">
+    <thead><tr><th>Levier</th><th>Hypothèse</th><th class="r">Estimation HT / an</th></tr></thead>
+    <tbody>
+      <tr><td>Séance idéale → formule plus haute</td><td>+50 € sur 48 grossesses</td><td class="r">2 400 €</td></tr>
+      <tr><td>Nouveau-né en douceur</td><td>+5 à 10 nouveau-nés</td><td class="r">1 880 – 3 760 €</td></tr>
+      <tr><td>Préparer la galerie</td><td>10 clientes × 5 photos</td><td class="r">1 250 €</td></tr>
+      <tr><td>Mini-séances</td><td>+10 mini-séances</td><td class="r">1 250 €</td></tr>
+      <tr><td>Parrainage</td><td>+5 grossesses</td><td class="r">1 000 €</td></tr>
+      <tr class="tot"><td>Total</td><td></td><td class="r">7 780 – 9 660 €</td></tr>
+    </tbody>
+  </table></div>
+  <p class="muted" style="font-size:13.5px">Coût de l'app une fois en ligne : environ 300 à 500 € par an, hors construction. <b>Deux nouveau-nés de plus par an suffisent à la payer.</b></p>
+</section>
+
+<section style="display:grid;gap:10px">
+  <p class="eyebrow">Tes vidéos, dans l'ordre de tournage</p>
+  <div class="later">
+    <div><b>1 · Bienvenue</b><span class="muted" style="font-size:14px">3 min</span></div>
+    <div><b>2 · Ta séance, du début à la fin</b><span class="muted" style="font-size:14px">5 min</span></div>
+    <div><b>3 · Et la séance de bébé ?</b><span class="muted" style="font-size:14px">4 min · ton plus gros levier</span></div>
+    <div><b>4 · Choisir tes photos</b><span class="muted" style="font-size:14px">3 min</span></div>
+  </div>
+  <p class="muted" style="font-size:13.5px">Les autres (le miroir, le corps qui change, la robe, le S, ralentir, bébé arrive) s'ajoutent ensuite, à ton rythme.</p>
+</section>
+
+<p class="foot">Les montants sont des estimations, pas des promesses : ils partent de tes chiffres Fotostudio (26 sept. 2025 → 26 sept. 2026) et d'hypothèses à confirmer. Le chiffre qui manque pour mesurer l'effet de l'app : combien de tes clientes grossesse reviennent aujourd'hui pour le nouveau-né.</p>
+</div>
