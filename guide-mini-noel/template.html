@@ -19,7 +19,9 @@ img{max-width:100%}
 a{color:inherit}
 
 /* ---------- Typo ---------- */
-h1,h2,h3,h4{font-family:var(--serif);font-weight:300}
+h1,h2,h3,h4{font-family:var(--serif);font-weight:300;color:var(--charbon)}
+html body p,html body li,html body span,html body button{font-family:var(--sans)}
+html body .gal2{font-family:var(--serif)}
 h2{font-size:54px;letter-spacing:.14em;text-transform:uppercase;text-align:center;line-height:1.1}
 h1 em,h2 em,h3 em{font-style:italic;text-transform:none;letter-spacing:.02em}
 /* Or chromé, avec un reflet qui passe lentement */
@@ -30,7 +32,8 @@ h1 em,h2 em,h3 em{font-style:italic;text-transform:none;letter-spacing:.02em}
 .intro{max-width:600px;margin:0 auto;text-align:center;font-size:17.5px}
 .inner{max-width:1080px;margin:0 auto;padding:110px 24px;position:relative;z-index:2}
 section{position:relative;overflow-x:clip}
-.bg-creme{background:var(--creme)}
+section+section:not(.velvet):not(.hero){border-top:1px solid var(--bord)}
+.bg-creme{background:#fff}
 
 /* ---------- Ornement : filets dorés + houx ---------- */
 .orn{display:flex;align-items:center;justify-content:center;gap:16px;margin:24px auto 34px}
@@ -74,7 +77,7 @@ svg.holly{overflow:visible;filter:drop-shadow(0 6px 8px rgba(30,20,10,.18))}
 .nav a:hover,.nav a.on{background:var(--sapin);color:#fff}
 
 /* ---------- Hero ---------- */
-.hero{background:radial-gradient(ellipse at 28% 45%,#fff 0%,var(--creme) 58%,var(--creme2) 100%);overflow:hidden}
+.hero{background:#fff;overflow:hidden}
 .hero .inner{display:grid;grid-template-columns:5fr 7fr;gap:72px;align-items:center;padding-top:150px;padding-bottom:120px}
 .hero .round{position:relative;aspect-ratio:1}
 .hero .round::before{content:"";position:absolute;inset:-14px;border:1px solid var(--dore-clair);border-radius:50%}
@@ -98,8 +101,8 @@ svg.holly{overflow:visible;filter:drop-shadow(0 6px 8px rgba(30,20,10,.18))}
 .steps li:first-child{border-top:1px solid var(--bord)}
 .steps li::before{content:counter(s,decimal-leading-zero);font-family:var(--serif);font-style:italic;font-size:28px;color:var(--houx)}
 .steps li b{font-family:var(--serif);font-weight:500;font-size:21px;letter-spacing:.12em;text-transform:uppercase}
-.encart{margin-top:84px;background:var(--creme);display:grid;grid-template-columns:2fr 3fr;position:relative}
-.encart .ph{background:radial-gradient(ellipse at 50% 40%,#FBF8F3,#E9E1D4);display:flex;align-items:center;justify-content:center;min-height:380px;padding:40px 24px}
+.encart{margin-top:84px;background:#fff;border:1px solid var(--dore-clair);display:grid;grid-template-columns:2fr 3fr;position:relative}
+.encart .ph{background:#fff;display:flex;align-items:center;justify-content:center;min-height:380px;padding:40px 24px}
 /* rond recadré sur le visage de Stella */
 .face{position:relative;width:250px;aspect-ratio:1}
 .face::before{content:"";position:absolute;inset:-12px;border:1px solid var(--dore-clair);border-radius:50%}
@@ -155,6 +158,7 @@ svg.holly{overflow:visible;filter:drop-shadow(0 6px 8px rgba(30,20,10,.18))}
 .trio b{display:block;font-family:var(--serif);font-weight:500;font-size:29px;margin-bottom:4px}
 .dayj{margin:52px auto 0;max-width:640px;background:radial-gradient(ellipse at 30% 0%,#3D5E49,var(--sapin2));color:#F4EFE6;padding:40px 28px;text-align:center;position:relative;box-shadow:0 20px 44px rgba(27,49,37,.25)}
 .dayj .lbl{color:var(--dore-clair)}
+html body .dayj p{color:#F4EFE6}
 .dayj .amt{font-family:var(--serif);font-size:64px;font-weight:400;margin:6px 0;line-height:1.1}
 .dayj p{font-size:15px;opacity:.85}
 .dayj .holly{position:absolute;width:110px;left:-36px;top:-34px}
@@ -185,10 +189,16 @@ svg.holly{overflow:visible;filter:drop-shadow(0 6px 8px rgba(30,20,10,.18))}
 /* Bandeau velours rouge */
 .velvet{background:radial-gradient(ellipse at 25% 20%,#8A1E2E 0%,var(--velours) 45%,var(--velours2) 100%);color:#F7EFE4;overflow:hidden}
 .velvet::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(115deg,rgba(255,255,255,.025) 0 2px,transparent 2px 6px);pointer-events:none}
-.velvet .inner{max-width:1180px;display:grid;grid-template-columns:5fr 6fr;gap:56px;align-items:center;padding-top:140px;padding-bottom:120px}
+.velvet .inner{max-width:1180px;padding-top:170px!important;display:grid;grid-template-columns:5fr 6fr;gap:56px;align-items:center;padding-top:140px;padding-bottom:120px}
 .velvet .lbl{color:var(--dore-clair)}
-.velvet h3{font-size:42px;margin-top:6px}
-.velvet p{font-size:16.5px;color:#F3E7DA}
+/* ruban satin doré qui entoure le bandeau, avec un noeud */
+.ribbon-h{position:absolute;left:0;right:0;top:58px;height:26px;background:linear-gradient(180deg,#8E6B27,#E9CC80 30%,#FFF4CF 50%,#C9A04A 70%,#7A5A20);box-shadow:0 4px 10px rgba(0,0,0,.3);z-index:2}
+.ribbon-h::before,.ribbon-h::after{content:"";position:absolute;left:0;right:0;height:1px;background:rgba(255,255,255,.5);top:4px}
+.ribbon-h::after{top:auto;bottom:4px;background:rgba(90,60,20,.5)}
+.bow{position:absolute;left:50%;top:14px;width:150px;transform:translateX(-50%);z-index:3;filter:drop-shadow(0 8px 10px rgba(0,0,0,.35))}
+.bow svg{display:block;width:100%;height:auto;overflow:visible}
+.velvet h3{font-size:42px;margin-top:6px;color:#FBF4EA}
+html body .velvet p{font-size:16.5px;color:#F3E7DA}
 .velvet .fir.l{width:300px;left:-110px;bottom:-30px;transform:rotate(-16deg);opacity:.85}
 .velvet .fir.r{width:280px;right:-100px;top:30px;transform:scaleX(-1) rotate(12deg);opacity:.85}
 .code{display:inline-flex;flex-direction:column;margin-top:26px;padding:14px 26px;border:1px solid var(--dore-clair);background:rgba(255,255,255,.06);font-size:18px;letter-spacing:.22em;text-transform:uppercase;font-weight:500;cursor:pointer;font-family:var(--sans);color:#fff;text-align:left;transition:background .3s}
@@ -198,38 +208,39 @@ svg.holly{overflow:visible;filter:drop-shadow(0 6px 8px rgba(30,20,10,.18))}
 .code .ok{color:var(--dore-clair)}
 
 /* Carte cadeau recréée */
-.gcard{display:grid;grid-template-columns:40% 60%;background:#fff;color:var(--sapin2);box-shadow:0 30px 60px rgba(0,0,0,.35);transform:rotate(-2deg);transition:transform .6s ease;position:relative}
-.gcard:hover{transform:rotate(0) scale(1.02)}
-.gcard .gl{background:radial-gradient(ellipse at 50% 30%,#1F6A49,#0E3D29 75%);color:#fff;padding:26px 18px;text-align:center;position:relative;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:6px}
-.gcard .gl::before,.gcard .gr::before{content:"";position:absolute;inset:8px;border:1px solid rgba(217,188,122,.7);pointer-events:none}
-.gcard .gl .brand{font-size:9.5px;letter-spacing:.3em;color:var(--dore-clair);font-weight:400}
-.gcard .gl .t1{font-family:var(--serif);font-size:54px;line-height:.95;font-weight:500;margin-top:8px}
-.gcard .gl .t2{font-family:var(--serif);font-style:italic;font-size:40px;line-height:1;font-weight:500}
-.gcard .gl .noel{font-size:9.5px;letter-spacing:.32em;color:#EADFCB;margin-top:4px}
-.gcard .gl .garl{width:120px;height:14px;margin:4px 0}
-.gcard .gl .q{font-family:var(--serif);font-style:italic;font-size:15px;line-height:1.35;color:#F4EFE6;margin-top:8px}
-.gcard .flake{position:absolute;color:var(--dore-clair);opacity:.7;font-size:12px}
-.gcard .gr{padding:26px 26px 22px;position:relative;display:flex;flex-direction:column;gap:12px}
-.gcard .gr .top{display:flex;justify-content:space-between;gap:10px}
-.gcard .gr .kicker{font-size:8.5px;letter-spacing:.3em;color:var(--taupe)}
-.gcard .gr .ttl{font-family:var(--serif);font-size:34px;line-height:1.05;color:#16452F;font-weight:500}
+.gcard{display:grid;grid-template-columns:40% 60%;aspect-ratio:2.1/1;container-type:inline-size;background:#fff;color:var(--sapin2);box-shadow:0 30px 60px rgba(0,0,0,.35);transform:rotate(-2deg);position:relative;font-family:var(--sans)}
+.gcard *{font-family:inherit}
+.gcard .gl{background:radial-gradient(ellipse at 50% 30%,#1F6A49,#0E3D29 75%);color:#fff;padding:3cqw 2cqw;text-align:center;position:relative;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:.6cqw}
+.gcard .gl::before,.gcard .gr::before{content:"";position:absolute;inset:1.4cqw;border:1px solid rgba(217,188,122,.7);pointer-events:none}
+.gcard .gl .brand{font-size:1.7cqw;letter-spacing:.3em;color:var(--dore-clair);font-weight:400}
+.gcard .gl .t1{font-family:var(--serif);font-size:9.6cqw;line-height:.95;font-weight:500;margin-top:1cqw}
+.gcard .gl .t2{font-family:var(--serif);font-style:italic;font-size:7.2cqw;line-height:1;font-weight:500}
+.gcard .gl .noel{font-size:1.7cqw;letter-spacing:.32em;color:#EADFCB;margin-top:.6cqw}
+.gcard .gl .garl{width:21cqw;height:2.5cqw;margin:.6cqw 0}
+.gcard .gl .q{font-family:var(--serif);font-style:italic;font-size:2.7cqw;line-height:1.35;color:#F4EFE6;margin-top:1cqw}
+.gcard .flake{position:absolute;color:var(--dore-clair);opacity:.7;font-size:2.1cqw}
+.gcard .gr{padding:4.6cqw 4.6cqw 3.8cqw;position:relative;display:flex;flex-direction:column;gap:2.2cqw}
+.gcard .gr .top{display:flex;justify-content:space-between;gap:2cqw}
+.gcard .gr .kicker{font-size:1.5cqw;letter-spacing:.3em;color:var(--taupe)}
+.gcard .gr .ttl{font-family:var(--serif);font-size:6cqw;line-height:1.05;color:#16452F;font-weight:500}
 .gcard .gr .ttl em{font-style:italic}
-.gcard .gr .bar{width:110px;height:2px;background:var(--chrome);margin-top:6px}
-.gcard .logo{text-align:center;font-family:var(--serif);color:#16452F;font-size:26px;line-height:1}
-.gcard .logo small{display:block;font-family:var(--sans);font-size:6.5px;letter-spacing:.24em;margin-top:4px}
-.gcard .gr .cols{display:grid;grid-template-columns:1.1fr 1fr;gap:16px;font-size:9px;line-height:1.7}
-.gcard .gr .cta{color:var(--dore);font-size:8.5px;letter-spacing:.14em;font-weight:500;margin-bottom:4px}
-.gcard .fields div{display:flex;gap:6px;align-items:flex-end;font-size:7.5px;letter-spacing:.2em;color:var(--taupe);margin-bottom:6px}
-.gcard .fields div::after{content:"";flex:1;border-bottom:1px dotted #C9BFAF;transform:translateY(-3px)}
-.gcard .fields div.v::after{display:none}
+.gcard .gr .bar{width:19cqw;height:.35cqw;background:var(--chrome);margin-top:1cqw}
+.gcard .logo{text-align:center;font-family:var(--serif);color:#16452F;font-size:4.6cqw;line-height:1}
+.gcard .logo small{display:block;font-family:var(--sans);font-size:1.15cqw;letter-spacing:.24em;margin-top:.7cqw}
+.gcard .gr .cols{display:grid;grid-template-columns:1.1fr 1fr;gap:2.8cqw;font-size:1.6cqw;line-height:1.7}
+.gcard .gr .cta{color:var(--dore);font-size:1.5cqw;letter-spacing:.14em;font-weight:500;margin-bottom:.7cqw}
+.gcard .fields div{display:flex;gap:1cqw;align-items:flex-end;font-size:1.35cqw;letter-spacing:.2em;color:var(--taupe);margin-bottom:1.1cqw}
+.gcard .fields div::after{content:"";flex:1;border-bottom:1px dotted #C9BFAF;transform:translateY(-.5cqw)}
 .gcard .fields div.v{white-space:nowrap}
-.gcard .fields b{color:var(--dore);font-weight:500;letter-spacing:.04em;font-size:9px}
+.gcard .fields div.v::after{display:none}
+.gcard .fields b{color:var(--dore);font-weight:500;letter-spacing:.04em;font-size:1.6cqw}
 
 /* ---------- Infos ---------- */
 .ig{display:grid;grid-template-columns:repeat(3,1fr);gap:36px;margin-top:56px;text-align:center}
 .ig h4{font-weight:500;font-size:21px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:10px}
 .ig p{font-size:16px}
 .ig b{font-weight:500}
+.addr{text-decoration:none}
 .btns{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-top:48px}
 
 /* ---------- Fin ---------- */
@@ -276,11 +287,12 @@ footer svg.holly{width:90px;height:45px;display:block;margin:0 auto 16px}
   .grid3{grid-template-columns:1fr;gap:64px}.card .img{max-width:340px;margin:0 auto}
   .card h3{font-size:28px}.card p{font-size:16.5px}
   .tips{grid-template-columns:1fr;gap:28px}.tips p{font-size:16.5px}
-  .pal{gap:18px 22px}.pal span{width:58px;height:58px}
-  /* idées de tenues : carrousel qui défile au doigt */
-  .lks{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:16px;margin:0 -20px;padding:0 20px 16px;scrollbar-width:none}
-  .lks::-webkit-scrollbar{display:none}
-  .lk{flex:0 0 76%;scroll-snap-align:center}
+  .pal{gap:8px;flex-wrap:nowrap;justify-content:space-between}.pal div{flex:1;font-size:10px;letter-spacing:.08em}.pal span{width:46px;height:46px}
+  /* idées de tenues : grille 2 x 2 alignée, photos recadrées à la même hauteur */
+  .lks{grid-template-columns:repeat(2,1fr);gap:22px 12px}
+  .lk{display:flex;flex-direction:column}
+  .lk h4{font-size:15px;letter-spacing:.1em;min-height:2.6em;display:flex;align-items:flex-end;justify-content:center;margin-bottom:8px;line-height:1.3}
+  .lk img{aspect-ratio:2/3;object-fit:cover;object-position:50% 20%}
   .looks h3{font-size:28px}
   .price{font-size:68px}
   .trio,.tiles{grid-template-columns:1fr}.trio div+div{border-left:0;border-top:1px solid var(--bord)}
@@ -294,20 +306,9 @@ footer svg.holly{width:90px;height:45px;display:block;margin:0 auto 16px}
   .velvet .inner{grid-template-columns:1fr;gap:56px;padding-top:110px}
   .velvet h3{font-size:34px}.velvet p{font-size:16.5px}
   .velvet .fir.l,.velvet .fir.r{width:190px}
-  /* carte cadeau : volets empilés pour rester lisible */
-  .gcard{grid-template-columns:1fr;transform:rotate(-1deg);max-width:420px;margin:0 auto}
-  .gcard .gl{padding:34px 18px}
-  .gcard .gl .t1{font-size:58px}.gcard .gl .t2{font-size:44px}
-  .gcard .gl .brand,.gcard .gl .noel{font-size:11px}
-  .gcard .gl .q{font-size:17px}
-  .gcard .gr{padding:30px 26px 26px}
-  .gcard .gr .kicker{font-size:10px}
-  .gcard .gr .ttl{font-size:36px}
-  .gcard .gr .cols{grid-template-columns:1fr;font-size:12px}
-  .gcard .gr .cta{font-size:10.5px}
-  .gcard .fields div{font-size:10px}.gcard .fields div.v{white-space:nowrap}
-.gcard .fields b{font-size:12px}
-  .gcard .logo{font-size:30px}.gcard .logo small{font-size:8px}
+  .gcard{transform:rotate(-1deg)}
+  .ribbon-h{top:44px;height:20px}.bow{width:110px;top:8px}
+  .velvet .inner{padding-top:130px!important}
   .ig{grid-template-columns:1fr;gap:30px}.ig p{font-size:16.5px}
   .galg{grid-template-columns:repeat(2,1fr);gap:10px}
   #decors .fir.r,#tenues .fir.l,.end .fir.r{display:none}
@@ -353,16 +354,6 @@ footer svg.holly{width:90px;height:45px;display:block;margin:0 auto 16px}
   </div>
 </section>
 
-<nav class="nav" aria-label="Sommaire">
-  <ul>
-    <li><a href="#jour-j">Le jour J</a></li>
-    <li><a href="#decors">Les décors</a></li>
-    <li><a href="#tenues">Les tenues</a></li>
-    <li><a href="#photos">Tes photos</a></li>
-    <li><a href="#cadeaux">Cadeaux</a></li>
-    <li><a href="#infos">Infos pratiques</a></li>
-  </ul>
-</nav>
 
 <!-- ============ LE JOUR J ============ -->
 <section id="jour-j"><div class="inner">
@@ -424,7 +415,6 @@ footer svg.holly{width:90px;height:45px;display:block;margin:0 auto 16px}
   </div>
   <div class="outro rv">
     <p>Les couleurs de ces trois décors vont t'aider à choisir vos tenues, on en parle juste en dessous :)</p>
-    <a class="btn" href="#tenues">Préparer vos tenues</a>
   </div>
 </div></section>
 
@@ -510,7 +500,8 @@ footer svg.holly{width:90px;height:45px;display:block;margin:0 auto 16px}
 </div></section>
 
 <section class="velvet">
-  <div class="lights" aria-hidden="true"></div>
+  <div class="ribbon-h" aria-hidden="true"></div>
+  <div class="bow" aria-hidden="true"><svg viewBox="0 0 160 110"><use href="#bow"/></svg></div>
   <div class="fir l" aria-hidden="true"><div class="sway"><svg viewBox="0 0 330 115"><use href="#fir"/></svg></div></div>
   <div class="fir r" aria-hidden="true"><div class="sway"><svg viewBox="0 0 330 115"><use href="#fir"/></svg></div></div>
   <div class="inner">
@@ -560,12 +551,9 @@ footer svg.holly{width:90px;height:45px;display:block;margin:0 auto 16px}
   <h2 class="rv">Infos <em>pratiques</em></h2>
   <div class="orn" aria-hidden="true"><svg viewBox="0 0 140 70"><use href="#holly"/></svg></div>
   <div class="ig rv">
-    <div><h4>Le studio</h4><p>Lila Photography<br>1 chemin du Dépôt<br>07400 Le Teil</p></div>
+    <div><h4>Le studio</h4><p><a class="addr" href="https://www.google.com/maps/search/?api=1&query=1+chemin+du+D%C3%A9p%C3%B4t+07400+Le+Teil">Lila Photography<br>1 chemin du Dépôt<br>07400 Le Teil</a></p></div>
     <div><h4>Pour venir</h4><p>Un grand parking est disponible juste devant le studio. Le studio est au premier étage, avant Intermarché : monte les escaliers.</p></div>
     <div><h4>Un doute ?</h4><p>Pour l'accès ou n'importe quelle question, appelle-moi au<br><b><a href="tel:+33689565105" style="text-decoration:none">06 89 56 51 05</a></b></p></div>
-  </div>
-  <div class="btns">
-    <a class="btn" href="https://www.google.com/maps/search/?api=1&query=1+chemin+du+D%C3%A9p%C3%B4t+07400+Le+Teil">Itinéraire</a>
   </div>
 </div></section>
 

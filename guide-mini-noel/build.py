@@ -152,11 +152,35 @@ def baubles():
     return out
 
 
+def bow():
+    """Noeud de ruban satin doré (viewBox 0 0 160 110), centré en (80,40)."""
+    g = "url(#g-gold)"
+    return (
+        '<symbol id="bow" viewBox="0 0 160 110">'
+        # pans du ruban
+        f'<path d="M74 44 L52 104 L62 98 L68 108 L82 48 Z" fill="{g}" stroke="#6E501C" stroke-width=".6"/>'
+        f'<path d="M86 44 L108 104 L98 98 L92 108 L78 48 Z" fill="{g}" stroke="#6E501C" stroke-width=".6"/>'
+        # boucles
+        f'<path d="M78 40 C60 8 18 4 12 26 C6 46 46 54 78 44 Z" fill="{g}" stroke="#6E501C" stroke-width=".7"/>'
+        f'<path d="M82 40 C100 8 142 4 148 26 C154 46 114 54 82 44 Z" fill="{g}" stroke="#6E501C" stroke-width=".7"/>'
+        # ombres internes des boucles
+        '<path d="M74 40 C58 22 34 18 26 28 C40 26 58 32 74 42 Z" fill="#6E501C" opacity=".35"/>'
+        '<path d="M86 40 C102 22 126 18 134 28 C120 26 102 32 86 42 Z" fill="#6E501C" opacity=".35"/>'
+        # reflets satin
+        '<path d="M20 22 C34 12 54 16 66 28" stroke="#fff" stroke-opacity=".55" stroke-width="2" fill="none" stroke-linecap="round"/>'
+        '<path d="M140 22 C126 12 106 16 94 28" stroke="#fff" stroke-opacity=".55" stroke-width="2" fill="none" stroke-linecap="round"/>'
+        # noeud central
+        f'<rect x="70" y="32" width="20" height="18" rx="5" fill="{g}" stroke="#6E501C" stroke-width=".7"/>'
+        '<path d="M73 36 Q80 33 87 36" stroke="#fff" stroke-opacity=".6" stroke-width="1.4" fill="none"/>'
+        '</symbol>'
+    )
+
+
 def main():
     html = (ROOT / "template.html").read_text(encoding="utf-8")
     html = html.replace("<!--SVG_SYMBOLS-->",
                         '<svg width="0" height="0" style="position:absolute" aria-hidden="true">'
-                        + GRADIENTS + fir_branch() + holly() + baubles() + "</svg>")
+                        + GRADIENTS + fir_branch() + holly() + baubles() + bow() + "</svg>")
 
     def inline(m):
         path = ROOT / m.group(1)
