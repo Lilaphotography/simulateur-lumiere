@@ -2,242 +2,318 @@
 <html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Mini-séances de Noël</title>
 <meta name="description" content="Guide de préparation des mini-séances de Noël 2026 — Lila Photography, studio au Teil.">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 :root{
-  --charbon:#2A2420;--dore:#B8903A;--dore-clair:#D9BC7A;--taupe:#7A6E68;
-  --creme:#F6F3EE;--creme2:#EFE9E0;--bord:#E8E4DE;--gris:#E8E8E8;
-  --sapin:#2F4A3A;--sapin2:#1F3528;--houx:#9E1B2A;
+  --charbon:#2A2420;--dore:#B8903A;--dore-clair:#D9BC7A;--taupe:#6E625C;
+  --creme:#F6F3EE;--creme2:#EFE8DC;--bord:#E8E4DE;--gris:#E8E8E8;
+  --sapin:#2F4A3A;--sapin2:#1B3125;--houx:#B3182C;--velours:#6B1522;--velours2:#3E0A13;
   --serif:'Cormorant Garamond',Georgia,serif;--sans:'Jost',system-ui,sans-serif;
+  --chrome:linear-gradient(100deg,#7A5A20 0%,#C9A04A 14%,#FFF4CF 26%,#D6B05A 38%,#8E6B27 50%,#E9CC80 62%,#FFF7DA 72%,#B8903A 84%,#7A5A20 100%);
+  --chrome-d:linear-gradient(100deg,#6E501C 0%,#A8812F 16%,#E8CC82 28%,#B08732 40%,#7A5A20 52%,#C9A04A 64%,#EBD292 74%,#9C7A30 86%,#6E501C 100%);
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{background:#fff;color:var(--charbon);font-family:var(--sans);font-weight:300;line-height:1.75;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body{background:#fff;color:var(--charbon);font-family:var(--sans);font-weight:300;line-height:1.75;-webkit-font-smoothing:antialiased;overflow-x:hidden;font-size:16px}
 img{max-width:100%}
 a{color:inherit}
 
-/* ---------- Typo commune ---------- */
+/* ---------- Typo ---------- */
 h1,h2,h3,h4{font-family:var(--serif);font-weight:300}
-h2{font-size:52px;letter-spacing:.14em;text-transform:uppercase;text-align:center;line-height:1.1}
-h2 em,h3 em,h1 em{font-style:italic;color:var(--dore);text-transform:none;letter-spacing:.02em}
-.lbl{font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--taupe);font-weight:400}
-.intro{max-width:580px;margin:0 auto;text-align:center;font-size:17px}
-.inner{max-width:1080px;margin:0 auto;padding:110px 24px;position:relative}
+h2{font-size:54px;letter-spacing:.14em;text-transform:uppercase;text-align:center;line-height:1.1}
+h1 em,h2 em,h3 em{font-style:italic;text-transform:none;letter-spacing:.02em}
+/* Or chromé, avec un reflet qui passe lentement */
+.chrome,h1 em,h2 em,h3 em{background:var(--chrome-d);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;animation:shine 7s ease-in-out infinite;padding-right:.06em}
+.velvet .chrome,.velvet h3 em,.gcard .gl .chrome,.dayj .chrome{background-image:var(--chrome)}
+@keyframes shine{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+.lbl{font-size:12.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--taupe);font-weight:400}
+.intro{max-width:600px;margin:0 auto;text-align:center;font-size:17.5px}
+.inner{max-width:1080px;margin:0 auto;padding:110px 24px;position:relative;z-index:2}
 section{position:relative;overflow-x:clip}
 .bg-creme{background:var(--creme)}
 
-/* ---------- Ornement : filet doré + brin de houx ---------- */
-.orn{display:flex;align-items:center;justify-content:center;gap:18px;margin:26px auto 30px}
-.orn::before,.orn::after{content:"";width:56px;height:1px;background:var(--dore)}
-.orn svg{width:58px;height:30px;overflow:visible}
+/* ---------- Ornement : filets dorés + houx ---------- */
+.orn{display:flex;align-items:center;justify-content:center;gap:16px;margin:24px auto 34px}
+.orn::before,.orn::after{content:"";width:64px;height:1px;background:linear-gradient(90deg,transparent,var(--dore))}
+.orn::after{transform:scaleX(-1)}
+.orn svg{width:84px;height:42px;overflow:visible}
 .orn.left{justify-content:flex-start}
 
-/* ---------- Déco de Noël ---------- */
-.fir{position:absolute;pointer-events:none;z-index:0}
+/* ---------- Sapin, houx, boules, guirlande ---------- */
+.fir{position:absolute;pointer-events:none;z-index:1}
 .fir svg{display:block;width:100%;height:auto;overflow:visible}
 .fir .sway{transform-origin:0% 55%;animation:sway 7s ease-in-out infinite}
 .fir.r .sway{animation-duration:8.5s;animation-delay:-3s}
-.fir .holly{position:absolute;width:30%;left:-6%;top:22%}
 @keyframes sway{0%,100%{transform:rotate(-1.6deg)}50%{transform:rotate(1.8deg)}}
 .berries{transform-box:fill-box;transform-origin:center;animation:berry 4.5s ease-in-out infinite}
-@keyframes berry{0%,100%{transform:scale(1);filter:brightness(1)}50%{transform:scale(1.07);filter:brightness(1.18)}}
+@keyframes berry{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+svg.holly{overflow:visible;filter:drop-shadow(0 6px 8px rgba(30,20,10,.18))}
+
+.baubles{position:absolute;top:0;pointer-events:none;z-index:3}
+.bauble{position:absolute;top:0;transform-origin:50% 0;animation:swing var(--d,6s) ease-in-out infinite;animation-delay:var(--dl,0s)}
+.bauble i{display:block;width:1px;height:var(--len,90px);margin:0 auto;background:linear-gradient(var(--dore-clair),var(--dore))}
+.bauble svg{display:block;width:var(--w,52px);height:auto;margin-top:-3px;overflow:visible;filter:drop-shadow(0 10px 12px rgba(40,20,10,.25))}
+@keyframes swing{0%,100%{transform:rotate(4deg)}50%{transform:rotate(-4deg)}}
+
+.lights{position:absolute;left:0;right:0;top:0;height:60px;pointer-events:none;z-index:4}
+.lights svg{display:block;width:100%;height:100%;overflow:visible}
+.lights .bulb{animation:twinkle var(--t,2.4s) ease-in-out infinite;animation-delay:var(--dl,0s)}
+@keyframes twinkle{0%,100%{opacity:1}50%{opacity:.35}}
 
 .snow{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:1}
-.snow i{position:absolute;top:-12px;border-radius:50%;background:#fff;box-shadow:0 0 6px rgba(184,144,58,.35);animation:fall linear infinite;opacity:0}
-@keyframes fall{0%{transform:translate3d(0,-10px,0);opacity:0}10%{opacity:.85}90%{opacity:.6}100%{transform:translate3d(var(--dx),105vh,0);opacity:0}}
+.snow i{position:absolute;top:-12px;border-radius:50%;animation:fall linear infinite;opacity:0}
+@keyframes fall{0%{transform:translate3d(0,-10px,0);opacity:0}10%{opacity:.9}90%{opacity:.7}100%{transform:translate3d(var(--dx),110vh,0);opacity:0}}
 
 /* ---------- Navigation ---------- */
-.nav{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--bord)}
+.nav{position:sticky;top:0;z-index:30;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--bord)}
 .nav ul{list-style:none;display:flex;gap:6px;max-width:1080px;margin:0 auto;padding:10px 16px;overflow-x:auto;scrollbar-width:none}
 .nav ul::-webkit-scrollbar{display:none}
 .nav li:first-child{margin-left:auto}.nav li:last-child{margin-right:auto}
-.nav a{display:block;white-space:nowrap;padding:7px 14px;border-radius:999px;font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;color:var(--taupe);transition:background .3s,color .3s}
-.nav a:hover,.nav a.on{background:var(--creme);color:var(--charbon)}
+.nav a{display:block;white-space:nowrap;padding:8px 15px;border-radius:999px;font-size:12px;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;color:var(--taupe);font-weight:400;transition:background .3s,color .3s}
+.nav a:hover,.nav a.on{background:var(--sapin);color:#fff}
 
 /* ---------- Hero ---------- */
-.hero{background:radial-gradient(ellipse at 30% 40%,#fff 0%,var(--creme) 62%,var(--creme2) 100%);overflow:hidden}
-.hero .inner{display:grid;grid-template-columns:5fr 7fr;gap:72px;align-items:center;padding-top:130px;padding-bottom:120px;z-index:2}
+.hero{background:radial-gradient(ellipse at 28% 45%,#fff 0%,var(--creme) 58%,var(--creme2) 100%);overflow:hidden}
+.hero .inner{display:grid;grid-template-columns:5fr 7fr;gap:72px;align-items:center;padding-top:150px;padding-bottom:120px}
 .hero .round{position:relative;aspect-ratio:1}
 .hero .round::before{content:"";position:absolute;inset:-14px;border:1px solid var(--dore-clair);border-radius:50%}
-.hero .round img{width:100%;height:100%;object-fit:cover;display:block;border-radius:50%;box-shadow:0 20px 50px rgba(42,36,32,.14)}
-.hero .round .holly{position:absolute;width:34%;right:-4%;bottom:2%;filter:drop-shadow(0 4px 6px rgba(0,0,0,.12))}
-.eyebrow{font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:var(--taupe);font-weight:400}
-.hero h1{font-size:54px;letter-spacing:.12em;text-transform:uppercase;line-height:1.05;margin-top:16px}
-.hero h1 em{display:block;font-size:1.25em;margin-top:4px}
-.hero p{font-size:16.5px;margin-bottom:14px}
-.sign{font-family:var(--serif);font-style:italic;font-size:32px;color:var(--dore);line-height:1}
-.hero .fir.l{width:430px;left:-90px;top:-34px;transform:rotate(18deg)}
-.hero .fir.r{width:380px;right:-110px;top:-30px;transform:scaleX(-1) rotate(22deg)}
+.hero .round::after{content:"";position:absolute;inset:-26px;border:1px dashed rgba(184,144,58,.35);border-radius:50%;animation:spin 90s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.hero .round img{width:100%;height:100%;object-fit:cover;display:block;border-radius:50%;box-shadow:0 24px 60px rgba(42,36,32,.18)}
+.hero .round .holly{position:absolute;width:46%;right:-10%;bottom:-2%;z-index:2}
+.eyebrow{font-size:12.5px;letter-spacing:.32em;text-transform:uppercase;color:var(--houx);font-weight:500}
+.hero h1{font-size:54px;letter-spacing:.08em;text-transform:uppercase;line-height:1.05;margin-top:16px}
+.hero h1 em{display:block;font-size:1.55em;margin-top:6px;font-weight:400;line-height:1.05}
+.hero p{font-size:17px;margin-bottom:14px}
+.sign{font-family:var(--serif);font-style:italic;font-size:36px;line-height:1.1;display:inline-block}
+.hero .fir.l{width:430px;left:-90px;top:-20px;transform:rotate(18deg)}
+.hero .fir.r{width:380px;right:-110px;top:-16px;transform:scaleX(-1) rotate(22deg)}
 .hero .fir.b{width:340px;right:-80px;bottom:-40px;transform:scaleX(-1) rotate(-14deg);opacity:.9}
+.hero .baubles{right:15%;width:220px;height:300px}
 
 /* ---------- Le jour J ---------- */
 .steps{list-style:none;margin-top:52px;counter-reset:s}
-.steps li{display:grid;grid-template-columns:64px 210px 1fr;gap:20px;align-items:baseline;padding:22px 0;border-bottom:1px solid var(--bord);font-size:16px;counter-increment:s}
+.steps li{display:grid;grid-template-columns:64px 220px 1fr;gap:20px;align-items:baseline;padding:22px 0;border-bottom:1px solid var(--bord);font-size:16.5px;counter-increment:s}
 .steps li:first-child{border-top:1px solid var(--bord)}
-.steps li::before{content:counter(s,decimal-leading-zero);font-family:var(--serif);font-style:italic;font-size:26px;color:var(--dore)}
-.steps li b{font-family:var(--serif);font-weight:400;font-size:21px;letter-spacing:.12em;text-transform:uppercase}
-.encart{margin-top:80px;background:var(--creme);display:grid;grid-template-columns:2fr 3fr;position:relative}
+.steps li::before{content:counter(s,decimal-leading-zero);font-family:var(--serif);font-style:italic;font-size:28px;color:var(--houx)}
+.steps li b{font-family:var(--serif);font-weight:500;font-size:21px;letter-spacing:.12em;text-transform:uppercase}
+.encart{margin-top:84px;background:var(--creme);display:grid;grid-template-columns:2fr 3fr;position:relative}
 .encart .ph{background:linear-gradient(160deg,#E4DED5,#D3CBC0);display:flex;flex-direction:column;gap:10px;align-items:center;justify-content:center;min-height:360px;color:var(--taupe);font-size:12px;letter-spacing:.2em;text-transform:uppercase}
 .encart .ph svg{width:46px;height:46px;opacity:.6}
 .encart .txt{padding:56px 52px}
-.encart .lbl{color:var(--dore)}
-.encart h3{font-size:34px;letter-spacing:.08em;text-transform:uppercase;margin:8px 0 20px;font-weight:400}
-.encart p{font-size:15.5px;margin-bottom:12px}
-.encart .holly{position:absolute;width:86px;right:22px;top:-26px}
+.encart .lbl{color:var(--houx)}
+.encart h3{font-size:36px;letter-spacing:.08em;text-transform:uppercase;margin:8px 0 20px;font-weight:400;line-height:1.15}
+.encart p{font-size:16px;margin-bottom:12px}
+.encart .holly{position:absolute;width:120px;right:18px;top:-38px}
 
 /* ---------- Décors ---------- */
 .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;margin-top:64px}
 .card{text-align:center}
-.card .img{aspect-ratio:4/5;overflow:hidden;background:var(--gris);border-radius:200px 200px 0 0}
+.card .img{aspect-ratio:4/5;overflow:hidden;background:var(--gris);border-radius:200px 200px 0 0;box-shadow:0 18px 40px rgba(42,36,32,.12);outline:1px solid var(--dore-clair);outline-offset:8px}
 .card .img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 1.4s ease}
 .card:hover .img img{transform:scale(1.04)}
-.card h3{font-weight:400;font-size:30px;letter-spacing:.12em;text-transform:uppercase;margin:30px 0 12px}
-.card p{font-size:15.5px;max-width:320px;margin:0 auto}
+.card h3{font-weight:400;font-size:31px;letter-spacing:.12em;text-transform:uppercase;margin:34px 0 12px}
+.card p{font-size:16px;max-width:330px;margin:0 auto}
 .swatches{display:flex;justify-content:center;gap:8px;margin-top:20px}
-.swatches span{width:18px;height:18px;border-radius:50%;border:1px solid var(--bord)}
-.outro{text-align:center;margin-top:76px;font-size:17px}
-.btn{display:inline-block;margin-top:24px;padding:15px 36px;border:1px solid var(--charbon);border-radius:999px;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--charbon);text-decoration:none;font-weight:400;transition:background .3s,color .3s}
-.btn:hover{background:var(--charbon);color:#fff}
+.swatches span{width:20px;height:20px;border-radius:50%;border:1px solid var(--bord)}
+.outro{text-align:center;margin-top:80px;font-size:17.5px}
+.btn{display:inline-block;margin-top:24px;padding:15px 36px;border:1px solid var(--charbon);border-radius:999px;font-size:12.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--charbon);text-decoration:none;font-weight:400;transition:background .3s,color .3s}
+.btn:hover{background:var(--sapin);border-color:var(--sapin);color:#fff}
 #decors .fir.r{width:300px;right:-120px;top:40px;transform:scaleX(-1) rotate(8deg)}
+#decors .baubles{left:6%;width:160px;height:240px}
 
 /* ---------- Tenues ---------- */
 .pal{display:flex;justify-content:center;gap:40px;flex-wrap:wrap;margin:56px 0 64px}
-.pal div{text-align:center;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--taupe)}
-.pal span{display:block;width:76px;height:76px;border-radius:50%;margin:0 auto 14px;border:1px solid var(--bord);box-shadow:inset 0 -6px 14px rgba(0,0,0,.08)}
+.pal div{text-align:center;font-size:12.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--taupe);font-weight:400}
+.pal span{display:block;width:78px;height:78px;border-radius:50%;margin:0 auto 14px;border:1px solid var(--bord);box-shadow:inset 0 -8px 16px rgba(0,0,0,.1),0 8px 18px rgba(42,36,32,.08)}
 .tips{display:grid;grid-template-columns:repeat(3,1fr);gap:36px;border-top:1px solid #D6D0C6;padding-top:44px}
-.tips h4,.lk h4{font-weight:400;font-size:20px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:10px}
-.tips p{font-size:15.5px}
-.looks{margin-top:88px}
-.looks h3{font-weight:400;font-size:32px;letter-spacing:.12em;text-transform:uppercase;text-align:center}
+.tips h4,.lk h4{font-weight:500;font-size:21px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:10px}
+.tips p{font-size:16px}
+.looks{margin-top:92px}
+.looks h3{font-weight:400;font-size:34px;letter-spacing:.12em;text-transform:uppercase;text-align:center}
 .lsub{text-align:center;margin:6px 0 44px}
 .lks{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
 .lk{text-align:center}
-.lk img{width:100%;display:block;background:#fff;box-shadow:0 10px 30px rgba(42,36,32,.07)}
-.lnote{text-align:center;max-width:580px;margin:52px auto 0;font-size:16px}
+.lk img{width:100%;display:block;background:#fff;box-shadow:0 12px 30px rgba(42,36,32,.09)}
+.lnote{text-align:center;max-width:600px;margin:52px auto 0;font-size:16.5px}
 #tenues .fir.l{width:280px;left:-120px;bottom:60px;transform:rotate(-12deg)}
 
 /* ---------- Tes photos ---------- */
 .incl{text-align:center;margin-top:20px}
-.price{font-family:var(--serif);font-weight:300;font-size:84px;line-height:1;margin-top:14px}
+.price{font-family:var(--serif);font-weight:300;font-size:88px;line-height:1;margin-top:14px}
 .price small{font-size:18px;letter-spacing:.2em;margin-left:6px}
 .trio{display:grid;grid-template-columns:repeat(3,1fr);margin-top:40px;border-top:1px solid var(--bord);border-bottom:1px solid var(--bord)}
-.trio div{padding:28px 20px;font-size:15px}
+.trio div{padding:28px 20px;font-size:15.5px}
 .trio div+div{border-left:1px solid var(--bord)}
-.trio b{display:block;font-family:var(--serif);font-weight:400;font-size:28px;margin-bottom:4px}
-.dayj{margin:48px auto 0;max-width:640px;background:var(--sapin);color:#F4EFE6;padding:36px 28px;text-align:center;position:relative}
+.trio b{display:block;font-family:var(--serif);font-weight:500;font-size:29px;margin-bottom:4px}
+.dayj{margin:52px auto 0;max-width:640px;background:radial-gradient(ellipse at 30% 0%,#3D5E49,var(--sapin2));color:#F4EFE6;padding:40px 28px;text-align:center;position:relative;box-shadow:0 20px 44px rgba(27,49,37,.25)}
 .dayj .lbl{color:var(--dore-clair)}
-.dayj .amt{font-family:var(--serif);font-size:56px;font-weight:300;margin:6px 0;line-height:1.1}
-.dayj p{font-size:14.5px;opacity:.8}
-.dayj .holly{position:absolute;width:74px;left:-24px;top:-22px}
+.dayj .amt{font-family:var(--serif);font-size:64px;font-weight:400;margin:6px 0;line-height:1.1}
+.dayj p{font-size:15px;opacity:.85}
+.dayj .holly{position:absolute;width:110px;left:-36px;top:-34px}
 .more{margin-top:96px;text-align:center}
-.more h3{font-size:36px;letter-spacing:.1em;text-transform:uppercase}
-.more .sub{font-size:15px;color:var(--taupe);margin-top:8px}
+.more h3{font-size:38px;letter-spacing:.1em;text-transform:uppercase;line-height:1.2}
+.more .sub{font-size:16px;color:var(--taupe);margin-top:8px}
 .tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:40px}
-.tile{border:1px solid var(--bord);padding:38px 18px;background:#fff;transition:transform .4s,box-shadow .4s}
+.tile{border:1px solid var(--bord);padding:38px 18px;background:#fff;transition:transform .4s,box-shadow .4s;position:relative}
+.tile::after{content:"";position:absolute;left:50%;top:0;width:40px;height:2px;background:var(--houx);transform:translateX(-50%)}
 .tile:hover{transform:translateY(-4px);box-shadow:0 14px 34px rgba(42,36,32,.08)}
-.tile .p{font-family:var(--serif);font-weight:300;font-size:52px;line-height:1;margin:16px 0 10px}
-.tile .d{font-size:14.5px}
-.tile .u{font-size:13px;color:var(--dore);margin-top:8px}
-.ex2{margin:44px auto 0;max-width:580px;font-size:15.5px;padding:18px 22px;background:#fff}
+.tile .p{font-family:var(--serif);font-weight:400;font-size:54px;line-height:1;margin:16px 0 10px}
+.tile .d{font-size:15px}
+.tile .u{font-size:14px;color:var(--houx);margin-top:8px;font-weight:400}
+.ex2{margin:44px auto 0;max-width:600px;font-size:16px;padding:18px 22px;background:#fff;border-left:2px solid var(--dore)}
 .ex2 strong{font-weight:500}
-.gal2{max-width:580px;margin:60px auto 0;text-align:center;font-family:var(--serif);font-style:italic;font-size:24px;line-height:1.5}
+.gal2{max-width:600px;margin:60px auto 0;text-align:center;font-family:var(--serif);font-style:italic;font-size:26px;line-height:1.5}
 .payrow{margin:64px auto 0;max-width:640px;border-top:1px solid #D6D0C6;padding-top:34px;text-align:center}
-.payrow p{margin-top:10px;font-size:15.5px}
-.iban{display:inline-block;margin-top:14px;padding:12px 22px;border:1px dashed var(--dore);font-size:14px;letter-spacing:.08em}
+.payrow p{margin-top:10px;font-size:16px}
 
-/* ---------- Cadeaux ---------- */
-.two{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:60px;align-items:stretch}
-.two .ph{aspect-ratio:4/3;overflow:hidden;margin-bottom:26px}
-.two .ph img{width:100%;height:100%;object-fit:cover;display:block}
-.two h3{font-weight:400;font-size:28px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:12px}
-.two p{font-size:15.5px}
-.gift{background:var(--creme);padding:40px 34px;display:flex;flex-direction:column}
-.gift .cardimg{width:100%;display:block;margin-bottom:28px;box-shadow:0 14px 34px rgba(42,36,32,.16);transform:rotate(-1.5deg);transition:transform .6s}
-.gift .cardimg:hover{transform:rotate(0) scale(1.02)}
-.code{display:inline-flex;flex-direction:column;margin-top:22px;padding:14px 26px;border:1px solid var(--dore);background:#fff;font-size:16px;letter-spacing:.2em;text-transform:uppercase;align-self:flex-start;font-weight:400;cursor:pointer;font-family:var(--sans);color:var(--charbon);text-align:left}
-.code span{font-size:10.5px;color:var(--taupe);letter-spacing:.2em;margin-bottom:4px;font-weight:300}
-.code .ok{color:var(--sapin)}
+/* ---------- À l'année prochaine ---------- */
+.accord{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;margin-top:56px}
+.accord .ph{aspect-ratio:4/3;overflow:hidden;box-shadow:0 20px 44px rgba(42,36,32,.14);position:relative}
+.accord .ph img{width:100%;height:100%;object-fit:cover;display:block}
+.accord h3,.velvet h3{font-weight:400;font-size:32px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:14px}
+.accord p{font-size:16.5px}
+.accord .holly{position:absolute;width:110px;right:-20px;bottom:-24px}
 
-/* Tarifs carte cadeau */
-.gc{margin-top:88px;border:1px solid var(--bord);padding:64px 40px 52px;position:relative;background:#fff}
-.gc h3{font-size:36px;letter-spacing:.1em;text-transform:uppercase;text-align:center}
-.gc .sub{text-align:center;color:var(--taupe);font-size:15px;margin-top:6px}
-.gc .fir.l{width:220px;left:-60px;top:-50px;transform:rotate(14deg)}
-.gc .fir.r{width:200px;right:-60px;top:-46px;transform:scaleX(-1) rotate(18deg)}
-.tabs{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin:36px 0 40px}
-.tabs button{font-family:var(--sans);font-size:12px;letter-spacing:.2em;text-transform:uppercase;padding:10px 20px;border-radius:999px;border:1px solid var(--bord);background:#fff;color:var(--taupe);cursor:pointer;transition:all .3s}
-.tabs button[aria-selected="true"]{background:var(--sapin);border-color:var(--sapin);color:#fff}
-.gcgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-.gco{text-align:center;padding:30px 14px 26px;background:var(--creme);transition:transform .4s}
-.gco:hover{transform:translateY(-4px)}
-.gco .n{font-family:var(--serif);font-size:22px;letter-spacing:.12em;text-transform:uppercase}
-.gco .ph{font-size:13.5px;color:var(--taupe);margin-top:2px}
-.gco .p{font-family:var(--serif);font-weight:300;font-size:46px;line-height:1;margin:18px 0 12px}
-.gco .after{font-size:13px;color:var(--sapin);border-top:1px solid var(--bord);padding-top:12px}
-.gco .after b{font-weight:500}
-.gcnote{text-align:center;font-size:14.5px;color:var(--taupe);margin-top:30px}
-.gcnote b{font-weight:400;color:var(--charbon)}
-.gcgrid.fade{animation:fade .5s ease}
-@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+/* Bandeau velours rouge */
+.velvet{background:radial-gradient(ellipse at 25% 20%,#8A1E2E 0%,var(--velours) 45%,var(--velours2) 100%);color:#F7EFE4;overflow:hidden}
+.velvet::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(115deg,rgba(255,255,255,.025) 0 2px,transparent 2px 6px);pointer-events:none}
+.velvet .inner{max-width:1180px;display:grid;grid-template-columns:5fr 6fr;gap:56px;align-items:center;padding-top:140px;padding-bottom:120px}
+.velvet .lbl{color:var(--dore-clair)}
+.velvet h3{font-size:42px;margin-top:6px}
+.velvet p{font-size:16.5px;color:#F3E7DA}
+.velvet .fir.l{width:300px;left:-110px;bottom:-30px;transform:rotate(-16deg);opacity:.85}
+.velvet .fir.r{width:280px;right:-100px;top:30px;transform:scaleX(-1) rotate(12deg);opacity:.85}
+.code{display:inline-flex;flex-direction:column;margin-top:26px;padding:14px 26px;border:1px solid var(--dore-clair);background:rgba(255,255,255,.06);font-size:18px;letter-spacing:.22em;text-transform:uppercase;font-weight:500;cursor:pointer;font-family:var(--sans);color:#fff;text-align:left;transition:background .3s}
+.code:hover{background:rgba(255,255,255,.12)}
+.code span{font-size:11px;color:var(--dore-clair);letter-spacing:.2em;margin-bottom:4px;font-weight:400}
+.code em{font-style:normal}
+.code .ok{color:var(--dore-clair)}
+
+/* Carte cadeau recréée */
+.gcard{display:grid;grid-template-columns:40% 60%;background:#fff;color:var(--sapin2);box-shadow:0 30px 60px rgba(0,0,0,.35);transform:rotate(-2deg);transition:transform .6s ease;position:relative}
+.gcard:hover{transform:rotate(0) scale(1.02)}
+.gcard .gl{background:radial-gradient(ellipse at 50% 30%,#1F6A49,#0E3D29 75%);color:#fff;padding:26px 18px;text-align:center;position:relative;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:6px}
+.gcard .gl::before,.gcard .gr::before{content:"";position:absolute;inset:8px;border:1px solid rgba(217,188,122,.7);pointer-events:none}
+.gcard .gl .brand{font-size:9.5px;letter-spacing:.3em;color:var(--dore-clair);font-weight:400}
+.gcard .gl .t1{font-family:var(--serif);font-size:54px;line-height:.95;font-weight:500;margin-top:8px}
+.gcard .gl .t2{font-family:var(--serif);font-style:italic;font-size:40px;line-height:1;font-weight:500}
+.gcard .gl .noel{font-size:9.5px;letter-spacing:.32em;color:#EADFCB;margin-top:4px}
+.gcard .gl .garl{width:120px;height:14px;margin:4px 0}
+.gcard .gl .q{font-family:var(--serif);font-style:italic;font-size:15px;line-height:1.35;color:#F4EFE6;margin-top:8px}
+.gcard .flake{position:absolute;color:var(--dore-clair);opacity:.7;font-size:12px}
+.gcard .gr{padding:26px 26px 22px;position:relative;display:flex;flex-direction:column;gap:12px}
+.gcard .gr .top{display:flex;justify-content:space-between;gap:10px}
+.gcard .gr .kicker{font-size:8.5px;letter-spacing:.3em;color:var(--taupe)}
+.gcard .gr .ttl{font-family:var(--serif);font-size:34px;line-height:1.05;color:#16452F;font-weight:500}
+.gcard .gr .ttl em{font-style:italic}
+.gcard .gr .bar{width:110px;height:2px;background:var(--chrome);margin-top:6px}
+.gcard .logo{text-align:center;font-family:var(--serif);color:#16452F;font-size:26px;line-height:1}
+.gcard .logo small{display:block;font-family:var(--sans);font-size:6.5px;letter-spacing:.24em;margin-top:4px}
+.gcard .gr .cols{display:grid;grid-template-columns:1.1fr 1fr;gap:16px;font-size:9px;line-height:1.7}
+.gcard .gr .cta{color:var(--dore);font-size:8.5px;letter-spacing:.14em;font-weight:500;margin-bottom:4px}
+.gcard .fields div{display:flex;gap:6px;align-items:flex-end;font-size:7.5px;letter-spacing:.2em;color:var(--taupe);margin-bottom:6px}
+.gcard .fields div::after{content:"";flex:1;border-bottom:1px dotted #C9BFAF;transform:translateY(-3px)}
+.gcard .fields div.v::after{display:none}
+.gcard .fields div.v{white-space:nowrap}
+.gcard .fields b{color:var(--dore);font-weight:500;letter-spacing:.04em;font-size:9px}
 
 /* ---------- Infos ---------- */
 .ig{display:grid;grid-template-columns:repeat(3,1fr);gap:36px;margin-top:56px;text-align:center}
-.ig h4{font-weight:400;font-size:21px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:10px}
-.ig p{font-size:15.5px}
-.ig b{font-weight:400}
+.ig h4{font-weight:500;font-size:21px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:10px}
+.ig p{font-size:16px}
+.ig b{font-weight:500}
 .btns{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-top:48px}
 
 /* ---------- Fin ---------- */
 .endg{display:grid;grid-template-columns:5fr 6fr;gap:64px;align-items:center}
 .endg h2{text-align:left}
-.endg p{font-size:17px}
+.endg p{font-size:17.5px}
 .me{position:relative}
-.me img{width:100%;display:block;border-radius:240px 240px 0 0}
-.me .holly{position:absolute;width:96px;left:-26px;bottom:24px}
-.end .sign{margin-top:28px;font-size:36px}
+.me img{width:100%;display:block;border-radius:240px 240px 0 0;outline:1px solid var(--dore-clair);outline-offset:10px}
+.me .holly{position:absolute;width:130px;left:-40px;bottom:16px}
+.end .sign{margin-top:28px;font-size:40px}
 .end .fir.r{width:320px;right:-120px;bottom:30px;transform:scaleX(-1) rotate(-10deg)}
 
 .galg{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:48px}
 .galg div{aspect-ratio:4/5;overflow:hidden}
 .galg img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 1.4s}
 .galg div:hover img{transform:scale(1.05)}
-footer{background:var(--sapin2);color:#E8DFCF;text-align:center;padding:44px 16px;font-size:12px;letter-spacing:.24em;text-transform:uppercase}
-footer svg{width:60px;height:30px;display:block;margin:0 auto 14px}
+footer{position:relative;background:radial-gradient(ellipse at 50% 0%,#2C4A38,var(--sapin2));color:#E8DFCF;text-align:center;padding:96px 16px 48px;font-size:12.5px;letter-spacing:.24em;text-transform:uppercase;overflow:hidden}
+footer svg.holly{width:90px;height:45px;display:block;margin:0 auto 16px}
 
 /* ---------- Apparition douce ---------- */
 .js .rv{opacity:0;transform:translateY(22px);transition:opacity 1s ease,transform 1s ease}
 .js .rv.in{opacity:1;transform:none}
 
-/* ---------- Responsive ---------- */
+/* ---------- Mobile ---------- */
 @media(max-width:900px){
-  .inner{padding:72px 16px}
-  h2{font-size:36px}
-  .hero .inner{grid-template-columns:1fr;gap:44px;text-align:center;padding-top:90px;padding-bottom:80px}
-  .hero .round{max-width:290px;margin:0 auto;width:100%}
-  .hero h1{font-size:38px}
+  body{font-size:16.5px}
+  .inner{padding:76px 20px}
+  h2{font-size:38px;letter-spacing:.1em}
+  .intro{font-size:17px}
+  .lbl{font-size:12.5px;letter-spacing:.16em}
+  .orn svg{width:72px;height:36px}
+  .hero .inner{grid-template-columns:1fr;gap:48px;text-align:center;padding-top:120px;padding-bottom:84px}
+  .hero .round{max-width:280px;margin:0 auto;width:100%}
+  .hero h1{font-size:34px;letter-spacing:.1em}
+  .hero p{font-size:17px}
   .hero .orn.left{justify-content:center}
-  .hero .fir.l{width:250px;left:-80px;top:-30px}
-  .hero .fir.r{width:230px;right:-90px;top:-24px}
+  .hero .fir.l{width:250px;left:-80px;top:-14px}
+  .hero .fir.r{width:230px;right:-90px;top:-10px}
   .hero .fir.b{display:none}
-  .steps li{grid-template-columns:44px 1fr;gap:4px 14px}
+  .hero .baubles{right:2%;width:120px;height:220px;transform:scale(.7);transform-origin:top right}
+  #decors .baubles{display:none}
+  .steps li{grid-template-columns:42px 1fr;gap:2px 14px;padding:20px 0;font-size:16.5px}
   .steps li span{grid-column:2}
-  .steps li::before{grid-row:span 2;font-size:22px}
-  .encart{grid-template-columns:1fr}.encart .ph{min-height:220px}.encart .txt{padding:36px 22px}
-  .grid3{grid-template-columns:1fr;gap:56px}.card .img{max-width:380px;margin:0 auto}
-  .tips{grid-template-columns:1fr}.pal{gap:20px}.pal span{width:56px;height:56px}
-  .lks{grid-template-columns:repeat(2,1fr);gap:16px}
+  .steps li::before{grid-row:span 2;font-size:24px}
+  .steps li b{font-size:19px}
+  .encart{grid-template-columns:1fr}.encart .ph{min-height:220px}.encart .txt{padding:40px 22px}
+  .encart h3{font-size:30px}.encart p{font-size:16.5px}
+  .encart .holly{width:96px;top:-30px;right:8px}
+  .grid3{grid-template-columns:1fr;gap:64px}.card .img{max-width:340px;margin:0 auto}
+  .card h3{font-size:28px}.card p{font-size:16.5px}
+  .tips{grid-template-columns:1fr;gap:28px}.tips p{font-size:16.5px}
+  .pal{gap:18px 22px}.pal span{width:58px;height:58px}
+  /* idées de tenues : carrousel qui défile au doigt */
+  .lks{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:16px;margin:0 -20px;padding:0 20px 16px;scrollbar-width:none}
+  .lks::-webkit-scrollbar{display:none}
+  .lk{flex:0 0 76%;scroll-snap-align:center}
+  .looks h3{font-size:28px}
+  .price{font-size:68px}
   .trio,.tiles{grid-template-columns:1fr}.trio div+div{border-left:0;border-top:1px solid var(--bord)}
-  .price{font-size:64px}
-  .two{grid-template-columns:1fr}.gift{padding:32px 22px}
-  .gc{padding:52px 18px 40px}.gcgrid{grid-template-columns:repeat(2,1fr);gap:12px}.gco .p{font-size:38px}
-  .ig{grid-template-columns:1fr}
-  .endg{grid-template-columns:1fr;gap:40px;text-align:center}.endg h2{text-align:center}.endg .orn.left{justify-content:center}
-  .me{max-width:340px;margin:0 auto}
-  .galg{grid-template-columns:repeat(2,1fr)}
+  .trio div{font-size:16px}
+  .dayj .amt{font-size:56px}.dayj .holly{width:84px;left:-12px;top:-30px}
+  .more h3{font-size:30px}
+  .ex2{font-size:16.5px}
+  .gal2{font-size:23px}
+  .accord{grid-template-columns:1fr;gap:36px}.accord p{font-size:16.5px}
+  .accord .holly{width:90px;right:-6px}
+  .velvet .inner{grid-template-columns:1fr;gap:56px;padding-top:110px}
+  .velvet h3{font-size:34px}.velvet p{font-size:16.5px}
+  .velvet .fir.l,.velvet .fir.r{width:190px}
+  /* carte cadeau : volets empilés pour rester lisible */
+  .gcard{grid-template-columns:1fr;transform:rotate(-1deg);max-width:420px;margin:0 auto}
+  .gcard .gl{padding:34px 18px}
+  .gcard .gl .t1{font-size:58px}.gcard .gl .t2{font-size:44px}
+  .gcard .gl .brand,.gcard .gl .noel{font-size:11px}
+  .gcard .gl .q{font-size:17px}
+  .gcard .gr{padding:30px 26px 26px}
+  .gcard .gr .kicker{font-size:10px}
+  .gcard .gr .ttl{font-size:36px}
+  .gcard .gr .cols{grid-template-columns:1fr;font-size:12px}
+  .gcard .gr .cta{font-size:10.5px}
+  .gcard .fields div{font-size:10px}.gcard .fields div.v{white-space:nowrap}
+.gcard .fields b{font-size:12px}
+  .gcard .logo{font-size:30px}.gcard .logo small{font-size:8px}
+  .ig{grid-template-columns:1fr;gap:30px}.ig p{font-size:16.5px}
+  .endg{grid-template-columns:1fr;gap:44px;text-align:center}.endg h2{text-align:center}.endg .orn.left{justify-content:center}
+  .me{max-width:320px;margin:0 auto}.me .holly{width:100px;left:-20px}
+  .galg{grid-template-columns:repeat(2,1fr);gap:10px}
   #decors .fir.r,#tenues .fir.l,.end .fir.r{display:none}
-  .gc .fir.l{width:150px;left:-40px}.gc .fir.r{width:140px;right:-40px}
+  .nav a{font-size:12px;padding:8px 13px}
 }
-@media(max-width:420px){.gcgrid{grid-template-columns:1fr}}
+@media(max-width:380px){h2{font-size:32px}.hero h1{font-size:30px}}
 @media(prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important}
   .snow{display:none}
@@ -249,10 +325,16 @@ footer svg{width:60px;height:30px;display:block;margin:0 auto 14px}
 
 <!-- ============ HERO ============ -->
 <section class="hero" id="top">
+  <div class="lights" aria-hidden="true"></div>
   <div class="snow" aria-hidden="true"></div>
   <div class="fir l" aria-hidden="true"><div class="sway"><svg viewBox="0 0 330 115"><use href="#fir"/></svg></div></div>
   <div class="fir r" aria-hidden="true"><div class="sway"><svg viewBox="0 0 330 115"><use href="#fir"/></svg></div></div>
   <div class="fir b" aria-hidden="true"><div class="sway"><svg viewBox="0 0 330 115"><use href="#fir"/></svg></div></div>
+  <div class="baubles" aria-hidden="true">
+    <div class="bauble" style="left:0;--len:70px;--d:5.5s"><i></i><svg viewBox="0 0 60 70"><use href="#bauble-red"/></svg></div>
+    <div class="bauble" style="left:70px;--len:130px;--d:6.5s;--dl:-2s;--w:44px"><i></i><svg viewBox="0 0 60 70"><use href="#bauble-gold"/></svg></div>
+    <div class="bauble" style="left:135px;--len:40px;--d:7s;--dl:-1s;--w:38px"><i></i><svg viewBox="0 0 60 70"><use href="#bauble-green"/></svg></div>
+  </div>
   <div class="inner">
     <div class="round">
       <img src="images/hero.jpg" alt="Mini-séance de Noël au studio Lila Photography">
@@ -266,7 +348,7 @@ footer svg{width:60px;height:30px;display:block;margin:0 auto 14px}
       <p>Comme chaque année, je suis impatiente de vous rencontrer.<br>Je vais revoir certains d'entre vous, voir vos petits bouts grandir, mais aussi rencontrer de nouvelles familles.</p>
       <p>Ce guide est conçu afin de te préparer à la séance sereinement.<br>Même si tu connais déjà le studio, prends le temps de le lire :)</p>
       <p>À très vite au studio,</p>
-      <div class="sign">Sayesté</div>
+      <div class="sign chrome">Sayesté</div>
     </div>
   </div>
 </section>
@@ -277,7 +359,7 @@ footer svg{width:60px;height:30px;display:block;margin:0 auto 14px}
     <li><a href="#decors">Les décors</a></li>
     <li><a href="#tenues">Les tenues</a></li>
     <li><a href="#photos">Tes photos</a></li>
-    <li><a href="#cadeaux">Carte cadeau</a></li>
+    <li><a href="#cadeaux">Cadeaux</a></li>
     <li><a href="#infos">Infos pratiques</a></li>
   </ul>
 </nav>
@@ -296,7 +378,7 @@ footer svg{width:60px;height:30px;display:block;margin:0 auto 14px}
   </ul>
   <div class="encart rv">
     <svg class="holly" viewBox="0 0 140 70" aria-hidden="true"><use href="#holly"/></svg>
-    <!-- Remplacer ce bloc par <img src="images/stella.jpg" alt="Stella" style="width:100%;height:100%;object-fit:cover"> -->
+    <!-- Photo de Stella : remplacer ce bloc par <img src="images/stella.jpg" alt="Stella" style="width:100%;height:100%;object-fit:cover"> -->
     <div class="ph">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="6" width="18" height="14" rx="2"/><circle cx="12" cy="13" r="4"/><path d="M8 6l1.5-2h5L16 6"/></svg>
       Photo de Stella
@@ -313,8 +395,12 @@ footer svg{width:60px;height:30px;display:block;margin:0 auto 14px}
 </div></section>
 
 <!-- ============ DÉCORS ============ -->
-<section id="decors" class="bg-creme" style="overflow:hidden">
+<section id="decors" class="bg-creme">
   <div class="fir r" aria-hidden="true"><div class="sway"><svg viewBox="0 0 330 115"><use href="#fir"/></svg></div></div>
+  <div class="baubles" aria-hidden="true">
+    <div class="bauble" style="left:0;--len:110px;--d:6s;--w:42px"><i></i><svg viewBox="0 0 60 70"><use href="#bauble-gold"/></svg></div>
+    <div class="bauble" style="left:56px;--len:60px;--d:7.2s;--dl:-3s;--w:36px"><i></i><svg viewBox="0 0 60 70"><use href="#bauble-red"/></svg></div>
+  </div>
   <div class="inner">
   <h2 class="rv">Les <em>décors</em></h2>
   <div class="orn" aria-hidden="true"><svg viewBox="0 0 140 70"><use href="#holly"/></svg></div>
@@ -346,7 +432,7 @@ footer svg{width:60px;height:30px;display:block;margin:0 auto 14px}
 </div></section>
 
 <!-- ============ TENUES ============ -->
-<section id="tenues" style="overflow:hidden">
+<section id="tenues">
   <div class="fir l" aria-hidden="true"><div class="sway"><svg viewBox="0 0 330 115"><use href="#fir"/></svg></div></div>
   <div class="inner">
   <h2 class="rv">Prépare vos <em>tenues</em></h2>
@@ -368,7 +454,7 @@ footer svg{width:60px;height:30px;display:block;margin:0 auto 14px}
     <h3 class="rv">Quelques <em>idées</em></h3>
     <p class="lsub lbl">Combinaisons, matières, couleurs, accessoires</p>
     <div class="lks">
-      <div class="lk rv"><h4>Pour papa</h4><img src="images/look-papa.jpg" alt="Idée de tenue pour papa : pull vert sapin, chemise crème, pantalon beige"></div>
+      <div class="lk rv"><h4>Pour papa</h4><img src="images/look-papa.jpg" alt="Idée de tenue pour papa"></div>
       <div class="lk rv"><h4>Pour maman</h4><img src="images/look-maman.jpg" alt="Idée de tenue pour maman"></div>
       <div class="lk rv"><h4>Pour les garçons</h4><img src="images/look-garcons.jpg" alt="Idée de tenue pour les garçons"></div>
       <div class="lk rv"><h4>Pour les filles</h4><img src="images/look-filles.jpg" alt="Idée de tenue pour les filles"></div>
@@ -393,7 +479,7 @@ footer svg{width:60px;height:30px;display:block;margin:0 auto 14px}
   <div class="dayj rv">
     <svg class="holly" viewBox="0 0 140 70" aria-hidden="true"><use href="#holly"/></svg>
     <div class="lbl">Le jour de ta séance, tu règles</div>
-    <div class="amt">100 €</div>
+    <div class="amt chrome">100 €</div>
     <p>150 € − 50 € d'acompte déjà versé à la réservation</p>
   </div>
   <div class="more">
@@ -410,51 +496,67 @@ footer svg{width:60px;height:30px;display:block;margin:0 auto 14px}
   <div class="payrow rv">
     <div class="lbl">Règlement sur place</div>
     <p>En espèces, par carte bancaire ou par virement</p>
-    <div class="iban">IBAN : à compléter</div>
   </div>
 </div></section>
 
-<!-- ============ CADEAUX ============ -->
+<!-- ============ À L'ANNÉE PROCHAINE ============ -->
 <section id="cadeaux"><div class="inner">
   <h2 class="rv">À l'année <em>prochaine</em></h2>
   <div class="orn" aria-hidden="true"><svg viewBox="0 0 140 70"><use href="#holly"/></svg></div>
-  <div class="two">
+  <div class="accord">
+    <div class="ph rv"><img src="images/accordeon.jpg" alt="L'accordéon photo personnalisé"><svg class="holly" viewBox="0 0 140 70" aria-hidden="true"><use href="#holly"/></svg></div>
     <div class="rv">
-      <div class="ph"><img src="images/accordeon.jpg" alt="L'accordéon photo personnalisé"></div>
       <h3>Un petit <em>cadeau</em></h3>
       <p>À toi qui reviens chaque année… un accordéon personnalisé avec tes photos t'attend :) C'est ma façon de te remercier de ta fidélité.<br>Et si c'est ta première mini-séance, il sera pour toi l'année prochaine ❤️</p>
     </div>
-    <div class="gift rv">
-      <img class="cardimg" src="images/carte-cadeau.jpg" alt="Carte cadeau de Noël Lila Photography">
-      <h3>Faire <em>plaisir</em></h3>
-      <p>Tu penses à quelqu'un qui adorerait vivre ça ? Une sœur qui attend un bébé, une amie qui vient d'accoucher, une famille qui t'est chère…<br>Pour te remercier de ta confiance, je t'offre 50 € sur la carte cadeau que tu voudras lui offrir :)<br>La carte est valable sur la séance de son choix, jusqu'au 30 septembre 2027.</p>
-      <button class="code" type="button" data-code="LilaNoel50"><span>Ton code · jusqu'au 1er décembre</span><em style="font-style:normal">LilaNoel50</em></button>
-    </div>
-  </div>
-
-  <div class="gc rv" id="tarifs-carte">
-    <div class="fir l" aria-hidden="true"><div class="sway"><svg viewBox="0 0 330 115"><use href="#fir"/></svg></div></div>
-    <div class="fir r" aria-hidden="true"><div class="sway"><svg viewBox="0 0 330 115"><use href="#fir"/></svg></div></div>
-    <div class="lbl" style="text-align:center">La carte cadeau</div>
-    <h3 style="margin-top:8px">Les <em>tarifs</em></h3>
-    <p class="sub">Choisis la séance que tu veux offrir : avec ton code, 50 € sont déduits</p>
-    <div class="tabs" role="tablist">
-      <button role="tab" aria-selected="true" data-cat="famille">Famille &amp; bébé</button>
-      <button role="tab" aria-selected="false" data-cat="grossesse">Grossesse</button>
-      <button role="tab" aria-selected="false" data-cat="naissance">Nouveau-né</button>
-      <button role="tab" aria-selected="false" data-cat="couple">Couple</button>
-    </div>
-    <div class="gcgrid" id="gcgrid">
-      <div class="gco"><div class="n">Essentielle</div><div class="ph">5 photos</div><div class="p">200 €</div><div class="after">avec ton code : <b>150 €</b></div></div>
-      <div class="gco"><div class="n">Prestige</div><div class="ph">10 photos</div><div class="p">350 €</div><div class="after">avec ton code : <b>300 €</b></div></div>
-      <div class="gco"><div class="n">Signature</div><div class="ph">15 photos</div><div class="p">500 €</div><div class="after">avec ton code : <b>450 €</b></div></div>
-      <div class="gco"><div class="n">Héritage</div><div class="ph">galerie complète</div><div class="p">650 €</div><div class="after">avec ton code : <b>600 €</b></div></div>
-    </div>
-    <p class="gcnote">Aussi disponibles : <b>Pack Grossesse &amp; Nouveau-né · 800 €</b> &nbsp;·&nbsp; <b>Mini-séance · 150 €</b></p>
-    <div style="text-align:center"><a class="btn" href="https://www.lilaphotography.fr">Offrir une carte cadeau</a></div>
-    <p class="gcnote" style="margin-top:18px">Sur le site, onglet « Carte cadeau » · Tarifs TTC · Carte valable jusqu'au 30 septembre 2027</p>
   </div>
 </div></section>
+
+<section class="velvet">
+  <div class="lights" aria-hidden="true"></div>
+  <div class="fir l" aria-hidden="true"><div class="sway"><svg viewBox="0 0 330 115"><use href="#fir"/></svg></div></div>
+  <div class="fir r" aria-hidden="true"><div class="sway"><svg viewBox="0 0 330 115"><use href="#fir"/></svg></div></div>
+  <div class="inner">
+    <div class="rv">
+      <h3>Faire <em>plaisir</em></h3>
+      <p>Tu penses à quelqu'un qui adorerait vivre ça ? Une sœur qui attend un bébé, une amie qui vient d'accoucher, une famille qui t'est chère…<br>Pour te remercier de ta confiance, je t'offre 50 € sur la carte cadeau que tu voudras lui offrir :)<br>La carte est valable sur la séance de son choix, jusqu'au 30 septembre 2027.</p>
+      <button class="code" type="button" data-code="LilaNoel50"><span>Ton code · jusqu'au 1er décembre</span><em>LilaNoel50</em></button>
+    </div>
+    <div class="rv">
+      <div class="gcard" role="img" aria-label="Carte cadeau de Noël Lila Photography">
+        <div class="gl">
+          <span class="flake" style="left:22px;top:22px">❄</span><span class="flake" style="right:24px;top:52px">❄</span><span class="flake" style="left:28px;bottom:70px">❄</span><span class="flake" style="right:30px;bottom:28px">❄</span>
+          <div class="brand">LILA PHOTOGRAPHY</div>
+          <div class="t1 chrome">Carte</div>
+          <div class="t2 chrome">Cadeau</div>
+          <div class="noel">NOËL</div>
+          <svg class="garl" viewBox="0 0 120 14"><g stroke="url(#g-gold)" stroke-width="1" fill="none"><path d="M4 7H52M68 7H116"/><path d="M10 3l4 4-4 4M18 3l4 4-4 4M26 3l4 4-4 4M34 3l4 4-4 4M42 3l4 4-4 4M110 3l-4 4 4 4M102 3l-4 4 4 4M94 3l-4 4 4 4M86 3l-4 4 4 4M78 3l-4 4 4 4"/></g><circle cx="58" cy="7" r="2.6" fill="url(#g-berry)"/><circle cx="63" cy="6" r="2.2" fill="url(#g-berry)"/></svg>
+          <div class="q">Un moment suspendu,<br>des images qui restent.</div>
+        </div>
+        <div class="gr">
+          <div class="top">
+            <div>
+              <div class="kicker">UN CADEAU POUR TOI</div>
+              <div class="ttl">Séance <em class="chrome">Photo</em></div>
+              <div class="bar"></div>
+            </div>
+            <div class="logo">LP<small>LILA PHOTOGRAPHY</small></div>
+          </div>
+          <div class="cols">
+            <div>
+              <div class="cta">PRENEZ DIRECTEMENT RENDEZ-VOUS AVEC LILA PHOTOGRAPHY</div>
+              06 89 56 51 05<br>contact@lilaphotography.fr<br>www.lilaphotography.fr
+            </div>
+            <div class="fields">
+              <div>POUR</div><div>DE LA PART DE</div><div>SÉANCE</div><div>INCLUS</div>
+              <div class="v">VALIDITÉ <b>30 septembre 2027</b></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- ============ INFOS ============ -->
 <section id="infos" class="bg-creme"><div class="inner">
@@ -471,15 +573,15 @@ footer svg{width:60px;height:30px;display:block;margin:0 auto 14px}
 </div></section>
 
 <!-- ============ FIN ============ -->
-<section class="end" style="overflow:hidden">
+<section class="end">
   <div class="fir r" aria-hidden="true"><div class="sway"><svg viewBox="0 0 330 115"><use href="#fir"/></svg></div></div>
   <div class="inner endg">
-    <div class="me rv"><img src="images/sayeste.jpg" alt="Sayesté, photographe Lila Photography"><svg class="holly" viewBox="0 0 140 70" aria-hidden="true"><use href="#holly"/></svg></div>
+    <div class="me rv"><img src="images/sayeste.jpg" alt="Sayesté"><svg class="holly" viewBox="0 0 140 70" aria-hidden="true"><use href="#holly"/></svg></div>
     <div class="rv">
       <h2>À très <em>vite</em></h2>
       <div class="orn left" aria-hidden="true"><svg viewBox="0 0 140 70"><use href="#holly"/></svg></div>
       <p>Merci du fond du cœur pour ta confiance ❤️<br>On a hâte de vous retrouver, de voir vos sourires, vos rires, et la magie dans les yeux de vos enfants…</p>
-      <div class="sign">Sayesté</div>
+      <div class="sign chrome">Sayesté</div>
     </div>
   </div>
 </section>
@@ -496,24 +598,58 @@ footer svg{width:60px;height:30px;display:block;margin:0 auto 14px}
 </div></section>
 
 <footer>
-  <svg viewBox="0 0 140 70" aria-hidden="true"><use href="#holly"/></svg>
-  Lila Photography · Studio au Teil · Joyeux Noël
+  <div class="lights" aria-hidden="true"></div>
+  <svg class="holly" viewBox="0 0 140 70" aria-hidden="true"><use href="#holly"/></svg>
+  Lila Photography
 </footer>
 
 <script>
 (function(){
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var NS = 'http://www.w3.org/2000/svg';
 
-  /* Neige légère dans l'en-tête */
+  /* Guirlande lumineuse : fil en festons + ampoules qui scintillent */
+  var COLORS = ['#FFE3A0', '#E8343F', '#FFD36B', '#3E9A62', '#FFF1C9'];
+  function drawLights(el){
+    var w = el.clientWidth, sag = 22, span = w < 600 ? 110 : 150, n = Math.ceil(w / span);
+    span = w / n;
+    var svg = document.createElementNS(NS, 'svg');
+    svg.setAttribute('viewBox', '0 0 ' + w + ' 60');
+    svg.setAttribute('preserveAspectRatio', 'none');
+    var d = 'M0 4', bulbs = '', k = 0;
+    for (var i = 0; i < n; i++) {
+      var x0 = i * span, x1 = x0 + span, cx = x0 + span / 2;
+      d += ' Q' + cx + ' ' + (4 + sag * 2) + ' ' + x1 + ' 4';
+      for (var j = 1; j <= 3; j++) {
+        var t = j / 4, x = x0 + span * t, y = 4 + 2 * (1 - t) * t * sag * 2;
+        var c = COLORS[k++ % COLORS.length];
+        bulbs += '<g class="bulb" style="--t:' + (1.8 + Math.random() * 2).toFixed(2) + 's;--dl:-' + (Math.random() * 3).toFixed(2) + 's">' +
+          '<circle cx="' + x + '" cy="' + (y + 9) + '" r="9" fill="' + c + '" opacity=".28"/>' +
+          '<rect x="' + (x - 2.2) + '" y="' + (y - 1) + '" width="4.4" height="4" rx="1" fill="#5a4a2a"/>' +
+          '<ellipse cx="' + x + '" cy="' + (y + 8) + '" rx="3.6" ry="5.2" fill="' + c + '"/>' +
+          '<ellipse cx="' + (x - 1.2) + '" cy="' + (y + 6) + '" rx="1" ry="1.8" fill="#fff" opacity=".7"/></g>';
+      }
+    }
+    svg.innerHTML = '<path d="' + d + '" stroke="#2c3b2f" stroke-width="1.4" fill="none"/>' + bulbs;
+    el.innerHTML = ''; el.appendChild(svg);
+  }
+  var lights = document.querySelectorAll('.lights');
+  function allLights(){ lights.forEach(drawLights); }
+  allLights();
+  var rt; window.addEventListener('resize', function(){ clearTimeout(rt); rt = setTimeout(allLights, 200); });
+
+  /* Neige et paillettes dorées dans l'en-tête */
   var snow = document.querySelector('.snow');
   if (snow && !reduce) {
-    for (var i = 0; i < 26; i++) {
+    for (var i = 0; i < 34; i++) {
       var f = document.createElement('i');
-      var s = 2 + Math.random() * 4;
+      var s = 3 + Math.random() * 5, gold = Math.random() < .45;
       f.style.width = f.style.height = s + 'px';
+      f.style.background = gold ? 'radial-gradient(circle,#FFF4CF,#C9A04A)' : '#fff';
+      f.style.boxShadow = gold ? '0 0 6px rgba(201,160,74,.6)' : '0 0 4px rgba(150,130,100,.5)';
       f.style.left = Math.random() * 100 + '%';
       f.style.setProperty('--dx', (Math.random() * 80 - 40) + 'px');
-      f.style.animationDuration = (11 + Math.random() * 12) + 's';
+      f.style.animationDuration = (10 + Math.random() * 12) + 's';
       f.style.animationDelay = (-Math.random() * 20) + 's';
       snow.appendChild(f);
     }
@@ -547,27 +683,6 @@ footer svg{width:60px;height:30px;display:block;margin:0 auto 14px}
     var done = function(){ label.textContent = 'Code copié ✓'; label.classList.add('ok');
       setTimeout(function(){ label.textContent = txt; label.classList.remove('ok'); }, 1800); };
     if (navigator.clipboard) navigator.clipboard.writeText(txt).then(done, function(){});
-  });
-
-  /* Tarifs carte cadeau (TTC) */
-  var REMISE = 50;
-  var TARIFS = {
-    famille:   [200, 350, 500, 650],
-    couple:    [200, 350, 500, 650],
-    grossesse: [250, 400, 550, 700],
-    naissance: [300, 450, 600, 750]
-  };
-  var NOMS = [['Essentielle', '5 photos'], ['Prestige', '10 photos'], ['Signature', '15 photos'], ['Héritage', 'galerie complète']];
-  var grid = document.getElementById('gcgrid');
-  document.querySelectorAll('.tabs button').forEach(function(b){
-    b.addEventListener('click', function(){
-      document.querySelectorAll('.tabs button').forEach(function(x){ x.setAttribute('aria-selected', x === b); });
-      grid.innerHTML = TARIFS[b.dataset.cat].map(function(p, i){
-        return '<div class="gco"><div class="n">' + NOMS[i][0] + '</div><div class="ph">' + NOMS[i][1] +
-          '</div><div class="p">' + p + ' €</div><div class="after">avec ton code : <b>' + (p - REMISE) + ' €</b></div></div>';
-      }).join('');
-      grid.classList.remove('fade'); void grid.offsetWidth; grid.classList.add('fade');
-    });
   });
 })();
 </script>
