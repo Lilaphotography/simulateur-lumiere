@@ -93,6 +93,10 @@ svg.holly{overflow:visible;filter:drop-shadow(0 6px 8px rgba(30,20,10,.18))}
 .hero .fir.l{width:430px;left:-90px;top:-20px;transform:rotate(18deg)}
 .hero .fir.r{width:380px;right:-110px;top:-16px;transform:scaleX(-1) rotate(22deg)}
 .hero .fir.b{width:340px;right:-80px;bottom:-40px;transform:scaleX(-1) rotate(-14deg);opacity:.9}
+/* petit rond avec Sayesté à côté de la signature */
+.signrow{display:flex;align-items:center;gap:18px;margin-top:6px}
+.mini{position:relative;flex:none;width:76px;height:76px;border-radius:50%;overflow:hidden;box-shadow:0 0 0 2px #fff,0 0 0 3px var(--dore-clair),0 8px 18px rgba(42,36,32,.18);background:#111}
+.mini img{position:absolute;width:224%;max-width:none;height:auto;left:-62%;top:-18%;display:block}
 .hero .baubles{right:15%;width:220px;height:140px}
 
 /* ---------- Le jour J ---------- */
@@ -302,6 +306,7 @@ h2{font-weight:400;font-size:54px}
   .hero h1{font-size:44px}
   .hero p{font-size:17px}
   .hero .orn.left{justify-content:center}
+  .signrow{justify-content:center}
   .hero .fir.l{width:250px;left:-80px;top:-14px}
   .hero .fir.r{width:230px;right:-90px;top:-10px}
   .hero .fir.b{display:none}
@@ -381,7 +386,7 @@ h2{font-weight:400;font-size:54px}
       <p>Comme chaque année, je suis impatiente de vous rencontrer.<br>Je vais revoir certains d'entre vous, voir vos petits bouts grandir, mais aussi rencontrer de nouvelles familles.</p>
       <p>Ce guide est conçu afin de te préparer à la séance sereinement.<br>Même si tu connais déjà le studio, prends le temps de le lire :)</p>
       <p>À très vite au studio,</p>
-      <div class="sign chrome">Sayesté</div>
+      <div class="signrow"><span class="mini"><img src="images/sayeste-portrait.jpg" alt="Sayesté"></span><div class="sign chrome">Sayesté</div></div>
     </div>
   </div>
 </section>
