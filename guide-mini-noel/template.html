@@ -98,13 +98,19 @@ svg.holly{overflow:visible;filter:drop-shadow(0 6px 8px rgba(30,20,10,.18))}
 .steps li::before{content:counter(s,decimal-leading-zero);font-family:var(--serif);font-style:italic;font-size:28px;color:var(--houx)}
 .steps li b{font-family:var(--serif);font-weight:500;font-size:21px;letter-spacing:.12em;text-transform:uppercase}
 .encart{margin-top:84px;background:var(--creme);display:grid;grid-template-columns:2fr 3fr;position:relative}
-.encart .ph{background:linear-gradient(160deg,#E4DED5,#D3CBC0);display:flex;flex-direction:column;gap:10px;align-items:center;justify-content:center;min-height:360px;color:var(--taupe);font-size:12px;letter-spacing:.2em;text-transform:uppercase}
-.encart .ph svg{width:46px;height:46px;opacity:.6}
+.encart .ph{background:radial-gradient(ellipse at 50% 40%,#FBF8F3,#E9E1D4);display:flex;align-items:center;justify-content:center;min-height:380px;padding:40px 24px}
+/* rond recadré sur le visage de Stella */
+.face{position:relative;width:250px;aspect-ratio:1}
+.face::before{content:"";position:absolute;inset:-12px;border:1px solid var(--dore-clair);border-radius:50%}
+.face::after{content:"";position:absolute;inset:-24px;border:1px dashed rgba(184,144,58,.35);border-radius:50%;animation:spin 90s linear infinite}
+.face .crop{position:absolute;inset:0;border-radius:50%;overflow:hidden;box-shadow:0 18px 40px rgba(42,36,32,.2);background:#333}
+/* zoom sur le visage : l'image (560x700) est agrandie puis décalée pour cadrer tête et épaules */
+.face .crop img{position:absolute;width:215%;max-width:none;height:auto;left:-79%;top:-7.7%;display:block}
+.face .holly{position:absolute;width:44%;right:-12%;bottom:-2%;z-index:2}
 .encart .txt{padding:56px 52px}
 .encart .lbl{color:var(--houx)}
 .encart h3{font-size:36px;letter-spacing:.08em;text-transform:uppercase;margin:8px 0 20px;font-weight:400;line-height:1.15}
 .encart p{font-size:16px;margin-bottom:12px}
-.encart .holly{position:absolute;width:120px;right:18px;top:-38px}
 
 /* ---------- Décors ---------- */
 .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;margin-top:64px}
@@ -226,12 +232,8 @@ svg.holly{overflow:visible;filter:drop-shadow(0 6px 8px rgba(30,20,10,.18))}
 .btns{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-top:48px}
 
 /* ---------- Fin ---------- */
-.endg{display:grid;grid-template-columns:5fr 6fr;gap:64px;align-items:center}
-.endg h2{text-align:left}
-.endg p{font-size:17.5px}
-.me{position:relative}
-.me img{width:100%;display:block;border-radius:240px 240px 0 0;outline:1px solid var(--dore-clair);outline-offset:10px}
-.me .holly{position:absolute;width:130px;left:-40px;bottom:16px}
+.endg{max-width:720px;text-align:center}
+.endg p{font-size:18px}
 .end .sign{margin-top:28px;font-size:40px}
 .end .fir.r{width:320px;right:-120px;bottom:30px;transform:scaleX(-1) rotate(-10deg)}
 
@@ -263,14 +265,14 @@ footer svg.holly{width:90px;height:45px;display:block;margin:0 auto 16px}
   .hero .fir.r{width:230px;right:-90px;top:-10px}
   .hero .fir.b{display:none}
   .hero .baubles{right:2%;width:120px;height:220px;transform:scale(.7);transform-origin:top right}
-  #decors .baubles{display:none}
+  #decors .baubles,.end .baubles{display:none}
   .steps li{grid-template-columns:42px 1fr;gap:2px 14px;padding:20px 0;font-size:16.5px}
   .steps li span{grid-column:2}
   .steps li::before{grid-row:span 2;font-size:24px}
   .steps li b{font-size:19px}
   .encart{grid-template-columns:1fr}.encart .ph{min-height:220px}.encart .txt{padding:40px 22px}
   .encart h3{font-size:30px}.encart p{font-size:16.5px}
-  .encart .holly{width:96px;top:-30px;right:8px}
+  .encart .ph{min-height:0;padding:56px 24px 40px}.face{width:220px}
   .grid3{grid-template-columns:1fr;gap:64px}.card .img{max-width:340px;margin:0 auto}
   .card h3{font-size:28px}.card p{font-size:16.5px}
   .tips{grid-template-columns:1fr;gap:28px}.tips p{font-size:16.5px}
@@ -307,8 +309,6 @@ footer svg.holly{width:90px;height:45px;display:block;margin:0 auto 16px}
 .gcard .fields b{font-size:12px}
   .gcard .logo{font-size:30px}.gcard .logo small{font-size:8px}
   .ig{grid-template-columns:1fr;gap:30px}.ig p{font-size:16.5px}
-  .endg{grid-template-columns:1fr;gap:44px;text-align:center}.endg h2{text-align:center}.endg .orn.left{justify-content:center}
-  .me{max-width:320px;margin:0 auto}.me .holly{width:100px;left:-20px}
   .galg{grid-template-columns:repeat(2,1fr);gap:10px}
   #decors .fir.r,#tenues .fir.l,.end .fir.r{display:none}
   .nav a{font-size:12px;padding:8px 13px}
@@ -377,11 +377,8 @@ footer svg.holly{width:90px;height:45px;display:block;margin:0 auto 16px}
     <li><b>En cas de retard</b><span>Le temps perdu est déduit de ta séance</span></li>
   </ul>
   <div class="encart rv">
-    <svg class="holly" viewBox="0 0 140 70" aria-hidden="true"><use href="#holly"/></svg>
-    <!-- Photo de Stella : remplacer ce bloc par <img src="images/stella.jpg" alt="Stella" style="width:100%;height:100%;object-fit:cover"> -->
     <div class="ph">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="6" width="18" height="14" rx="2"/><circle cx="12" cy="13" r="4"/><path d="M8 6l1.5-2h5L16 6"/></svg>
-      Photo de Stella
+      <div class="face"><div class="crop"><img src="images/stella.jpg" alt="Stella"></div><svg class="holly" viewBox="0 0 140 70" aria-hidden="true"><use href="#holly"/></svg></div>
     </div>
     <div class="txt">
       <div class="lbl">✨ Nouveau cette année</div>
@@ -574,12 +571,15 @@ footer svg.holly{width:90px;height:45px;display:block;margin:0 auto 16px}
 
 <!-- ============ FIN ============ -->
 <section class="end">
+  <div class="baubles" aria-hidden="true" style="left:14%;width:160px;height:240px">
+    <div class="bauble" style="left:0;--len:90px;--d:6.2s;--w:44px"><i></i><svg viewBox="0 0 60 70"><use href="#bauble-red"/></svg></div>
+    <div class="bauble" style="left:60px;--len:150px;--d:7s;--dl:-2s;--w:36px"><i></i><svg viewBox="0 0 60 70"><use href="#bauble-gold"/></svg></div>
+  </div>
   <div class="fir r" aria-hidden="true"><div class="sway"><svg viewBox="0 0 330 115"><use href="#fir"/></svg></div></div>
   <div class="inner endg">
-    <div class="me rv"><img src="images/sayeste.jpg" alt="Sayesté"><svg class="holly" viewBox="0 0 140 70" aria-hidden="true"><use href="#holly"/></svg></div>
     <div class="rv">
       <h2>À très <em>vite</em></h2>
-      <div class="orn left" aria-hidden="true"><svg viewBox="0 0 140 70"><use href="#holly"/></svg></div>
+      <div class="orn" aria-hidden="true"><svg viewBox="0 0 140 70"><use href="#holly"/></svg></div>
       <p>Merci du fond du cœur pour ta confiance ❤️<br>On a hâte de vous retrouver, de voir vos sourires, vos rires, et la magie dans les yeux de vos enfants…</p>
       <div class="sign chrome">Sayesté</div>
     </div>
