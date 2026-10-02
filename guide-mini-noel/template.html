@@ -23,7 +23,7 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:300}
 h2{font-size:54px;letter-spacing:.14em;text-transform:uppercase;text-align:center;line-height:1.1}
 h1 em,h2 em,h3 em{font-style:italic;text-transform:none;letter-spacing:.02em}
 /* Or chromé, avec un reflet qui passe lentement */
-.chrome,h1 em,h2 em,h3 em{background:var(--chrome-d);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;animation:shine 7s ease-in-out infinite;padding-right:.06em}
+.chrome,h1 em,h2 em,h3 em{background:var(--chrome-d);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;background-position:30% 50%;padding-right:.06em}
 .velvet .chrome,.velvet h3 em,.gcard .gl .chrome,.dayj .chrome{background-image:var(--chrome)}
 @keyframes shine{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
 .lbl{font-size:12.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--taupe);font-weight:400}
@@ -38,6 +38,7 @@ section{position:relative;overflow-x:clip}
 .orn::after{transform:scaleX(-1)}
 .orn svg{width:84px;height:42px;overflow:visible}
 .orn.left{justify-content:flex-start}
+.orn .berries{animation:none}
 
 /* ---------- Sapin, houx, boules, guirlande ---------- */
 .fir{position:absolute;pointer-events:none;z-index:1}
@@ -60,9 +61,9 @@ svg.holly{overflow:visible;filter:drop-shadow(0 6px 8px rgba(30,20,10,.18))}
 .lights .bulb{animation:twinkle var(--t,2.4s) ease-in-out infinite;animation-delay:var(--dl,0s)}
 @keyframes twinkle{0%,100%{opacity:1}50%{opacity:.35}}
 
-.snow{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:1}
+.snow{position:absolute;top:0;left:0;right:0;height:var(--snow-h,130px);overflow:hidden;pointer-events:none;z-index:1;-webkit-mask-image:linear-gradient(#000 55%,transparent);mask-image:linear-gradient(#000 55%,transparent)}
 .snow i{position:absolute;top:-12px;border-radius:50%;animation:fall linear infinite;opacity:0}
-@keyframes fall{0%{transform:translate3d(0,-10px,0);opacity:0}10%{opacity:.9}90%{opacity:.7}100%{transform:translate3d(var(--dx),110vh,0);opacity:0}}
+@keyframes fall{0%{transform:translate3d(0,-10px,0);opacity:0}10%{opacity:.9}90%{opacity:.7}100%{transform:translate3d(var(--dx),var(--snow-h,130px),0);opacity:0}}
 
 /* ---------- Navigation ---------- */
 .nav{position:sticky;top:0;z-index:30;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--bord)}
@@ -89,7 +90,7 @@ svg.holly{overflow:visible;filter:drop-shadow(0 6px 8px rgba(30,20,10,.18))}
 .hero .fir.l{width:430px;left:-90px;top:-20px;transform:rotate(18deg)}
 .hero .fir.r{width:380px;right:-110px;top:-16px;transform:scaleX(-1) rotate(22deg)}
 .hero .fir.b{width:340px;right:-80px;bottom:-40px;transform:scaleX(-1) rotate(-14deg);opacity:.9}
-.hero .baubles{right:15%;width:220px;height:300px}
+.hero .baubles{right:15%;width:220px;height:140px}
 
 /* ---------- Le jour J ---------- */
 .steps{list-style:none;margin-top:52px;counter-reset:s}
@@ -245,8 +246,6 @@ footer{position:relative;background:radial-gradient(ellipse at 50% 0%,#2C4A38,va
 footer svg.holly{width:90px;height:45px;display:block;margin:0 auto 16px}
 
 /* ---------- Apparition douce ---------- */
-.js .rv{opacity:0;transform:translateY(22px);transition:opacity 1s ease,transform 1s ease}
-.js .rv.in{opacity:1;transform:none}
 
 /* ---------- Mobile ---------- */
 @media(max-width:900px){
@@ -264,6 +263,7 @@ footer svg.holly{width:90px;height:45px;display:block;margin:0 auto 16px}
   .hero .fir.l{width:250px;left:-80px;top:-14px}
   .hero .fir.r{width:230px;right:-90px;top:-10px}
   .hero .fir.b{display:none}
+  .hero .snow{--snow-h:100px}
   .hero .baubles{right:2%;width:120px;height:220px;transform:scale(.7);transform-origin:top right}
   #decors .baubles,.end .baubles{display:none}
   .steps li{grid-template-columns:42px 1fr;gap:2px 14px;padding:20px 0;font-size:16.5px}
@@ -331,9 +331,9 @@ footer svg.holly{width:90px;height:45px;display:block;margin:0 auto 16px}
   <div class="fir r" aria-hidden="true"><div class="sway"><svg viewBox="0 0 330 115"><use href="#fir"/></svg></div></div>
   <div class="fir b" aria-hidden="true"><div class="sway"><svg viewBox="0 0 330 115"><use href="#fir"/></svg></div></div>
   <div class="baubles" aria-hidden="true">
-    <div class="bauble" style="left:0;--len:70px;--d:5.5s"><i></i><svg viewBox="0 0 60 70"><use href="#bauble-red"/></svg></div>
-    <div class="bauble" style="left:70px;--len:130px;--d:6.5s;--dl:-2s;--w:44px"><i></i><svg viewBox="0 0 60 70"><use href="#bauble-gold"/></svg></div>
-    <div class="bauble" style="left:135px;--len:40px;--d:7s;--dl:-1s;--w:38px"><i></i><svg viewBox="0 0 60 70"><use href="#bauble-green"/></svg></div>
+    <div class="bauble" style="left:0;--len:40px;--d:5.5s"><i></i><svg viewBox="0 0 60 70"><use href="#bauble-red"/></svg></div>
+    <div class="bauble" style="left:70px;--len:62px;--d:6.5s;--dl:-2s;--w:40px"><i></i><svg viewBox="0 0 60 70"><use href="#bauble-gold"/></svg></div>
+    <div class="bauble" style="left:135px;--len:22px;--d:7s;--dl:-1s;--w:34px"><i></i><svg viewBox="0 0 60 70"><use href="#bauble-green"/></svg></div>
   </div>
   <div class="inner">
     <div class="round">
@@ -395,8 +395,8 @@ footer svg.holly{width:90px;height:45px;display:block;margin:0 auto 16px}
 <section id="decors" class="bg-creme">
   <div class="fir r" aria-hidden="true"><div class="sway"><svg viewBox="0 0 330 115"><use href="#fir"/></svg></div></div>
   <div class="baubles" aria-hidden="true">
-    <div class="bauble" style="left:0;--len:110px;--d:6s;--w:42px"><i></i><svg viewBox="0 0 60 70"><use href="#bauble-gold"/></svg></div>
-    <div class="bauble" style="left:56px;--len:60px;--d:7.2s;--dl:-3s;--w:36px"><i></i><svg viewBox="0 0 60 70"><use href="#bauble-red"/></svg></div>
+    <div class="bauble" style="left:0;--len:50px;--d:6s;--w:40px"><i></i><svg viewBox="0 0 60 70"><use href="#bauble-gold"/></svg></div>
+    <div class="bauble" style="left:56px;--len:24px;--d:7.2s;--dl:-3s;--w:34px"><i></i><svg viewBox="0 0 60 70"><use href="#bauble-red"/></svg></div>
   </div>
   <div class="inner">
   <h2 class="rv">Les <em>décors</em></h2>
@@ -572,8 +572,8 @@ footer svg.holly{width:90px;height:45px;display:block;margin:0 auto 16px}
 <!-- ============ FIN ============ -->
 <section class="end">
   <div class="baubles" aria-hidden="true" style="left:14%;width:160px;height:240px">
-    <div class="bauble" style="left:0;--len:90px;--d:6.2s;--w:44px"><i></i><svg viewBox="0 0 60 70"><use href="#bauble-red"/></svg></div>
-    <div class="bauble" style="left:60px;--len:150px;--d:7s;--dl:-2s;--w:36px"><i></i><svg viewBox="0 0 60 70"><use href="#bauble-gold"/></svg></div>
+    <div class="bauble" style="left:0;--len:36px;--d:6.2s;--w:40px"><i></i><svg viewBox="0 0 60 70"><use href="#bauble-red"/></svg></div>
+    <div class="bauble" style="left:60px;--len:64px;--d:7s;--dl:-2s;--w:34px"><i></i><svg viewBox="0 0 60 70"><use href="#bauble-gold"/></svg></div>
   </div>
   <div class="fir r" aria-hidden="true"><div class="sway"><svg viewBox="0 0 330 115"><use href="#fir"/></svg></div></div>
   <div class="inner endg">
@@ -649,8 +649,8 @@ footer svg.holly{width:90px;height:45px;display:block;margin:0 auto 16px}
       f.style.boxShadow = gold ? '0 0 6px rgba(201,160,74,.6)' : '0 0 4px rgba(150,130,100,.5)';
       f.style.left = Math.random() * 100 + '%';
       f.style.setProperty('--dx', (Math.random() * 80 - 40) + 'px');
-      f.style.animationDuration = (10 + Math.random() * 12) + 's';
-      f.style.animationDelay = (-Math.random() * 20) + 's';
+      f.style.animationDuration = (4 + Math.random() * 4) + 's';
+      f.style.animationDelay = (-Math.random() * 8) + 's';
       snow.appendChild(f);
     }
   }
