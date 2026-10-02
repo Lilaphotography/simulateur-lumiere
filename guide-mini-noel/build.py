@@ -197,3 +197,38 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+def apercus():
+    """Aperçus à ouvrir tels quels : le guide dans un cadre de téléphone, et sur un écran d'ordinateur."""
+    import html as h
+    guide = h.escape((ROOT / "guide-mini-noel.html").read_text(encoding="utf-8"), quote=True)
+    mobile = (
+        '<!doctype html><html lang="fr"><head><meta charset="utf-8">'
+        '<meta name="viewport" content="width=device-width,initial-scale=1"><title>Aperçu mobile</title>'
+        '<style>html,body{margin:0;height:100%}body{background:#2A2420;display:flex;align-items:center;justify-content:center;font-family:system-ui,sans-serif}'
+        '.phone{width:390px;height:844px;max-height:calc(100vh - 40px);border-radius:48px;background:#111;padding:14px;box-shadow:0 30px 80px rgba(0,0,0,.5)}'
+        '.phone iframe{width:100%;height:100%;border:0;border-radius:36px;background:#fff;display:block}'
+        '@media(max-width:440px){body{display:block}.phone{width:100%;height:100vh;max-height:none;border-radius:0;padding:0}.phone iframe{border-radius:0}}'
+        '</style></head><body><div class="phone"><iframe title="Guide mini-séances de Noël, version mobile" srcdoc="'
+        + guide + '"></iframe></div></body></html>'
+    )
+    desktop = (
+        '<!doctype html><html lang="fr"><head><meta charset="utf-8">'
+        '<meta name="viewport" content="width=device-width,initial-scale=1"><title>Aperçu ordinateur</title>'
+        '<style>html,body{margin:0}body{background:#2A2420}.wrap{position:relative;width:100%;overflow:hidden}'
+        '.screen{position:absolute;top:0;left:0;width:1440px;transform-origin:0 0;background:#fff}iframe{border:0;width:1440px;display:block}</style></head><body>'
+        '<div class="wrap" id="wrap"><div class="screen" id="screen"><iframe id="f" title="Guide mini-séances de Noël, version ordinateur" srcdoc="'
+        + guide + '"></iframe></div></div><script>'
+        "var wr=document.getElementById('wrap'),sc=document.getElementById('screen'),f=document.getElementById('f');"
+        "function fit(){var w=wr.clientWidth||innerWidth,h=Math.max(innerHeight,560),k=Math.min(1,w/1440);"
+        "wr.style.height=h+'px';sc.style.transform='scale('+k+')';sc.style.left=Math.max(0,(w-1440*k)/2)+'px';f.style.height=Math.round(h/k)+'px'}"
+        "addEventListener('resize',fit);fit();</script></body></html>"
+    )
+    (ROOT / "apercu-mobile.html").write_text(mobile, encoding="utf-8")
+    (ROOT / "apercu-ordinateur.html").write_text(desktop, encoding="utf-8")
+    print("aperçus : apercu-mobile.html, apercu-ordinateur.html")
+
+
+if __name__ == "__main__":
+    apercus()
