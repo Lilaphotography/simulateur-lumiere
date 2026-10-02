@@ -1,0 +1,574 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mini-séances de Noël</title>
+<meta name="description" content="Guide de préparation des mini-séances de Noël 2026 — Lila Photography, studio au Teil.">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --charbon:#2A2420;--dore:#B8903A;--dore-clair:#D9BC7A;--taupe:#7A6E68;
+  --creme:#F6F3EE;--creme2:#EFE9E0;--bord:#E8E4DE;--gris:#E8E8E8;
+  --sapin:#2F4A3A;--sapin2:#1F3528;--houx:#9E1B2A;
+  --serif:'Cormorant Garamond',Georgia,serif;--sans:'Jost',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:#fff;color:var(--charbon);font-family:var(--sans);font-weight:300;line-height:1.75;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%}
+a{color:inherit}
+
+/* ---------- Typo commune ---------- */
+h1,h2,h3,h4{font-family:var(--serif);font-weight:300}
+h2{font-size:52px;letter-spacing:.14em;text-transform:uppercase;text-align:center;line-height:1.1}
+h2 em,h3 em,h1 em{font-style:italic;color:var(--dore);text-transform:none;letter-spacing:.02em}
+.lbl{font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--taupe);font-weight:400}
+.intro{max-width:580px;margin:0 auto;text-align:center;font-size:17px}
+.inner{max-width:1080px;margin:0 auto;padding:110px 24px;position:relative}
+section{position:relative;overflow-x:clip}
+.bg-creme{background:var(--creme)}
+
+/* ---------- Ornement : filet doré + brin de houx ---------- */
+.orn{display:flex;align-items:center;justify-content:center;gap:18px;margin:26px auto 30px}
+.orn::before,.orn::after{content:"";width:56px;height:1px;background:var(--dore)}
+.orn svg{width:58px;height:30px;overflow:visible}
+.orn.left{justify-content:flex-start}
+
+/* ---------- Déco de Noël ---------- */
+.fir{position:absolute;pointer-events:none;z-index:0}
+.fir svg{display:block;width:100%;height:auto;overflow:visible}
+.fir .sway{transform-origin:0% 55%;animation:sway 7s ease-in-out infinite}
+.fir.r .sway{animation-duration:8.5s;animation-delay:-3s}
+.fir .holly{position:absolute;width:30%;left:-6%;top:22%}
+@keyframes sway{0%,100%{transform:rotate(-1.6deg)}50%{transform:rotate(1.8deg)}}
+.berries{transform-box:fill-box;transform-origin:center;animation:berry 4.5s ease-in-out infinite}
+@keyframes berry{0%,100%{transform:scale(1);filter:brightness(1)}50%{transform:scale(1.07);filter:brightness(1.18)}}
+
+.snow{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:1}
+.snow i{position:absolute;top:-12px;border-radius:50%;background:#fff;box-shadow:0 0 6px rgba(184,144,58,.35);animation:fall linear infinite;opacity:0}
+@keyframes fall{0%{transform:translate3d(0,-10px,0);opacity:0}10%{opacity:.85}90%{opacity:.6}100%{transform:translate3d(var(--dx),105vh,0);opacity:0}}
+
+/* ---------- Navigation ---------- */
+.nav{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--bord)}
+.nav ul{list-style:none;display:flex;gap:6px;max-width:1080px;margin:0 auto;padding:10px 16px;overflow-x:auto;scrollbar-width:none}
+.nav ul::-webkit-scrollbar{display:none}
+.nav li:first-child{margin-left:auto}.nav li:last-child{margin-right:auto}
+.nav a{display:block;white-space:nowrap;padding:7px 14px;border-radius:999px;font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;color:var(--taupe);transition:background .3s,color .3s}
+.nav a:hover,.nav a.on{background:var(--creme);color:var(--charbon)}
+
+/* ---------- Hero ---------- */
+.hero{background:radial-gradient(ellipse at 30% 40%,#fff 0%,var(--creme) 62%,var(--creme2) 100%);overflow:hidden}
+.hero .inner{display:grid;grid-template-columns:5fr 7fr;gap:72px;align-items:center;padding-top:130px;padding-bottom:120px;z-index:2}
+.hero .round{position:relative;aspect-ratio:1}
+.hero .round::before{content:"";position:absolute;inset:-14px;border:1px solid var(--dore-clair);border-radius:50%}
+.hero .round img{width:100%;height:100%;object-fit:cover;display:block;border-radius:50%;box-shadow:0 20px 50px rgba(42,36,32,.14)}
+.hero .round .holly{position:absolute;width:34%;right:-4%;bottom:2%;filter:drop-shadow(0 4px 6px rgba(0,0,0,.12))}
+.eyebrow{font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:var(--taupe);font-weight:400}
+.hero h1{font-size:54px;letter-spacing:.12em;text-transform:uppercase;line-height:1.05;margin-top:16px}
+.hero h1 em{display:block;font-size:1.25em;margin-top:4px}
+.hero p{font-size:16.5px;margin-bottom:14px}
+.sign{font-family:var(--serif);font-style:italic;font-size:32px;color:var(--dore);line-height:1}
+.hero .fir.l{width:430px;left:-90px;top:-34px;transform:rotate(18deg)}
+.hero .fir.r{width:380px;right:-110px;top:-30px;transform:scaleX(-1) rotate(22deg)}
+.hero .fir.b{width:340px;right:-80px;bottom:-40px;transform:scaleX(-1) rotate(-14deg);opacity:.9}
+
+/* ---------- Le jour J ---------- */
+.steps{list-style:none;margin-top:52px;counter-reset:s}
+.steps li{display:grid;grid-template-columns:64px 210px 1fr;gap:20px;align-items:baseline;padding:22px 0;border-bottom:1px solid var(--bord);font-size:16px;counter-increment:s}
+.steps li:first-child{border-top:1px solid var(--bord)}
+.steps li::before{content:counter(s,decimal-leading-zero);font-family:var(--serif);font-style:italic;font-size:26px;color:var(--dore)}
+.steps li b{font-family:var(--serif);font-weight:400;font-size:21px;letter-spacing:.12em;text-transform:uppercase}
+.encart{margin-top:80px;background:var(--creme);display:grid;grid-template-columns:2fr 3fr;position:relative}
+.encart .ph{background:linear-gradient(160deg,#E4DED5,#D3CBC0);display:flex;flex-direction:column;gap:10px;align-items:center;justify-content:center;min-height:360px;color:var(--taupe);font-size:12px;letter-spacing:.2em;text-transform:uppercase}
+.encart .ph svg{width:46px;height:46px;opacity:.6}
+.encart .txt{padding:56px 52px}
+.encart .lbl{color:var(--dore)}
+.encart h3{font-size:34px;letter-spacing:.08em;text-transform:uppercase;margin:8px 0 20px;font-weight:400}
+.encart p{font-size:15.5px;margin-bottom:12px}
+.encart .holly{position:absolute;width:86px;right:22px;top:-26px}
+
+/* ---------- Décors ---------- */
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;margin-top:64px}
+.card{text-align:center}
+.card .img{aspect-ratio:4/5;overflow:hidden;background:var(--gris);border-radius:200px 200px 0 0}
+.card .img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 1.4s ease}
+.card:hover .img img{transform:scale(1.04)}
+.card h3{font-weight:400;font-size:30px;letter-spacing:.12em;text-transform:uppercase;margin:30px 0 12px}
+.card p{font-size:15.5px;max-width:320px;margin:0 auto}
+.swatches{display:flex;justify-content:center;gap:8px;margin-top:20px}
+.swatches span{width:18px;height:18px;border-radius:50%;border:1px solid var(--bord)}
+.outro{text-align:center;margin-top:76px;font-size:17px}
+.btn{display:inline-block;margin-top:24px;padding:15px 36px;border:1px solid var(--charbon);border-radius:999px;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--charbon);text-decoration:none;font-weight:400;transition:background .3s,color .3s}
+.btn:hover{background:var(--charbon);color:#fff}
+#decors .fir.r{width:300px;right:-120px;top:40px;transform:scaleX(-1) rotate(8deg)}
+
+/* ---------- Tenues ---------- */
+.pal{display:flex;justify-content:center;gap:40px;flex-wrap:wrap;margin:56px 0 64px}
+.pal div{text-align:center;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--taupe)}
+.pal span{display:block;width:76px;height:76px;border-radius:50%;margin:0 auto 14px;border:1px solid var(--bord);box-shadow:inset 0 -6px 14px rgba(0,0,0,.08)}
+.tips{display:grid;grid-template-columns:repeat(3,1fr);gap:36px;border-top:1px solid #D6D0C6;padding-top:44px}
+.tips h4,.lk h4{font-weight:400;font-size:20px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:10px}
+.tips p{font-size:15.5px}
+.looks{margin-top:88px}
+.looks h3{font-weight:400;font-size:32px;letter-spacing:.12em;text-transform:uppercase;text-align:center}
+.lsub{text-align:center;margin:6px 0 44px}
+.lks{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.lk{text-align:center}
+.lk img{width:100%;display:block;background:#fff;box-shadow:0 10px 30px rgba(42,36,32,.07)}
+.lnote{text-align:center;max-width:580px;margin:52px auto 0;font-size:16px}
+#tenues .fir.l{width:280px;left:-120px;bottom:60px;transform:rotate(-12deg)}
+
+/* ---------- Tes photos ---------- */
+.incl{text-align:center;margin-top:20px}
+.price{font-family:var(--serif);font-weight:300;font-size:84px;line-height:1;margin-top:14px}
+.price small{font-size:18px;letter-spacing:.2em;margin-left:6px}
+.trio{display:grid;grid-template-columns:repeat(3,1fr);margin-top:40px;border-top:1px solid var(--bord);border-bottom:1px solid var(--bord)}
+.trio div{padding:28px 20px;font-size:15px}
+.trio div+div{border-left:1px solid var(--bord)}
+.trio b{display:block;font-family:var(--serif);font-weight:400;font-size:28px;margin-bottom:4px}
+.dayj{margin:48px auto 0;max-width:640px;background:var(--sapin);color:#F4EFE6;padding:36px 28px;text-align:center;position:relative}
+.dayj .lbl{color:var(--dore-clair)}
+.dayj .amt{font-family:var(--serif);font-size:56px;font-weight:300;margin:6px 0;line-height:1.1}
+.dayj p{font-size:14.5px;opacity:.8}
+.dayj .holly{position:absolute;width:74px;left:-24px;top:-22px}
+.more{margin-top:96px;text-align:center}
+.more h3{font-size:36px;letter-spacing:.1em;text-transform:uppercase}
+.more .sub{font-size:15px;color:var(--taupe);margin-top:8px}
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:40px}
+.tile{border:1px solid var(--bord);padding:38px 18px;background:#fff;transition:transform .4s,box-shadow .4s}
+.tile:hover{transform:translateY(-4px);box-shadow:0 14px 34px rgba(42,36,32,.08)}
+.tile .p{font-family:var(--serif);font-weight:300;font-size:52px;line-height:1;margin:16px 0 10px}
+.tile .d{font-size:14.5px}
+.tile .u{font-size:13px;color:var(--dore);margin-top:8px}
+.ex2{margin:44px auto 0;max-width:580px;font-size:15.5px;padding:18px 22px;background:#fff}
+.ex2 strong{font-weight:500}
+.gal2{max-width:580px;margin:60px auto 0;text-align:center;font-family:var(--serif);font-style:italic;font-size:24px;line-height:1.5}
+.payrow{margin:64px auto 0;max-width:640px;border-top:1px solid #D6D0C6;padding-top:34px;text-align:center}
+.payrow p{margin-top:10px;font-size:15.5px}
+.iban{display:inline-block;margin-top:14px;padding:12px 22px;border:1px dashed var(--dore);font-size:14px;letter-spacing:.08em}
+
+/* ---------- Cadeaux ---------- */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:60px;align-items:stretch}
+.two .ph{aspect-ratio:4/3;overflow:hidden;margin-bottom:26px}
+.two .ph img{width:100%;height:100%;object-fit:cover;display:block}
+.two h3{font-weight:400;font-size:28px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:12px}
+.two p{font-size:15.5px}
+.gift{background:var(--creme);padding:40px 34px;display:flex;flex-direction:column}
+.gift .cardimg{width:100%;display:block;margin-bottom:28px;box-shadow:0 14px 34px rgba(42,36,32,.16);transform:rotate(-1.5deg);transition:transform .6s}
+.gift .cardimg:hover{transform:rotate(0) scale(1.02)}
+.code{display:inline-flex;flex-direction:column;margin-top:22px;padding:14px 26px;border:1px solid var(--dore);background:#fff;font-size:16px;letter-spacing:.2em;text-transform:uppercase;align-self:flex-start;font-weight:400;cursor:pointer;font-family:var(--sans);color:var(--charbon);text-align:left}
+.code span{font-size:10.5px;color:var(--taupe);letter-spacing:.2em;margin-bottom:4px;font-weight:300}
+.code .ok{color:var(--sapin)}
+
+/* Tarifs carte cadeau */
+.gc{margin-top:88px;border:1px solid var(--bord);padding:64px 40px 52px;position:relative;background:#fff}
+.gc h3{font-size:36px;letter-spacing:.1em;text-transform:uppercase;text-align:center}
+.gc .sub{text-align:center;color:var(--taupe);font-size:15px;margin-top:6px}
+.gc .fir.l{width:220px;left:-60px;top:-50px;transform:rotate(14deg)}
+.gc .fir.r{width:200px;right:-60px;top:-46px;transform:scaleX(-1) rotate(18deg)}
+.tabs{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin:36px 0 40px}
+.tabs button{font-family:var(--sans);font-size:12px;letter-spacing:.2em;text-transform:uppercase;padding:10px 20px;border-radius:999px;border:1px solid var(--bord);background:#fff;color:var(--taupe);cursor:pointer;transition:all .3s}
+.tabs button[aria-selected="true"]{background:var(--sapin);border-color:var(--sapin);color:#fff}
+.gcgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.gco{text-align:center;padding:30px 14px 26px;background:var(--creme);transition:transform .4s}
+.gco:hover{transform:translateY(-4px)}
+.gco .n{font-family:var(--serif);font-size:22px;letter-spacing:.12em;text-transform:uppercase}
+.gco .ph{font-size:13.5px;color:var(--taupe);margin-top:2px}
+.gco .p{font-family:var(--serif);font-weight:300;font-size:46px;line-height:1;margin:18px 0 12px}
+.gco .after{font-size:13px;color:var(--sapin);border-top:1px solid var(--bord);padding-top:12px}
+.gco .after b{font-weight:500}
+.gcnote{text-align:center;font-size:14.5px;color:var(--taupe);margin-top:30px}
+.gcnote b{font-weight:400;color:var(--charbon)}
+.gcgrid.fade{animation:fade .5s ease}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+/* ---------- Infos ---------- */
+.ig{display:grid;grid-template-columns:repeat(3,1fr);gap:36px;margin-top:56px;text-align:center}
+.ig h4{font-weight:400;font-size:21px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:10px}
+.ig p{font-size:15.5px}
+.ig b{font-weight:400}
+.btns{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-top:48px}
+
+/* ---------- Fin ---------- */
+.endg{display:grid;grid-template-columns:5fr 6fr;gap:64px;align-items:center}
+.endg h2{text-align:left}
+.endg p{font-size:17px}
+.me{position:relative}
+.me img{width:100%;display:block;border-radius:240px 240px 0 0}
+.me .holly{position:absolute;width:96px;left:-26px;bottom:24px}
+.end .sign{margin-top:28px;font-size:36px}
+.end .fir.r{width:320px;right:-120px;bottom:30px;transform:scaleX(-1) rotate(-10deg)}
+
+.galg{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:48px}
+.galg div{aspect-ratio:4/5;overflow:hidden}
+.galg img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 1.4s}
+.galg div:hover img{transform:scale(1.05)}
+footer{background:var(--sapin2);color:#E8DFCF;text-align:center;padding:44px 16px;font-size:12px;letter-spacing:.24em;text-transform:uppercase}
+footer svg{width:60px;height:30px;display:block;margin:0 auto 14px}
+
+/* ---------- Apparition douce ---------- */
+.js .rv{opacity:0;transform:translateY(22px);transition:opacity 1s ease,transform 1s ease}
+.js .rv.in{opacity:1;transform:none}
+
+/* ---------- Responsive ---------- */
+@media(max-width:900px){
+  .inner{padding:72px 16px}
+  h2{font-size:36px}
+  .hero .inner{grid-template-columns:1fr;gap:44px;text-align:center;padding-top:90px;padding-bottom:80px}
+  .hero .round{max-width:290px;margin:0 auto;width:100%}
+  .hero h1{font-size:38px}
+  .hero .orn.left{justify-content:center}
+  .hero .fir.l{width:250px;left:-80px;top:-30px}
+  .hero .fir.r{width:230px;right:-90px;top:-24px}
+  .hero .fir.b{display:none}
+  .steps li{grid-template-columns:44px 1fr;gap:4px 14px}
+  .steps li span{grid-column:2}
+  .steps li::before{grid-row:span 2;font-size:22px}
+  .encart{grid-template-columns:1fr}.encart .ph{min-height:220px}.encart .txt{padding:36px 22px}
+  .grid3{grid-template-columns:1fr;gap:56px}.card .img{max-width:380px;margin:0 auto}
+  .tips{grid-template-columns:1fr}.pal{gap:20px}.pal span{width:56px;height:56px}
+  .lks{grid-template-columns:repeat(2,1fr);gap:16px}
+  .trio,.tiles{grid-template-columns:1fr}.trio div+div{border-left:0;border-top:1px solid var(--bord)}
+  .price{font-size:64px}
+  .two{grid-template-columns:1fr}.gift{padding:32px 22px}
+  .gc{padding:52px 18px 40px}.gcgrid{grid-template-columns:repeat(2,1fr);gap:12px}.gco .p{font-size:38px}
+  .ig{grid-template-columns:1fr}
+  .endg{grid-template-columns:1fr;gap:40px;text-align:center}.endg h2{text-align:center}.endg .orn.left{justify-content:center}
+  .me{max-width:340px;margin:0 auto}
+  .galg{grid-template-columns:repeat(2,1fr)}
+  #decors .fir.r,#tenues .fir.l,.end .fir.r{display:none}
+  .gc .fir.l{width:150px;left:-40px}.gc .fir.r{width:140px;right:-40px}
+}
+@media(max-width:420px){.gcgrid{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .snow{display:none}
+  .js .rv{opacity:1;transform:none}
+}
+</style></head><body>
+<!--SVG_SYMBOLS-->
+<script>document.documentElement.classList.add('js')</script>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <div class="snow" aria-hidden="true"></div>
+  <div class="fir l" aria-hidden="true"><div class="sway"><svg viewBox="0 0 330 115"><use href="#fir"/></svg></div></div>
+  <div class="fir r" aria-hidden="true"><div class="sway"><svg viewBox="0 0 330 115"><use href="#fir"/></svg></div></div>
+  <div class="fir b" aria-hidden="true"><div class="sway"><svg viewBox="0 0 330 115"><use href="#fir"/></svg></div></div>
+  <div class="inner">
+    <div class="round">
+      <img src="images/hero.jpg" alt="Mini-séance de Noël au studio Lila Photography">
+      <svg class="holly" viewBox="0 0 140 70" aria-hidden="true"><use href="#holly"/></svg>
+    </div>
+    <div>
+      <div class="eyebrow">Guide · Édition 2026</div>
+      <h1>Mini-séances de <em>Noël</em></h1>
+      <div class="orn left" aria-hidden="true"><svg viewBox="0 0 140 70"><use href="#holly"/></svg></div>
+      <p>Hello :)<br>Tu as réservé ta mini-séance de Noël, et je suis tellement heureuse de t'accueillir au studio cette année :)</p>
+      <p>Comme chaque année, je suis impatiente de vous rencontrer.<br>Je vais revoir certains d'entre vous, voir vos petits bouts grandir, mais aussi rencontrer de nouvelles familles.</p>
+      <p>Ce guide est conçu afin de te préparer à la séance sereinement.<br>Même si tu connais déjà le studio, prends le temps de le lire :)</p>
+      <p>À très vite au studio,</p>
+      <div class="sign">Sayesté</div>
+    </div>
+  </div>
+</section>
+
+<nav class="nav" aria-label="Sommaire">
+  <ul>
+    <li><a href="#jour-j">Le jour J</a></li>
+    <li><a href="#decors">Les décors</a></li>
+    <li><a href="#tenues">Les tenues</a></li>
+    <li><a href="#photos">Tes photos</a></li>
+    <li><a href="#cadeaux">Carte cadeau</a></li>
+    <li><a href="#infos">Infos pratiques</a></li>
+  </ul>
+</nav>
+
+<!-- ============ LE JOUR J ============ -->
+<section id="jour-j"><div class="inner">
+  <h2 class="rv">Le jour <em>J</em></h2>
+  <div class="orn" aria-hidden="true"><svg viewBox="0 0 140 70"><use href="#holly"/></svg></div>
+  <ul class="steps rv">
+    <li><b>Arrivée</b><span>5 minutes avant ton créneau, devant la porte du studio. On vient te chercher :)</span></li>
+    <li><b>La séance</b><span>30 minutes de prise de vue dans les 3 décors</span></li>
+    <li><b>La sélection</b><span>30 minutes pour découvrir tes photos et faire ton choix avec Stella</span></li>
+    <li><b>Tes photos</b><span>5 photos incluses, en couleur et en noir et blanc. Tu pourras en choisir plus sur place</span></li>
+    <li><b>Le règlement</b><span>Sur place, le jour de ta séance (espèces, carte ou virement)</span></li>
+    <li><b>En cas de retard</b><span>Le temps perdu est déduit de ta séance</span></li>
+  </ul>
+  <div class="encart rv">
+    <svg class="holly" viewBox="0 0 140 70" aria-hidden="true"><use href="#holly"/></svg>
+    <!-- Remplacer ce bloc par <img src="images/stella.jpg" alt="Stella" style="width:100%;height:100%;object-fit:cover"> -->
+    <div class="ph">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="6" width="18" height="14" rx="2"/><circle cx="12" cy="13" r="4"/><path d="M8 6l1.5-2h5L16 6"/></svg>
+      Photo de Stella
+    </div>
+    <div class="txt">
+      <div class="lbl">✨ Nouveau cette année</div>
+      <h3>Ta sélection avec <em>Stella</em></h3>
+      <p>Cette année, petit changement : vous n'aurez plus à attendre pour choisir vos photos :)</p>
+      <p>Juste après la séance, Stella s'occupera de vous dans un coin calme du studio pour vous montrer vos photos sur place, et vous aider à faire votre choix.</p>
+      <p>Ensuite, je m'occupe de la retouche et je vous envoie vos photos d'après votre sélection, sous 2 semaines : de quoi avoir le temps, si vous le souhaitez, de commander des tirages ou des supports à offrir pour Noël 🎄</p>
+      <p>Petit rappel : un créneau = une famille, et les grands-parents sont les bienvenus :)</p>
+    </div>
+  </div>
+</div></section>
+
+<!-- ============ DÉCORS ============ -->
+<section id="decors" class="bg-creme" style="overflow:hidden">
+  <div class="fir r" aria-hidden="true"><div class="sway"><svg viewBox="0 0 330 115"><use href="#fir"/></svg></div></div>
+  <div class="inner">
+  <h2 class="rv">Les <em>décors</em></h2>
+  <div class="orn" aria-hidden="true"><svg viewBox="0 0 140 70"><use href="#holly"/></svg></div>
+  <p class="intro rv">Cette année, trois univers t'attendent au studio, et tu passeras dans chacun d'eux pendant ta séance :)</p>
+  <div class="grid3">
+    <div class="card rv">
+      <div class="img"><img src="images/decor-blanc-or.jpg" alt="Décor Blanc & Or"></div>
+      <h3>Blanc &amp; <em>Or</em></h3>
+      <p>Le décor de l'an dernier revient… Sapins givrés, boules dorées, canapé tout doux et cheminée : un univers lumineux et élégant.</p>
+      <div class="swatches"><span style="background:#F4EFE6"></span><span style="background:#E3D6C3"></span><span style="background:#B8903A"></span><span style="background:#A8754A"></span></div>
+    </div>
+    <div class="card rv">
+      <div class="img"><img src="images/decor-rouge-sapin.jpg" alt="Décor Rouge & Sapin"></div>
+      <h3>Rouge &amp; <em>Sapin</em></h3>
+      <p>Un grand fond blanc, un sapin et des paquets géants rouge et vert, noués de rubans en velours : le Noël traditionnel, dans sa version la plus festive.</p>
+      <div class="swatches"><span style="background:#8E1F2A"></span><span style="background:#2F4A3A"></span><span style="background:#F4EFE6"></span><span style="background:#D9C6A8"></span></div>
+    </div>
+    <div class="card rv">
+      <div class="img"><img src="images/decor-cocon.jpg" alt="Décor Cocon d'hiver"></div>
+      <h3>Cocon <em>d'hiver</em></h3>
+      <p>Une couronne de pommes de pin, des guirlandes de sapin, des bougies et un fauteuil tout doux : une ambiance chaleureuse, comme un soir d'hiver au coin du feu.</p>
+      <div class="swatches"><span style="background:#4E5A44"></span><span style="background:#F4EFE6"></span><span style="background:#B08B62"></span><span style="background:#6B4B33"></span></div>
+    </div>
+  </div>
+  <div class="outro rv">
+    <p>Les couleurs de ces trois décors vont t'aider à choisir vos tenues, on en parle juste en dessous :)</p>
+    <a class="btn" href="#tenues">Préparer vos tenues</a>
+  </div>
+</div></section>
+
+<!-- ============ TENUES ============ -->
+<section id="tenues" style="overflow:hidden">
+  <div class="fir l" aria-hidden="true"><div class="sway"><svg viewBox="0 0 330 115"><use href="#fir"/></svg></div></div>
+  <div class="inner">
+  <h2 class="rv">Prépare vos <em>tenues</em></h2>
+  <div class="orn" aria-hidden="true"><svg viewBox="0 0 140 70"><use href="#holly"/></svg></div>
+  <p class="intro rv">L'essentiel, c'est d'être en harmonie avec les décors :) Vous n'êtes pas obligés de porter tous les mêmes couleurs dans la famille : il suffit que chacun ait quelque chose qui rentre dans la palette.</p>
+  <div class="pal rv">
+    <div><span style="background:#F4EFE6"></span>Crème</div>
+    <div><span style="background:#E3D6C3"></span>Beige</div>
+    <div><span style="background:#B08B62"></span>Camel</div>
+    <div><span style="background:#2F4A3A"></span>Vert sapin</div>
+    <div><span style="background:#6E1F2A"></span>Bordeaux</div>
+  </div>
+  <div class="tips rv">
+    <div><h4>Hauts &amp; bas</h4><p>Le haut et le bas peuvent se combiner : un bas beige ou camel, avec un haut vert ou bordeaux… ça marche très bien.</p></div>
+    <div><h4>Pour changer</h4><p>Si vous voulez varier, pas besoin d'une deuxième tenue complète : amenez simplement un autre haut :)</p></div>
+    <div><h4>Petits détails</h4><p>Chaussures ou chaussettes, les deux sont ok :) Pour les filles qui veulent porter une robe, pensez aux chaussettes hautes. Et on évite les gros logos et les couleurs trop vives.</p></div>
+  </div>
+  <div class="looks">
+    <h3 class="rv">Quelques <em>idées</em></h3>
+    <p class="lsub lbl">Combinaisons, matières, couleurs, accessoires</p>
+    <div class="lks">
+      <div class="lk rv"><h4>Pour papa</h4><img src="images/look-papa.jpg" alt="Idée de tenue pour papa : pull vert sapin, chemise crème, pantalon beige"></div>
+      <div class="lk rv"><h4>Pour maman</h4><img src="images/look-maman.jpg" alt="Idée de tenue pour maman"></div>
+      <div class="lk rv"><h4>Pour les garçons</h4><img src="images/look-garcons.jpg" alt="Idée de tenue pour les garçons"></div>
+      <div class="lk rv"><h4>Pour les filles</h4><img src="images/look-filles.jpg" alt="Idée de tenue pour les filles"></div>
+    </div>
+    <p class="lnote">Ceci est un exemple, pour que tu visualises l'idée. Porte des vêtements dans lesquels tu es à l'aise et que tu aimes bien :)</p>
+  </div>
+</div></section>
+
+<!-- ============ TES PHOTOS ============ -->
+<section id="photos" class="bg-creme"><div class="inner" style="max-width:980px">
+  <h2 class="rv">Tes <em>photos</em></h2>
+  <div class="orn" aria-hidden="true"><svg viewBox="0 0 140 70"><use href="#holly"/></svg></div>
+  <div class="incl rv">
+    <div class="lbl">Ta mini-séance comprend</div>
+    <div class="price">150 €<small>TTC</small></div>
+    <div class="trio">
+      <div><b>30 min</b>de séance dans les 3 décors</div>
+      <div><b>30 min</b>de sélection avec Stella</div>
+      <div><b>5 photos</b>retouchées, en couleur et en noir et blanc</div>
+    </div>
+  </div>
+  <div class="dayj rv">
+    <svg class="holly" viewBox="0 0 140 70" aria-hidden="true"><use href="#holly"/></svg>
+    <div class="lbl">Le jour de ta séance, tu règles</div>
+    <div class="amt">100 €</div>
+    <p>150 € − 50 € d'acompte déjà versé à la réservation</p>
+  </div>
+  <div class="more">
+    <h3 class="rv">Envie de plus de <em>photos</em> ?</h3>
+    <p class="sub">Ces montants s'ajoutent aux 100 €, uniquement si tu le souhaites</p>
+    <div class="tiles">
+      <div class="tile rv"><div class="lbl">À l'unité</div><div class="p">30 €</div><div class="d">la photo</div></div>
+      <div class="tile rv"><div class="lbl">Pack 10</div><div class="p">150 €</div><div class="d">10 photos en plus<br>15 au total</div><div class="u">soit 15 € la photo</div></div>
+      <div class="tile rv"><div class="lbl">Pack 25</div><div class="p">250 €</div><div class="d">25 photos en plus<br>30 au total</div><div class="u">soit 10 € la photo</div></div>
+    </div>
+    <p class="ex2 rv"><strong>Exemple :</strong> tu choisis 2 photos en plus des 5 incluses → tu règles sur place 100 € + 60 € = <strong>160 €</strong></p>
+  </div>
+  <p class="gal2 rv">Tout se choisit sur place, avec Stella : la galerie n'est plus disponible après la séance… alors prends le temps de bien regarder toutes tes photos :)</p>
+  <div class="payrow rv">
+    <div class="lbl">Règlement sur place</div>
+    <p>En espèces, par carte bancaire ou par virement</p>
+    <div class="iban">IBAN : à compléter</div>
+  </div>
+</div></section>
+
+<!-- ============ CADEAUX ============ -->
+<section id="cadeaux"><div class="inner">
+  <h2 class="rv">À l'année <em>prochaine</em></h2>
+  <div class="orn" aria-hidden="true"><svg viewBox="0 0 140 70"><use href="#holly"/></svg></div>
+  <div class="two">
+    <div class="rv">
+      <div class="ph"><img src="images/accordeon.jpg" alt="L'accordéon photo personnalisé"></div>
+      <h3>Un petit <em>cadeau</em></h3>
+      <p>À toi qui reviens chaque année… un accordéon personnalisé avec tes photos t'attend :) C'est ma façon de te remercier de ta fidélité.<br>Et si c'est ta première mini-séance, il sera pour toi l'année prochaine ❤️</p>
+    </div>
+    <div class="gift rv">
+      <img class="cardimg" src="images/carte-cadeau.jpg" alt="Carte cadeau de Noël Lila Photography">
+      <h3>Faire <em>plaisir</em></h3>
+      <p>Tu penses à quelqu'un qui adorerait vivre ça ? Une sœur qui attend un bébé, une amie qui vient d'accoucher, une famille qui t'est chère…<br>Pour te remercier de ta confiance, je t'offre 50 € sur la carte cadeau que tu voudras lui offrir :)<br>La carte est valable sur la séance de son choix, jusqu'au 30 septembre 2027.</p>
+      <button class="code" type="button" data-code="LilaNoel50"><span>Ton code · jusqu'au 1er décembre</span><em style="font-style:normal">LilaNoel50</em></button>
+    </div>
+  </div>
+
+  <div class="gc rv" id="tarifs-carte">
+    <div class="fir l" aria-hidden="true"><div class="sway"><svg viewBox="0 0 330 115"><use href="#fir"/></svg></div></div>
+    <div class="fir r" aria-hidden="true"><div class="sway"><svg viewBox="0 0 330 115"><use href="#fir"/></svg></div></div>
+    <div class="lbl" style="text-align:center">La carte cadeau</div>
+    <h3 style="margin-top:8px">Les <em>tarifs</em></h3>
+    <p class="sub">Choisis la séance que tu veux offrir : avec ton code, 50 € sont déduits</p>
+    <div class="tabs" role="tablist">
+      <button role="tab" aria-selected="true" data-cat="famille">Famille &amp; bébé</button>
+      <button role="tab" aria-selected="false" data-cat="grossesse">Grossesse</button>
+      <button role="tab" aria-selected="false" data-cat="naissance">Nouveau-né</button>
+      <button role="tab" aria-selected="false" data-cat="couple">Couple</button>
+    </div>
+    <div class="gcgrid" id="gcgrid">
+      <div class="gco"><div class="n">Essentielle</div><div class="ph">5 photos</div><div class="p">200 €</div><div class="after">avec ton code : <b>150 €</b></div></div>
+      <div class="gco"><div class="n">Prestige</div><div class="ph">10 photos</div><div class="p">350 €</div><div class="after">avec ton code : <b>300 €</b></div></div>
+      <div class="gco"><div class="n">Signature</div><div class="ph">15 photos</div><div class="p">500 €</div><div class="after">avec ton code : <b>450 €</b></div></div>
+      <div class="gco"><div class="n">Héritage</div><div class="ph">galerie complète</div><div class="p">650 €</div><div class="after">avec ton code : <b>600 €</b></div></div>
+    </div>
+    <p class="gcnote">Aussi disponibles : <b>Pack Grossesse &amp; Nouveau-né · 800 €</b> &nbsp;·&nbsp; <b>Mini-séance · 150 €</b></p>
+    <div style="text-align:center"><a class="btn" href="https://www.lilaphotography.fr">Offrir une carte cadeau</a></div>
+    <p class="gcnote" style="margin-top:18px">Sur le site, onglet « Carte cadeau » · Tarifs TTC · Carte valable jusqu'au 30 septembre 2027</p>
+  </div>
+</div></section>
+
+<!-- ============ INFOS ============ -->
+<section id="infos" class="bg-creme"><div class="inner">
+  <h2 class="rv">Infos <em>pratiques</em></h2>
+  <div class="orn" aria-hidden="true"><svg viewBox="0 0 140 70"><use href="#holly"/></svg></div>
+  <div class="ig rv">
+    <div><h4>Le studio</h4><p>Lila Photography<br>1 chemin du Dépôt<br>07400 Le Teil</p></div>
+    <div><h4>Pour venir</h4><p>Un grand parking est disponible juste devant le studio. Le studio est au premier étage, avant Intermarché : monte les escaliers.</p></div>
+    <div><h4>Un doute ?</h4><p>Pour l'accès ou n'importe quelle question, appelle-moi au<br><b><a href="tel:+33689565105" style="text-decoration:none">06 89 56 51 05</a></b></p></div>
+  </div>
+  <div class="btns">
+    <a class="btn" href="https://www.google.com/maps/search/?api=1&query=1+chemin+du+D%C3%A9p%C3%B4t+07400+Le+Teil">Itinéraire</a>
+  </div>
+</div></section>
+
+<!-- ============ FIN ============ -->
+<section class="end" style="overflow:hidden">
+  <div class="fir r" aria-hidden="true"><div class="sway"><svg viewBox="0 0 330 115"><use href="#fir"/></svg></div></div>
+  <div class="inner endg">
+    <div class="me rv"><img src="images/sayeste.jpg" alt="Sayesté, photographe Lila Photography"><svg class="holly" viewBox="0 0 140 70" aria-hidden="true"><use href="#holly"/></svg></div>
+    <div class="rv">
+      <h2>À très <em>vite</em></h2>
+      <div class="orn left" aria-hidden="true"><svg viewBox="0 0 140 70"><use href="#holly"/></svg></div>
+      <p>Merci du fond du cœur pour ta confiance ❤️<br>On a hâte de vous retrouver, de voir vos sourires, vos rires, et la magie dans les yeux de vos enfants…</p>
+      <div class="sign">Sayesté</div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-creme"><div class="inner" style="max-width:1180px">
+  <h2 class="rv">Noël 2025 au <em>studio</em></h2>
+  <div class="orn" aria-hidden="true"><svg viewBox="0 0 140 70"><use href="#holly"/></svg></div>
+  <div class="galg">
+    <div class="rv"><img src="images/noel2025-1.jpg" alt="Mini-séance de Noël 2025"></div>
+    <div class="rv"><img src="images/noel2025-2.jpg" alt="Mini-séance de Noël 2025"></div>
+    <div class="rv"><img src="images/noel2025-3.jpg" alt="Mini-séance de Noël 2025"></div>
+    <div class="rv"><img src="images/noel2025-4.jpg" alt="Mini-séance de Noël 2025"></div>
+  </div>
+</div></section>
+
+<footer>
+  <svg viewBox="0 0 140 70" aria-hidden="true"><use href="#holly"/></svg>
+  Lila Photography · Studio au Teil · Joyeux Noël
+</footer>
+
+<script>
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* Neige légère dans l'en-tête */
+  var snow = document.querySelector('.snow');
+  if (snow && !reduce) {
+    for (var i = 0; i < 26; i++) {
+      var f = document.createElement('i');
+      var s = 2 + Math.random() * 4;
+      f.style.width = f.style.height = s + 'px';
+      f.style.left = Math.random() * 100 + '%';
+      f.style.setProperty('--dx', (Math.random() * 80 - 40) + 'px');
+      f.style.animationDuration = (11 + Math.random() * 12) + 's';
+      f.style.animationDelay = (-Math.random() * 20) + 's';
+      snow.appendChild(f);
+    }
+  }
+
+  /* Apparition au défilement */
+  var els = document.querySelectorAll('.rv');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, {rootMargin: '0px 0px -8% 0px'});
+    els.forEach(function(el){ io.observe(el); });
+  } else {
+    els.forEach(function(el){ el.classList.add('in'); });
+  }
+
+  /* Sommaire : section active */
+  var links = document.querySelectorAll('.nav a');
+  var secs = Array.prototype.map.call(links, function(a){ return document.querySelector(a.getAttribute('href')); });
+  function onScroll(){
+    var y = window.scrollY + 140, idx = -1;
+    secs.forEach(function(s, i){ if (s && s.offsetTop <= y) idx = i; });
+    links.forEach(function(a, i){ a.classList.toggle('on', i === idx); });
+  }
+  window.addEventListener('scroll', onScroll, {passive: true}); onScroll();
+
+  /* Copier le code cadeau */
+  var code = document.querySelector('.code');
+  if (code) code.addEventListener('click', function(){
+    var label = code.querySelector('em'), txt = code.dataset.code;
+    var done = function(){ label.textContent = 'Code copié ✓'; label.classList.add('ok');
+      setTimeout(function(){ label.textContent = txt; label.classList.remove('ok'); }, 1800); };
+    if (navigator.clipboard) navigator.clipboard.writeText(txt).then(done, function(){});
+  });
+
+  /* Tarifs carte cadeau (TTC) */
+  var REMISE = 50;
+  var TARIFS = {
+    famille:   [200, 350, 500, 650],
+    couple:    [200, 350, 500, 650],
+    grossesse: [250, 400, 550, 700],
+    naissance: [300, 450, 600, 750]
+  };
+  var NOMS = [['Essentielle', '5 photos'], ['Prestige', '10 photos'], ['Signature', '15 photos'], ['Héritage', 'galerie complète']];
+  var grid = document.getElementById('gcgrid');
+  document.querySelectorAll('.tabs button').forEach(function(b){
+    b.addEventListener('click', function(){
+      document.querySelectorAll('.tabs button').forEach(function(x){ x.setAttribute('aria-selected', x === b); });
+      grid.innerHTML = TARIFS[b.dataset.cat].map(function(p, i){
+        return '<div class="gco"><div class="n">' + NOMS[i][0] + '</div><div class="ph">' + NOMS[i][1] +
+          '</div><div class="p">' + p + ' €</div><div class="after">avec ton code : <b>' + (p - REMISE) + ' €</b></div></div>';
+      }).join('');
+      grid.classList.remove('fade'); void grid.offsetWidth; grid.classList.add('fade');
+    });
+  });
+})();
+</script>
+</body></html>
